@@ -270,20 +270,21 @@ _{Explain here how the data archiving feature will be implemented}_
 * needs to keep track of which borrower borrowed which book
 * needs to keep track of which borrower returned which book
 
-**Value proposition**: manage borrowers and keepts track of borrowing and returning of books faster than a typical mouse/GUI driven app
+**Value proposition**: manage borrowers and keeps track of borrowing and returning of books faster than a typical mouse/GUI driven app
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​     | I want to …​                                      | So that I can…​                                                                  |
-| -------- | ---------- | ------------------------------------------------ |----------------------------------------------------------------------------------|
-| `* * *`  | libarian   | record the phone number of the borrower          | send SMS reminders to notify them that someone else is looking for the book      |
-| `* * *`  | libarian   | record the email address of the borrower         | send an email reminders to notify them that someone else is looking for the book |
-| `* * *`  | libarian   | record the postal address of the borrower        | send a warning letter when breaching community guidelines                        |
-| `* * *`  | libarian   | record how many books the borrower has borrowed  | keep track of the position of the books                                          |
-| `* * *`  | libarian   | record the date the borrower borrowed the book   | calculate when they need to return the book                                      |
+| Priority | As a …​     | I want to …​                                      | So that I can…​                                                                   |
+|----------| ---------- |---------------------------------------------------|-----------------------------------------------------------------------------------|
+| `* * *`  | libarian   | record the phone number of the borrower           | send SMS reminders to notify them that someone else is looking for the book       |
+| `* * *`  | libarian   | record the email address of the borrower          | send an email reminders to notify them that someone else is looking for the book  |
+| `* * *`  | libarian   | record the postal address of the borrower         | send a warning letter when breaching community guidelines                         |
+| `* * *`  | libarian   | record the book title of all books in the library | keep track of the books available in the library at the moment                    |
+| `* * *`  | libarian   | record the book title the borrower has borrowed   | keep track of which books the borrower has borrowed                               |
+| `*`      | libarian   | set the merit score threshold                     | set how many books are allowed to be borrowed before donation has been made       |
 
 *{More to be added}*
 
@@ -366,6 +367,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Return**: An Action where a user returns the book which they borrowed from the library.
 * **Donate**: An action where a person donates a book to the library.
 * **Merit Score**: A measurement of a person's credibility. Everyone starts from 0, donating increases merit score.
+*  **Available Books**: The books from the library which are available to be lent to users at the moment.
 
 --------------------------------------------------------------------------------------------------------------------
 
