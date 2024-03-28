@@ -39,7 +39,7 @@ public class LibraryLogic {
      * Constructs a LibraryLogic object with default file path
      */
     public LibraryLogic() {
-        this.filePath = "data\\library.txt";
+        this.filePath = "data/library.txt";
         this.availableBooks = new ArrayList<>();
         this.threshold = new Threshold();
     }
