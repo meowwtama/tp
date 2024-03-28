@@ -140,7 +140,7 @@ public class LibraryLogic {
     public void saveBooksToFile(ReadOnlyLibrary library) throws IOException {
         createFileIfNotExists();
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-             writer.println(library.getThreshold());
+            writer.println(library.getThreshold());
             for (Book availableBook : library.getBookList()) {
                 writer.println(availableBook);
             }
