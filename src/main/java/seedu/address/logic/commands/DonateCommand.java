@@ -29,7 +29,7 @@ public class DonateCommand extends Command {
 
     // todo : later need to edit this MESSAGE when the bookTitle recorded to the database.
     public static final String MESSAGE_DONATE_SUCCESS = "Donated book from person: %1$s\n"
-            + " %2$s is added to library";
+            + "%2$s is added to library";
 
     private final Index index;
     private final Book book;
