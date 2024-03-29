@@ -277,14 +277,14 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​     | I want to …​                                      | So that I can…​                                                                   |
-|----------| ---------- |---------------------------------------------------|-----------------------------------------------------------------------------------|
-| `* * *`  | libarian   | record the phone number of the borrower           | send SMS reminders to notify them that someone else is looking for the book       |
-| `* * *`  | libarian   | record the email address of the borrower          | send an email reminders to notify them that someone else is looking for the book  |
-| `* * *`  | libarian   | record the postal address of the borrower         | send a warning letter when breaching community guidelines                         |
-| `* * *`  | libarian   | record the book title of all books in the library | keep track of the books available in the library at the moment                    |
-| `* * *`  | libarian   | record the book title the borrower has borrowed   | keep track of which books the borrower has borrowed                               |
-| `*`      | libarian   | set the merit score threshold                     | set how many books are allowed to be borrowed before donation has been made       |
+| Priority | As a …​   | I want to …​                                               | So that I can…​                                                                  |
+|----------|-----------|------------------------------------------------------------|----------------------------------------------------------------------------------|
+| `* * *`  | librarian | record the phone number of the borrower                    | send SMS reminders to notify them that someone else is looking for the book      |
+| `* * *`  | librarian | record the email address of the borrower                   | send an email reminders to notify them that someone else is looking for the book |
+| `* * *`  | librarian | record the postal address of the borrower                  | send a warning letter when breaching community guidelines                        |
+| `* * *`  | librarian | record the book title of all books in the library          | keep track of the books available in the library at the moment                   |
+| `* * *`  | librarian | record the book title the borrower has borrowed            | keep track of which books the borrower has borrowed                              |
+| `*`      | librarian | be able to decide the threshold merit score for a borrower | choose when to not allow borrowers to borrow from the library                    |
 
 *{More to be added}*
 
