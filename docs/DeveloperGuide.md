@@ -364,7 +364,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | librarian | record the postal address of the borrower                  | send a warning letter when breaching community guidelines                        |
 | `* * *`  | librarian | record the book title of all books in the library          | keep track of the books available in the library at the moment                   |
 | `* * *`  | librarian | record the book title the borrower has borrowed            | keep track of which books the borrower has borrowed                              |
-| `*`      | librarian | be able to decide the threshold merit score for a borrower | choose when to not allow borrowers to borrow from the library                    |
+| `* *`    | librarian | be able to decide the threshold merit score for a borrower | choose when to not allow borrowers to borrow from the library                    |
 
 *{More to be added}*
 
