@@ -25,7 +25,6 @@ public class Library implements ReadOnlyLibrary {
         }
     };
 
-    
     private ObservableList<Book> bookList;
     private Threshold threshold;
     private LibraryLogic libraryLogic;
