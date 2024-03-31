@@ -39,8 +39,8 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-        filteredBooks = new FilteredList<>(FXCollections.observableArrayList(library.getBookList()));
         this.library = new Library(library);
+        filteredBooks = new FilteredList<>(this.library.getBookList());
     }
 
     public ModelManager() {
@@ -148,10 +148,10 @@ public class ModelManager implements Model {
 
     @Override
     public ObservableList<Book> getLibraryBookList() {
-        return FXCollections.observableArrayList(library.getBookList());
+        return filteredBooks;
     }
 
-    @Override // delete if not required for auto-update
+    @Override
     public void updateFilteredLibraryList(Predicate<Book> predicate) {
         requireNonNull(predicate);
         filteredBooks.setPredicate(predicate);
