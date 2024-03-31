@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.book.Book;
 import seedu.address.model.person.Address;
@@ -31,7 +34,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String meritScore;
-    private final ArrayList<JsonAdaptedBook> bookList = new ArrayList<>();
+    private final ObservableList<JsonAdaptedBook> bookList = FXCollections.observableArrayList();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -41,7 +44,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("meritScore") String meritScore,
-            @JsonProperty("bookList") ArrayList<JsonAdaptedBook> bookList,
+            @JsonProperty("bookList") ObservableList<JsonAdaptedBook> bookList,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
