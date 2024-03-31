@@ -34,7 +34,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final String meritScore;
-    private final ObservableList<JsonAdaptedBook> bookList = FXCollections.observableArrayList();
+    private final ArrayList<JsonAdaptedBook> bookList = new ArrayList<>();
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -44,7 +44,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
             @JsonProperty("meritScore") String meritScore,
-            @JsonProperty("bookList") ObservableList<JsonAdaptedBook> bookList,
+            @JsonProperty("bookList") ArrayList<JsonAdaptedBook> bookList,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
