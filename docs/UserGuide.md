@@ -147,23 +147,27 @@ Borrow a book from the library by a user.
 
 Format: `borrow INDEX BOOKTITLE`
 
-* Borrow the book with `BOOKTITLE` to user `INDEX`
+* Borrow the book with `BOOKTITLE` to user `INDEX`.
 * The index refers to the index number shown in the displayed User List.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `borrow 2 I Love CS2103T CS2101` will record user index 2, borrows a book called "I Love CS2103T CS2101".
-* `borrow 4 The Hero with a Thousand Faces` will record user index 4, borrows a book called "The Hero with a Thousand Face".
+* `borrow 2 b/I Love CS2103T CS2101` will record user index 2, borrows a book called "I Love CS2103T CS2101".
+* `borrow 4 b/The Hero with a Thousand Faces` will record user index 4, borrows a book called "The Hero with a Thousand Face".
 
 ### Return a book from a user : `return`
 
 Return the book borrowed by a user.
 
-Format: `return INDEX`
+Format: `return INDEX BOOKTITLE`
 
-* Return the book borrowed by user `INDEX`
+* Return the book borrowed by user `INDEX` and `BOOKTITLE`.
 * The index refers to the index number shown in the displayed User List.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `return 2 b/I Love CS2103T CS2101` will record user index 2, returns a book called "I Love CS2103T CS2101".
+* `return 4 b/The Hero with a Thousand Faces` will record user index 4, returns a book called "The Hero with a Thousand Face".
 
 ### Donate a book from a user : `donate`
 
@@ -171,9 +175,14 @@ Records a user donating a book to the library.
 
 Format: `donate INDEX BOOKTITLE`
 
-* A user `INDEX` has donated book `BOOKTITLE`
+* A user `INDEX` has donated book `BOOKTITLE`.
 * The index refers to the index number shown in the displayed User List.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `donate 2 b/I Love CS2103T CS2101` will record user index 2, donates a book called "I Love CS2103T CS2101".
+* `donate 4 b/The Hero with a Thousand Faces` will record user index 4, donates a book called "The Hero with a Thousand Face".
+
 
 ### Clearing all entries : `clear`
 
@@ -198,6 +207,7 @@ Format: `exit`
 ### Saving the data
 
 MyBookshelf data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+Data will be restored once you open the application again allowing user to continue from where they left off.
 
 ### Editing the data file
 
@@ -224,6 +234,7 @@ _Details coming soon ..._
 6. Edit command only supports editing user's personal information (name, phone number, email, address and tags, but not merit score and borrowed books).
 7. Add command is used to record new user's personal information into the User List.
 8. Add and Edit Command **DOES NOT** support adding/editing merit score or borrowed book.
+9. Only Borrow, Donate and Return command is for managing books.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -237,6 +248,7 @@ _Details coming soon ..._
 ## Known issues
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+2. **Book title can be of any length** There is no limit to the length of the book title.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -251,6 +263,6 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **List** | `list`
 **Help** | `help`
-**Borrow** | `borrow INDEX BOOKTITLE`<br> e.g., `borrow 1 The Hero with a Thousand Faces`
-**Return** | `return INDEX`<br> e.g., `return 1`
-**Donate**| `borrow INDEX BOOKTITLE`<br> e.g., `donate 1 The Hero with a Thousand Faces`
+**Borrow** | `borrow INDEX BOOKTITLE`<br> e.g., `borrow 1 b/The Hero with a Thousand Faces`
+**Return** | `return INDEX BOOKTITLE`<br> e.g., `return 1  b/The Hero with a Thousand Faces`
+**Donate**| `donate INDEX BOOKTITLE`<br> e.g., `donate 1 b/The Hero with a Thousand Faces`
