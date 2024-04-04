@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
+import static seedu.address.testutil.TypicalBooks.getTypicalLibrary;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_JACKER;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
@@ -20,6 +21,7 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.book.Book;
+import seedu.address.model.library.Library;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
@@ -27,20 +29,26 @@ public class ReturnCommandTest {
     private static final String BOOK_STUB = "How To Grow Taller";
     private static final String EMPTY_BOOK_STUB = "";
 
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalLibrary());
 
     @Test
     public void execute_returnUnfilteredList_success() {
-        Person editedPerson = new PersonBuilder(JACKER).withBook(BOOK_STUB).withMeritScore(0).build();
+        Person initialPerson = new PersonBuilder(JACKER).withBook(BOOK_STUB).withMeritScore(0).build();
+        Book BOOK_OBJECT_STUB = new Book(BOOK_STUB);
 
-        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, new Book(BOOK_STUB));
+        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, BOOK_OBJECT_STUB);
 
-        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, JACKER);
+        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, BOOK_OBJECT_STUB, JACKER);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
-        expectedModel.setPerson(editedPerson, JACKER);
+        Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+                new Library(model.getLibrary()));
+        initialModel.setPerson(JACKER, initialPerson);
 
-        assertCommandSuccess(returnCommand, model, expectedMessage, expectedModel);
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+                new Library(model.getLibrary()));
+        expectedModel.addBook(BOOK_OBJECT_STUB);
+
+        assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
     }
 
     @Test
