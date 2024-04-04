@@ -65,12 +65,28 @@ public class ReturnCommandTest {
     }
 
     @Test
-    public void execute_invalidBookListFilteredList_throwsCommandException() {
+    public void execute_emptyBookTitleFilteredList_throwsCommandException() {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
 
         ReturnCommand returnCommand = new ReturnCommand(INDEX_FIRST_PERSON, new Book(EMPTY_BOOK_STUB));
 
+        assertCommandFailure(returnCommand, model, Messages.MESSAGE_EMPTY_BOOK_INPUT_FIELD);
+    }
+
+    @Test
+    public void execute_invalidBookListFilteredList_throwsCommandException() {
+        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+
+        ReturnCommand returnCommand = new ReturnCommand(INDEX_FIRST_PERSON, new Book(BOOK_STUB));
+
         assertCommandFailure(returnCommand, model, Messages.MESSAGE_EMPTY_BOOKLIST_FIELD);
+    }
+
+    @Test
+    public void execute_invalidBookFilteredList_throwsCommandException() {
+        ReturnCommand returnCommand = new ReturnCommand(INDEX_SECOND_PERSON, new Book("Unknown Book"));
+
+        assertCommandFailure(returnCommand, model, Messages.MESSAGE_BOOK_DOES_NOT_EXIST);
     }
 
     @Test

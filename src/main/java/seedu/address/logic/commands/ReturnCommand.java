@@ -59,7 +59,7 @@ public class ReturnCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
 
-        if (personToEdit.getBookList().toString().isEmpty()) {
+        if (personToEdit.getBookList().isEmpty()) {
             throw new CommandException(Messages.MESSAGE_EMPTY_BOOKLIST_FIELD);
         }
 
