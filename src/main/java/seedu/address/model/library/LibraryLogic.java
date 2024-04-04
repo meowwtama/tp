@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,6 +24,15 @@ import seedu.address.model.book.Book;
  */
 public class LibraryLogic {
     //TODO Refactor LibraryLogic to LibraryStorage and change file location to under storage package
+    /**
+     * Comparator for comparing books alphabetically by title.
+     */
+    private static Comparator<Book> bookComparator = new Comparator<Book>() {
+        @Override
+        public int compare(Book book1, Book book2) {
+            return book1.bookTitle.compareTo(book2.bookTitle);
+        }
+    };
     private String filePath;
     private ObservableList<Book> availableBooks;
     private Threshold threshold;
@@ -59,6 +70,13 @@ public class LibraryLogic {
         return true;
     }
 
+    /**
+     * Sort the books in the library alphabetically by title.
+     */
+    public void sortAlphabetically(ArrayList<Book> bookList) {
+        bookList.sort(bookComparator);
+    }
+
     private void createFileIfNotExists() {
         File file = new File(filePath);
         if (!file.exists()) {
@@ -84,6 +102,7 @@ public class LibraryLogic {
     public void loadLibraryFromFile() throws DataLoadingException {
         File file = new File(filePath);
         createFileIfNotExists();
+        ArrayList<Book> availableBooksArrayList = new ArrayList<Book>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
 
@@ -106,8 +125,12 @@ public class LibraryLogic {
                     throw new IllegalValueException("Error loading book(s) from file: Bad book input");
                 }
                 Book currentBook = new Book(line.trim());
-                availableBooks.add(currentBook);
+                availableBooksArrayList.add(currentBook);
             }
+            sortAlphabetically(availableBooksArrayList);
+            ObservableList<Book> observableAvailableBooks = FXCollections.observableArrayList(availableBooksArrayList);
+            availableBooks.setAll(observableAvailableBooks);
+
         } catch (IOException e) {
             // todo throw an exception here
             System.err.println("Error loading book(s) from file: " + e.getMessage());
@@ -141,9 +164,13 @@ public class LibraryLogic {
      */
     public void saveBooksToFile(ReadOnlyLibrary library) throws IOException {
         createFileIfNotExists();
+        ObservableList<Book> libraryBookObservableList = library.getBookList();
+        ArrayList<Book> toBeSavedBooksArrayList = new ArrayList<>();
+        toBeSavedBooksArrayList.addAll(libraryBookObservableList);
+        sortAlphabetically(toBeSavedBooksArrayList);
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             writer.println(library.getThreshold());
-            for (Book availableBook : library.getBookList()) {
+            for (Book availableBook : toBeSavedBooksArrayList) {
                 writer.println(availableBook);
             }
         } catch (IOException e) {
