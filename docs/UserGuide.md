@@ -162,7 +162,7 @@ Returns the specified book borrowed by the specified user.
 
 Format: `return INDEX [b/BOOKTITLE]`
 
-* Returns a book `BOOKTITLE` in the user's book list.
+* Return a book `BOOKTITLE` borrowed by user `INDEX`.
 * The index `INDEX` refers to the index number shown in the displayed User List.
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -224,10 +224,13 @@ Format: `exit`
 
 MyBookshelf data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 Data will be restored once you open the application again allowing user to continue from where they left off.
+Invalid data for available books will be discarded automatically and that particular data will not be saved.
 
 ### Editing the data file
 
-MyBookshelf data are saved automatically as a JSON file `[JAR file location]/data/MyBookshelf.json`. Advanced users are welcome to update data directly by editing that data file.
+MyBookshelf user's data are saved automatically as a JSON file `[JAR file location]/data/MyBookshelf.json`.
+MyBookshelf library available books data are saved automatically as a txt file at `[JAR file location]/data/library.txt`.
+Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, MyBookshelf will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
@@ -242,15 +245,16 @@ _Details coming soon ..._
 
 ## Note
 
-1. Borrowing is **ONLY** allowed for user with **Merit Score > 0**.
-2. Every user starts from merit score 0.
-3. Donating increases merit score by 1, which means, all users must donate before able to borrow books from the library.
-4. For current iteration, every user can only borrow one book at a time. Return the borrowed book to borrow another book.
-5. Deadline for returning borrowed book is two weeks. But there is no penalty if returning it later or not returning it at all.
-6. Edit command only supports editing user's personal information (name, phone number, email, address and tags, but not merit score and borrowed books).
-7. Add command is used to record new user's personal information into the User List.
-8. Add and Edit Command **DOES NOT** support adding/editing merit score or borrowed book.
-9. Only Borrow, Donate and Return command is for managing books.
+1. Every user starts from merit score 0.
+1. Donating increases merit score by 1.
+1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `Limit` Command.
+1. Users can borrow multiple books as long as they have sufficient merit score.
+1. The default threshold is set at -3.
+1. Threshold can be set by librarian multiple times.
+1. `Edit` command only supports editing user's personal information (name, phone number, email, address and tags, but not merit score and borrowed books).
+1. `Add` command is used to record new user's personal information into the User List.
+1. `Add` and `Edit` Command **DOES NOT** support adding/editing merit score or borrowed book.
+1. Only `Borrow`, `Donate` and `Return` commands are for managing books.
 
 --------------------------------------------------------------------------------------------------------------------
 
