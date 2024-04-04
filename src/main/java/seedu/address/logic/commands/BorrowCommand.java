@@ -38,12 +38,12 @@ public class BorrowCommand extends Command {
     /**
      * @param index     of the person in the filtered person list to edit the
      *                  bookTitle
-     * @param bookToBeBorrowed of the person to be updated to
+     * @param bookList of the person to be updated to
      */
-    public BorrowCommand(Index index, Book bookToBeBorrowed) {
-        requireAllNonNull(index, bookToBeBorrowed);
+    public BorrowCommand(Index index, Book bookList) {
+        requireAllNonNull(index, bookList);
         this.index = index;
-        this.book = bookToBeBorrowed;
+        this.book = bookList;
     }
 
     @Override
