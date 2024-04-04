@@ -81,7 +81,7 @@ public class ReturnCommand extends Command {
     }
 
     /**
-     * Generates a command execution success message when book title is successfully removed
+     * Generates a command execution success message when book {@code book} is successfully removed
      * {@code personToEdit}.
      */
     private String generateSuccessMessage(Book book, Person personToEdit) {

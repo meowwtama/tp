@@ -12,20 +12,19 @@ import seedu.address.model.book.Book;
 
 
 /**
- * Adds a book to the book list.
+ * Adds a book to the Library.
  */
 public class AddBookCommand extends Command {
     public static final String COMMAND_WORD = "addbook";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a book to the library "
             + "Example: " + COMMAND_WORD + " " + PREFIX_BOOKLIST + "The Book of Answers";
 
-    // todo : later need to edit this MESSAGE when the bookTitle recorded to the database.
-    public static final String MESSAGE_ADDBOOK_SUCCESS = "Added book successfully";
+    public static final String MESSAGE_ADD_BOOK_SUCCESS = "Added book: %1$s successfully";
 
     private final Book book;
 
     /**
-     * @param book of the person donated to be updated to the database
+     * @param book Book to be added to the library.
      */
     public AddBookCommand(Book book) {
         requireAllNonNull(book);
@@ -44,11 +43,11 @@ public class AddBookCommand extends Command {
     }
 
     /**
-     * Generates a command execution success message when book title is successfully removed
-     * {@code personToEdit}.
+     * Generates a command execution success message when book {@code book} is successfully
+     * added to the library.
      */
     private String generateSuccessMessage(Book book) {
-        return String.format(MESSAGE_ADDBOOK_SUCCESS, book);
+        return String.format(MESSAGE_ADD_BOOK_SUCCESS, book);
     }
 
     @Override
