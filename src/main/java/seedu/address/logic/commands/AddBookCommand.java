@@ -17,7 +17,7 @@ import seedu.address.model.book.Book;
 public class AddBookCommand extends Command {
     public static final String COMMAND_WORD = "addbook";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a book to the library "
-            + "Example: " + COMMAND_WORD + " "  + PREFIX_BOOKLIST + "The Book of Answers";
+            + "Example: " + COMMAND_WORD + " " + PREFIX_BOOKLIST + "The Book of Answers";
 
     // todo : later need to edit this MESSAGE when the bookTitle recorded to the database.
     public static final String MESSAGE_ADDBOOK_SUCCESS = "Added book successfully";
