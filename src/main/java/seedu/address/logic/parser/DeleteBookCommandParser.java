@@ -13,10 +13,12 @@ import seedu.address.model.book.Book;
 /**
  * Parses input arguments and creates a new DeleteBookCommand object
  */
-public class DeleteBookCommandParser  implements Parser<DeleteBookCommand> {
+public class DeleteBookCommandParser implements Parser<DeleteBookCommand> {
     /**
-     * Parses the given {@code String} of arguments in the context of the BorrowCommand
+     * Parses the given {@code String} of arguments in the context of the
+     * BorrowCommand
      * and returns an BorrowCommand object for execution.
+     * 
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeleteBookCommand parse(String args) throws ParseException {
@@ -27,7 +29,8 @@ public class DeleteBookCommandParser  implements Parser<DeleteBookCommand> {
         try {
             bookTitle = argMultimap.getValue(PREFIX_BOOKLIST).get();
         } catch (NoSuchElementException nee) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteBookCommand.MESSAGE_USAGE), nee);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteBookCommand.MESSAGE_USAGE),
+                    nee);
         }
 
         return new DeleteBookCommand(new Book(bookTitle));

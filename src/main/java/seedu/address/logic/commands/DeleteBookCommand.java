@@ -16,10 +16,10 @@ public class DeleteBookCommand extends Command {
     public static final String COMMAND_WORD = "delbook";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes the book identified "
-    + "by the book title. "
-    + PREFIX_BOOKLIST + "[borrow]\n"
-    + "Example: " + COMMAND_WORD + " "
-    + PREFIX_BOOKLIST + "Likes to swim.";
+        + "by the book title. "
+        + PREFIX_BOOKLIST + "[borrow]\n"
+        + "Example: " + COMMAND_WORD + " "
+        + PREFIX_BOOKLIST + "Likes to swim.";
 
     public static final String MESSAGE_DELETE_BOOK_SUCCESS = "Deleted Book: %1$s";
 
