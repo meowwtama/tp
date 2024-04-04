@@ -38,6 +38,8 @@
   * Allows librarian to create a **donate** transaction
 
 ## Acknowledgement
+* Libraries used: [JavaFX](https://openjfx.io/), [Jackson](https://github.com/FasterXML/jackson), [JUnit5](https://github.com/junit-team/junit5)
+
 * For the detailed documentation of this project, see the **[MyBookshelf Product Website](https://ay2324s2-cs2103t-f11-2.github.io/tp/)**.
 
 * This project is a **part of the se-education.org** initiative. If you would like to contribute code to this project, see [se-education.org](https://se-education.org#https://se-education.org/#contributing) for more info.
