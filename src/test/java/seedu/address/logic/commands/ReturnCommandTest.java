@@ -34,11 +34,11 @@ public class ReturnCommandTest {
     @Test
     public void execute_returnUnfilteredList_success() {
         Person initialPerson = new PersonBuilder(JACKER).withBook(BOOK_STUB).withMeritScore(0).build();
-        Book BOOK_OBJECT_STUB = new Book(BOOK_STUB);
+        Book bookObjectStub = new Book(BOOK_STUB);
 
-        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, BOOK_OBJECT_STUB);
+        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, bookObjectStub);
 
-        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, BOOK_OBJECT_STUB, JACKER);
+        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookObjectStub, JACKER);
 
         Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary()));
@@ -46,7 +46,7 @@ public class ReturnCommandTest {
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary()));
-        expectedModel.addBook(BOOK_OBJECT_STUB);
+        expectedModel.addBook(bookObjectStub);
 
         assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
     }
