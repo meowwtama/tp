@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-MyBookshelf is a **desktop app for librarians managing contacts and borrowing status of borrowers of books, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MyBookshelf can get your contact and borrowing management tasks done faster than traditional GUI apps.
+MyBookshelf is a **desktop app for librarians managing contacts, books and borrowing status of borrowers, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, MyBookshelf can get your contact and borrowing management tasks done faster than traditional GUI apps.
 
 * Table of Contents
   {:toc}
