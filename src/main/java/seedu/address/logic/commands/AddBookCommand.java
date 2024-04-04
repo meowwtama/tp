@@ -32,10 +32,8 @@ public class AddBookCommand extends Command {
         requireAllNonNull(book);
         this.book = book;
     }
-
     
-    public CommandResult execute(Model model) throws CommandException {
-        
+    public CommandResult execute(Model model) throws CommandException {        
         if (book.equals(new Book(""))) {
             throw new CommandException(Messages.MESSAGE_EMPTY_BOOK_INPUT_FIELD);
         }
@@ -69,4 +67,3 @@ public class AddBookCommand extends Command {
     }
     
 }
-

@@ -34,6 +34,5 @@ public class AddBookCommandParser implements Parser<AddBookCommand> {
 
         return new AddBookCommand(new Book(bookTitle));
     }
-    
 }
 
