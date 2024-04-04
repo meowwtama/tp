@@ -18,7 +18,6 @@ public class DeleteBookCommandParser implements Parser<DeleteBookCommand> {
      * Parses the given {@code String} of arguments in the context of the
      * BorrowCommand
      * and returns an BorrowCommand object for execution.
-     * 
      * @throws ParseException if the user input does not conform the expected format
      */
     public DeleteBookCommand parse(String args) throws ParseException {
