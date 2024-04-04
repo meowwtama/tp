@@ -27,8 +27,6 @@ public class LibraryCard extends UiPart<Region> {
     private HBox cardPane;
     @FXML
     private Label bookName;
-    @FXML
-    private Label id;
 
     /**
      * Creates a {@code BookCode} with the given {@code Book} and index to display.
@@ -37,7 +35,6 @@ public class LibraryCard extends UiPart<Region> {
         super(FXML);
         this.book = book;
         String bookTitle = book.toString();
-        id.setText(displayedIndex + ". ");
-        bookName.setText(bookTitle);
+        bookName.setText(displayedIndex + ". " + bookTitle);
     }
 }
