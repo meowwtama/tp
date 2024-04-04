@@ -29,8 +29,6 @@ public class LibraryCard extends UiPart<Region> {
     private Label bookName;
     @FXML
     private Label id;
-    
-
 
     /**
      * Creates a {@code BookCode} with the given {@code Book} and index to display.
