@@ -184,6 +184,21 @@ Examples:
 * `donate 2 b/I Love CS2103T CS2101` will record user index 2, donates a book called "I Love CS2103T CS2101".
 * `donate 4 b/The Hero with a Thousand Faces` will record user index 4, donates a book called "The Hero with a Thousand Face".
 
+### Setting/Viewing the limit for the library
+
+Sets the limit of the library. such that only users with a merit score more than or equal to the set limit can borrow.
+
+Format: `limit [SET_LIMIT]`
+
+* Sets the limit to the specified `SET_LIMIT`.
+* The limit refers to the threshold such that any user with a merit score less the `SET_LIMIT` is not allowed to borrow from the library.
+* `SET_LIMIT` can be any integer.
+* `SET_LIMIT` is optional. Typing `limit` without `SET_LIMIT` will display the currently set limit.
+* The default limit set for libraries is -3.
+
+Examples:
+* `limit -4` will set the limit of the library to -4
+* `limit` will display the current limit.
 
 ### Clearing all entries : `clear`
 
