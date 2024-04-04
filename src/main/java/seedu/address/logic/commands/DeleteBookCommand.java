@@ -10,13 +10,13 @@ import seedu.address.model.Model;
 import seedu.address.model.book.Book;
 
 /**
- * Deletes a book identified using it's booktitle from the address book.
+ * Removes a book with the specified book title from the Library.
  */
 public class DeleteBookCommand extends Command {
     public static final String COMMAND_WORD = "delbook";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes the book identified "
-        + "by the book title. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Deletes the book specified "
+        + "by its book title. "
         + PREFIX_BOOKLIST + "[borrow]\n"
         + "Example: " + COMMAND_WORD + " "
         + PREFIX_BOOKLIST + "Likes to swim.";
@@ -51,12 +51,11 @@ public class DeleteBookCommand extends Command {
         model.updateFilteredLibraryList(PREDICATE_SHOW_ALL_BOOK);
 
         return new CommandResult(generateSuccessMessage(book));
-
     }
 
     /**
-     * Formats and returns the delete book success message.
-     * {@code personToEdit}.
+     * Generates a command execution success message when book {@code book} is successfully
+     * removed from the library.
      */
     private String generateSuccessMessage(Book book) {
         return String.format(MESSAGE_DELETE_BOOK_SUCCESS, book);
