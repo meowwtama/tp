@@ -11,10 +11,12 @@ import seedu.address.model.book.Book;
 
 
 
-
+/**
+ * Adds a book to the book list.
+ */
 public class AddBookCommand extends Command {
     public static final String COMMAND_WORD = "addbook";
-
+    
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a book to the library "
             + "Example: " + COMMAND_WORD + " "  + PREFIX_BOOKLIST + "The Book of Answers";
 
@@ -24,8 +26,6 @@ public class AddBookCommand extends Command {
     private final Book book;
 
     /**
-     * @param index     of the person in the filtered person list to edit the
-     *                  merit score
      * @param book of the person donated to be updated to the database
      */
     public AddBookCommand(Book book) {
@@ -33,6 +33,7 @@ public class AddBookCommand extends Command {
         this.book = book;
     }
 
+    @Override
     public CommandResult execute(Model model) throws CommandException {
         if (book.equals(new Book(""))) {
             throw new CommandException(Messages.MESSAGE_EMPTY_BOOK_INPUT_FIELD);

@@ -6,7 +6,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_BOOKLIST;
 
 import java.util.NoSuchElementException;
 
-
 import seedu.address.logic.commands.AddBookCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.book.Book;
