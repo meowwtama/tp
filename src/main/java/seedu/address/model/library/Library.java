@@ -115,6 +115,7 @@ public class Library implements ReadOnlyLibrary {
 
     @Override
     public ObservableList<Book> getBookList() {
+        sortAlphabetically();
         return this.bookList;
     }
 
