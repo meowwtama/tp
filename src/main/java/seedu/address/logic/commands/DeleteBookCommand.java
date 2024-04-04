@@ -75,6 +75,6 @@ public class DeleteBookCommand extends Command {
 
         DeleteBookCommand otherDeleteBookCommand = (DeleteBookCommand) other;
         return book.equals(otherDeleteBookCommand.book);
-        
-    }   
+    }
+    
 }
