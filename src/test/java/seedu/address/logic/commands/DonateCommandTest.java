@@ -35,7 +35,6 @@ public class DonateCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary()));
         expectedModel.setPerson(KEPLER, editedPerson);
-        
         assertCommandSuccess(donateCommand, model, expectedMessage, expectedModel);
     }
 
