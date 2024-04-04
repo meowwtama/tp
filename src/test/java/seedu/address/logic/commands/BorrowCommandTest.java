@@ -30,7 +30,6 @@ public class BorrowCommandTest {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
         Person editedPerson = new PersonBuilder(firstPerson).withBook(BORROW_STUB).withMeritScore(0).build();
         
-
         BorrowCommand borrowCommand = new BorrowCommand(INDEX_SECOND_PERSON,
                 new Book(bookTitle));
 
