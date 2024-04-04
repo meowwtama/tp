@@ -73,7 +73,7 @@ public class LibraryLogic {
     /**
      * Sort the books in the library alphabetically by title.
      */
-    public void sortAlphabetically(ArrayList<Book> bookList) {
+    public void sortAlphabetically(ObservableList<Book> bookList) {
         bookList.sort(bookComparator);
     }
 
@@ -102,7 +102,6 @@ public class LibraryLogic {
     public void loadLibraryFromFile() throws DataLoadingException {
         File file = new File(filePath);
         createFileIfNotExists();
-        ArrayList<Book> availableBooksArrayList = new ArrayList<Book>();
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
 
@@ -125,11 +124,9 @@ public class LibraryLogic {
                     throw new IllegalValueException("Error loading book(s) from file: Bad book input");
                 }
                 Book currentBook = new Book(line.trim());
-                availableBooksArrayList.add(currentBook);
+                availableBooks.add(currentBook);
             }
-            sortAlphabetically(availableBooksArrayList);
-            ObservableList<Book> observableAvailableBooks = FXCollections.observableArrayList(availableBooksArrayList);
-            availableBooks.setAll(observableAvailableBooks);
+            sortAlphabetically(availableBooks);
 
         } catch (IOException e) {
             // todo throw an exception here
@@ -164,13 +161,11 @@ public class LibraryLogic {
      */
     public void saveBooksToFile(ReadOnlyLibrary library) throws IOException {
         createFileIfNotExists();
-        ObservableList<Book> libraryBookObservableList = library.getBookList();
-        ArrayList<Book> toBeSavedBooksArrayList = new ArrayList<>();
-        toBeSavedBooksArrayList.addAll(libraryBookObservableList);
-        sortAlphabetically(toBeSavedBooksArrayList);
+        ObservableList<Book> toBeSavedAvailableBooks = library.getBookList();
+        sortAlphabetically(toBeSavedAvailableBooks);
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             writer.println(library.getThreshold());
-            for (Book availableBook : toBeSavedBooksArrayList) {
+            for (Book availableBook : toBeSavedAvailableBooks) {
                 writer.println(availableBook);
             }
         } catch (IOException e) {
