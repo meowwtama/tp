@@ -71,7 +71,7 @@ public class LibraryLogic {
      * @return true if the book title is valid, false otherwise
      */
     private static boolean isValidBook(String bookTitle) {
-        if (bookTitle == null || bookTitle == "") {
+        if (bookTitle == null || bookTitle.trim().isEmpty()) {
             return false;
         }
         return true;
@@ -124,7 +124,7 @@ public class LibraryLogic {
             // load rest as books
             while ((line = reader.readLine()) != null) {
                 if (!isValidBook(line.trim())) {
-                    throw new IllegalValueException("Error loading book(s) from file: Bad book input");
+                    continue;
                 }
                 Book currentBook = new Book(line.trim());
                 availableBooks.add(currentBook);
@@ -167,8 +167,11 @@ public class LibraryLogic {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             writer.println(library.getThreshold());
             for (Book availableBook : toBeSavedAvailableBooks) {
+                if (!isValidBook(availableBook.toString())) {
+                    continue;
+                }
                 writer.println(availableBook);
-                logger.info("Book saving: " + availableBook);
+                logger.info("Book saving: " + availableBook.toString());
             }
             logger.info("Books saved to file: " + filePath);
         } catch (IOException e) {
