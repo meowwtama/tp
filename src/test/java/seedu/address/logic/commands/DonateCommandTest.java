@@ -30,12 +30,11 @@ public class DonateCommandTest {
 
         DonateCommand donateCommand = new DonateCommand(INDEX_KEPLER, new Book(bookTitle));
 
-        String expectedMessage = String.format(DonateCommand.MESSAGE_DONATE_SUCCESS, editedPerson);
+        String expectedMessage = String.format(DonateCommand.MESSAGE_DONATE_SUCCESS, editedPerson, new Book(bookTitle));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary()));
         expectedModel.setPerson(KEPLER, editedPerson);
-
         assertCommandSuccess(donateCommand, model, expectedMessage, expectedModel);
     }
 
