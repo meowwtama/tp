@@ -21,10 +21,6 @@ public class LibraryListPanel extends UiPart<Region> {
 
     @FXML
     private ListView<Book> libraryListView;
-    @FXML
-    private Label libraryTitle;
-    @FXML
-    private TitledPane pane;
 
     /**
      * Creates a {@code LibraryListPanel} with the given {@code ObservableList}.
