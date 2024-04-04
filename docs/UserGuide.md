@@ -145,7 +145,7 @@ Examples:
 
 Borrow a book from the library by a user.
 
-Format: `borrow INDEX BOOKTITLE`
+Format: `borrow INDEX [b/BOOKTITLE]`
 
 * Borrow the book with `BOOKTITLE` to user `INDEX`.
 * The index refers to the index number shown in the displayed User List.
@@ -153,27 +153,28 @@ Format: `borrow INDEX BOOKTITLE`
 
 Examples:
 * `borrow 2 b/I Love CS2103T CS2101` will record user index 2, borrows a book called "I Love CS2103T CS2101".
-* `borrow 4 b/The Hero with a Thousand Faces` will record user index 4, borrows a book called "The Hero with a Thousand Face".
+* `borrow 4 b/The Hero with a Thousand Faces` will record user index 4, borrows a book called "The Hero with a Thousand Face". <br>
+  ![result for 'return 4 b/The Hero with a Thousand Faces'](images/ReturnBookUserguide.png)
 
 ### Return a book from a user : `return`
 
-Return the book borrowed by a user.
+Returns the specified book borrowed by the specified user.
 
-Format: `return INDEX BOOKTITLE`
+Format: `return INDEX [b/BOOKTITLE]`
 
-* Return the book borrowed by user `INDEX` and `BOOKTITLE`.
-* The index refers to the index number shown in the displayed User List.
+* Returns a book `BOOKTITLE` in the user's book list.
+* The index `INDEX` refers to the index number shown in the displayed User List.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `return 2 b/I Love CS2103T CS2101` will record user index 2, returns a book called "I Love CS2103T CS2101".
-* `return 4 b/The Hero with a Thousand Faces` will record user index 4, returns a book called "The Hero with a Thousand Face".
+* `return 2 b/I Love CS2103T CS2101` returns a book of title "I Love CS2103T CS2101" from the user at index 2.
+* `return 4 b/The Hero with a Thousand Faces` returns a book of title "The Hero with a Thousand Face" from the user at index 4.
 
 ### Donate a book from a user : `donate`
 
 Records a user donating a book to the library.
 
-Format: `donate INDEX BOOKTITLE`
+Format: `donate INDEX [b/BOOKTITLE]`
 
 * A user `INDEX` has donated book `BOOKTITLE`.
 * The index refers to the index number shown in the displayed User List.
