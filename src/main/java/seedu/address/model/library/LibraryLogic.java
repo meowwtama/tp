@@ -9,21 +9,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataLoadingException;
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.commons.util.StringUtil;
 import seedu.address.model.ReadOnlyLibrary;
 import seedu.address.model.book.Book;
+import seedu.address.storage.JsonAddressBookStorage;
 
 /**
  * The LibraryLogic Class manages the loading and saving of available books to a txt file.
  */
 public class LibraryLogic {
     //TODO Refactor LibraryLogic to LibraryStorage and change file location to under storage package
+
+    private static final Logger logger = LogsCenter.getLogger(JsonAddressBookStorage.class);
+
     /**
      * Comparator for comparing books alphabetically by title.
      */
@@ -33,6 +39,7 @@ public class LibraryLogic {
             return book1.bookTitle.compareTo(book2.bookTitle);
         }
     };
+
     private String filePath;
     private ObservableList<Book> availableBooks;
     private Threshold threshold;
@@ -71,27 +78,23 @@ public class LibraryLogic {
     }
 
     /**
-     * Sort the books in the library alphabetically by title.
+     * Sorts the given book list alphabetically by title.
+     *
+     * @param bookList the list of books to be sorted
      */
     public void sortAlphabetically(ObservableList<Book> bookList) {
         bookList.sort(bookComparator);
     }
 
     private void createFileIfNotExists() {
-        File file = new File(filePath);
+        File file = new File(this.filePath);
         if (!file.exists()) {
             try {
-                if (file.createNewFile()) {
-                    // todo return a String instead
-                    System.out.println("File created: " + file.getName());
-                } else {
-                    // todo return a String instead
-                    System.out.println("File creation failed.");
-                }
+                file.createNewFile();
+                logger.info("File " + filePath + " not found. Creating a new data file at " + filePath);
             } catch (IOException e) {
-                // todo create an exception here
-                System.out.println("An error occurred while creating the file.");
-                e.printStackTrace();
+                logger.warning("Failed to create file: " + filePath);
+                throw new RuntimeException("Failed to create file: " + filePath, e);
             }
         }
     }
@@ -127,10 +130,8 @@ public class LibraryLogic {
                 availableBooks.add(currentBook);
             }
             sortAlphabetically(availableBooks);
-
         } catch (IOException e) {
-            // todo throw an exception here
-            System.err.println("Error loading book(s) from file: " + e.getMessage());
+            logger.warning("Failed to load library file : " + StringUtil.getDetails(e));
         } catch (IllegalValueException ive) {
             throw new DataLoadingException(ive);
         }
@@ -167,10 +168,12 @@ public class LibraryLogic {
             writer.println(library.getThreshold());
             for (Book availableBook : toBeSavedAvailableBooks) {
                 writer.println(availableBook);
+                logger.info("Book saving: " + availableBook);
             }
+            logger.info("Books saved to file: " + filePath);
         } catch (IOException e) {
-            // todo throw an exception here
-            System.err.println("Error saving books to file: " + e.getMessage());
+            logger.warning("Error saving books to file : " + StringUtil.getDetails(e));
+            throw e; // Re-throw the exception to propagate it to the caller
         }
     }
 
