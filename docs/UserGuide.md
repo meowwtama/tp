@@ -247,7 +247,7 @@ _Details coming soon ..._
 
 1. Every user starts from merit score 0.
 1. Donating increases merit score by 1.
-1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `Set` Command.
+1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `Limit` Command.
 1. Users can borrow multiple books as long as they have sufficient merit score.
 1. The default threshold is set at -3.
 1. Threshold can be set by librarian multiple times.
