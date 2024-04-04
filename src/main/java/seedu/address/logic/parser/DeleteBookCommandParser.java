@@ -31,5 +31,5 @@ public class DeleteBookCommandParser  implements Parser<DeleteBookCommand> {
         }
 
         return new DeleteBookCommand(new Book(bookTitle));
-    } 
+    }
 }
