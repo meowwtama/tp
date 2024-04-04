@@ -35,7 +35,6 @@ public class LibraryCard extends UiPart<Region> {
         super(FXML);
         this.book = book;
         String bookTitle = book.toString();
-        String idWithBookTitle = displayedIndex + ". " + bookTitle;
-        bookName.setText(idWithBookTitle);
+        bookName.setText(displayedIndex + ". " + bookTitle);
     }
 }
