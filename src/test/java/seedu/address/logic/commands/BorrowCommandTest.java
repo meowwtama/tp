@@ -28,7 +28,7 @@ public class BorrowCommandTest {
     @Test
     public void execute_addBorrowUnfilteredList_success() {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_SECOND_PERSON.getZeroBased());
-        Person editedPerson = new PersonBuilder(firstPerson).withBook(BORROW_STUB).withMeritScore(0).build();
+        Person editedPerson = new PersonBuilder(firstPerson).withBooks(BORROW_STUB).withMeritScore(0).build();
         BorrowCommand borrowCommand = new BorrowCommand(INDEX_SECOND_PERSON,
                 new Book(bookTitle));
 
@@ -43,7 +43,7 @@ public class BorrowCommandTest {
     @Test
     public void execute_addBorrowUnfilteredList_unsuccess() {
         Person modelPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
-        Person editedPerson = new PersonBuilder(modelPerson).withBook(BORROW_STUB).withMeritScore(-1).build();
+        Person editedPerson = new PersonBuilder(modelPerson).withBooks(BORROW_STUB).withMeritScore(-1).build();
 
         BorrowCommand borrowCommand = new BorrowCommand(INDEX_FIRST_PERSON,
                 new Book(bookTitle));
