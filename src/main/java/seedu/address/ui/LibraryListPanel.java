@@ -41,7 +41,7 @@ public class LibraryListPanel extends UiPart<Region> {
                 setGraphic(null);
                 setText(null);
             } else {
-                setGraphic(new LibraryCard(book).getRoot());
+                setGraphic(new LibraryCard(book, getIndex() + 1).getRoot());
             }
         }
     }
