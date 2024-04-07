@@ -55,7 +55,7 @@ MyBookshelf is a **desktop app for librarians managing contacts, books and borro
   e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend` (i.e. 1 times), `t/friend t/family t/TAGS ...` (i.e. multiple times).
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -87,8 +87,8 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 </box>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/JOHN DOE p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/BETSY CROWE p/1234567 e/betsycrowe@example.com a/NUS Kent Ridge Raffles Hall t/Blacklisted`
 
 ### Listing all users : `list`
 
@@ -145,6 +145,34 @@ Examples:
 * `list` followed by `delete 2` deletes the 2nd user in the User List.
 * `find Betsy` followed by `delete 1` deletes the 1st user in the results of the `find` command.
 
+### Add a book to Library : `addbook`
+
+Records the library manager adding a book to the library.
+
+Format: `addbook b/BOOKTITLE`
+
+* Library Manager has added book `BOOKTITLE`.
+
+Examples:
+* `addbook b/I Love CS2103T CS2101` will add a book titled "I Love CS2103T CS2101" into the library.
+* `addbook b/The Hero with a Thousand Faces` will add a book titled "The Hero with a Thousand Face" into the library.
+  ![result for 'addbook b/The Hero with a Thousand Faces'](images/AddBookUserguide.png)
+
+### Delete a book from Library : `delbook`
+
+Records the library manager deleting a book from the library.
+
+Format: `delbook b/BOOKTITLE`
+
+* Library Manager has deleted book `BOOKTITLE`.
+
+Examples:
+* `delbook b/I Love CS2103T CS2101` will remove a book titled "I Love CS2103T CS2101" from the library.
+* `delbook b/The Hero with a Thousand Faces` will remove a book titled "The Hero with a Thousand Face" from the library.
+  ![result for 'delbook b/The Hero with a Thousand Faces'](images/DeleteBookUserguide.png)
+
+// todo Add note saying that delbook will remove the first book where the name matches (not all the books)
+
 ### Borrow a book by a user: `borrow`
 
 Borrow a book from the library by a user.
@@ -189,33 +217,7 @@ Examples:
 * `donate 2 b/I Love CS2103T CS2101` will record user index 2, donates a book called "I Love CS2103T CS2101".
 * `donate 4 b/The Hero with a Thousand Faces` will record user index 4, donates a book called "The Hero with a Thousand Face".
 
-### Add a book to Library : `addbook`
-
-Records the library manager adding a book to the library.
-
-Format: `addbook b/BOOKTITLE`
-
-* Library Manager has added book `BOOKTITLE`.
-
-Examples:
-* `addbook b/I Love CS2103T CS2101` will record library manager, adds a book called "I Love CS2103T CS2101".
-* `addbook b/The Hero with a Thousand Faces` will record library manager, adds a book called "The Hero with a Thousand Face".
-![result for 'addbook b/The Hero with a Thousand Faces'](images/AddBookUserguide.png)
-
-### Delete a book from Library : `delbook`
-
-Records the library manager deleting a book from the library.
-
-Format: `delbook b/BOOKTITLE`
-
-* Library Manager has deleted book `BOOKTITLE`.
-
-Examples:
-* `delbook b/I Love CS2103T CS2101` will record library manager, deletes a book called "I Love CS2103T CS2101".
-* `delbook b/The Hero with a Thousand Faces` will record library manager, deletes a book called "The Hero with a Thousand Face".
-![result for 'delbook b/The Hero with a Thousand Faces'](images/DeleteBookUserguide.png)
-
-### Setting/Viewing the limit for the library
+### Set the merit score threshold of the library: `limit`
 
 Sets the limit of the library. such that only users with a merit score more than or equal to the set limit can borrow.
 
@@ -288,6 +290,11 @@ _Details coming soon ..._
 1. `Add` command is used to record new user's personal information into the User List.
 1. `Add` and `Edit` Command **DOES NOT** support adding/editing merit score or borrowed book.
 1. Only `Borrow`, `Donate` and `Return` commands are for managing books.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Future Plans
+
 
 --------------------------------------------------------------------------------------------------------------------
 
