@@ -33,13 +33,13 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-    * `list` : Lists all contacts.
+    * `list` : Lists all users.
 
-    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to User List.
+    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Contact List.
 
-    * `delete 3` : Deletes the 3rd contact shown in the User List.
+    * `delete 3` : Deletes the 3rd user shown in the Contact List.
 
-    * `clear` : Deletes all contacts.
+    * `clear` : Delete all users from the Contact List.
 
     * `exit` : Exits the app.
 
@@ -107,9 +107,11 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
   * No spaces allowed within a tag (only a single word per tag).
 
 
-* `INDEX`: The number associated with the position of each library user in the contact list.
-  * Assigned to library users based on the order added into the contact list.
-  * Takes in positive integers up to the last `INDEX` in the contact list.
+* `INDEX`: The number associated with the position of each library user in the Contact List.
+  * Assigned to library users based on the order added into the Contact List.
+[//]: # (todo check should we change the definiton of this index or not)
+[//]: # (  * `INDEX` refers to the number shown in the displayed Contact List.)
+  * Takes in a **positive integer** (e.g. 1, 2, 3, …​) up to the last `INDEX` in the Contact List.
   * Can only take up to 2147483647. Refer here for more information.
 
 
@@ -146,7 +148,7 @@ Format: `help`
 
 ### Adding a user: `add`
 
-Adds a user with user's personal information into the User List .
+Adds a user with user's personal information into the Contact List .
 
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
@@ -156,31 +158,28 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 </box>
 
 Examples:
-* `add n/JOHN DOE p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/BETSY CROWE p/1234567 e/betsycrowe@example.com a/NUS Kent Ridge Raffles Hall t/Blacklisted`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 
 ### Listing all users : `list`
 
-Shows a list of all users in the User List.
+Shows a list of all users in the Contact List.
 
 Format: `list`
 
 ### Editing a user : `edit`
 
-Edits an existing user's personal information from the User List.
+Edits an existing user's personal information from the Contact List.
 
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
-* Edits the user at the specified `INDEX`. The index refers to the index number shown in the displayed User List. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the user at the specified `INDEX`. The index refers to the index number shown in the displayed Contact List.
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the user will be removed i.e adding of tags is not cumulative.
-* You can remove all the user’s tags by typing `t/` without
-  specifying any tags after it.
+* You can remove all the user’s tags by typing `t/` without specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st user to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 2 n/Betsy Crower e/betsy@example.com t/` Edits the name and email address of the 2nd person to be `Betsy Crower` and `betsy@example.com`, simultaneously clears all existing tags.
 
 ### Locating users by name: `find`
 
@@ -196,22 +195,20 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
 ### Deleting a user : `delete`
 
-Deletes the specified user from the User List using index.
+Deletes the specified user from the Contact List using index.
 
 Format: `delete INDEX`
 
 * Deletes the user at the specified `INDEX`.
-* The index refers to the index number shown in the displayed User List.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number shown in the displayed Contact List.
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd user in the User List.
+* `list` followed by `delete 2` deletes the 2nd user in the Contact List.
 * `find Betsy` followed by `delete 1` deletes the 1st user in the results of the `find` command.
 
 ### Add a book to Library : `addbook`
@@ -247,8 +244,7 @@ Borrow a book from the library by a user.
 Format: `borrow INDEX b/BOOKTITLE`
 
 * Borrow the book with `BOOKTITLE` to user `INDEX`.
-* The index refers to the index number shown in the displayed User List.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number shown in the displayed Contact List.
 
 Examples:
 * `borrow 1 b/The Hero with a Thousand Faces` will record user index 1, borrows a book called "The Hero with a Thousand Face".
@@ -261,8 +257,7 @@ Returns the specified book borrowed by the specified user.
 Format: `return INDEX b/BOOKTITLE`
 
 * Return a book `BOOKTITLE` borrowed by user `INDEX`.
-* The index `INDEX` refers to the index number shown in the displayed User List.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index `INDEX` refers to the index number shown in the displayed Contact List.
 
 Examples:
 * `return 1 b/The Hero with a Thousand Faces` returns a book of title "The Hero with a Thousand Faces" from the user at index 1.<br>
@@ -275,8 +270,7 @@ Records a user donating a book to the library.
 Format: `donate INDEX b/BOOKTITLE`
 
 * A user `INDEX` has donated book `BOOKTITLE`.
-* The index refers to the index number shown in the displayed User List.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number shown in the displayed Contact List.
 
 Examples:
 * `donate 4 b/The Hero with a Thousand Faces` will record user index 4, donates a book called "The Hero with a Thousand Faces".
@@ -294,12 +288,12 @@ Format: `limit [THRESHOLD]`
 * The default threshold set for libraries is -3.
 
 Examples:
-* `limit -4` will set the limit of the library to -4
 * `limit` will display the current limit.
+* `limit -4` will set the limit of the library to -4
 
 ### Clearing all entries : `clear`
 
-Clears all entries from the User List.
+Clears all entries from the Contact List.
 
 Format: `clear`
 
@@ -319,9 +313,13 @@ Format: `exit`
 
 ### Saving the data
 
-MyBookshelf data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
-Data will be restored once you open the application again allowing user to continue from where they left off.
-Invalid data for available books will be discarded automatically and that particular data will not be saved.
+MyBookshelf offers an automated data saving feature, 
+ensuring that any modifications to your library's records are promptly preserved on your hard disk without necessitating manual intervention.
+This functionality simplifies your workflow by automatically saving your progress, enabling seamless continuation from your last session upon reopening the application. 
+<br>
+MyBookshelf also focuses on data integrity, guaranteeing that only accurate records are maintained within the system.
+Invalid data for available books will be automatically discarded and that particular data will not be saved.
+
 
 ### Editing the data file
 
@@ -332,7 +330,7 @@ Advanced users are welcome to update data directly by editing that data file.
 <box type="warning" seamless>
 
 **Caution:**
-If your changes to the data file makes its format invalid, MyBookshelf will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
+If your changes to the data file makes its format invalid, MyBookshelf will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the MyBookshelf to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </box>
 
@@ -347,9 +345,9 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. The default threshold is set at -3.
 1. Threshold can be set by librarian multiple times.
 1. `edit` command only supports editing user's personal information (name, phone number, email, address and tags, but not merit score and borrowed books).
-1. `add` command is used to record new user's personal information into the User List.
+1. `add` command is used to record new user's personal information into the Contact List.
 1. `add` and `edit` Command **DOES NOT** support adding/editing merit score or borrowed book.
-1. Only `borrow`, `donate` and `return` commands are for managing books.
+1. `add`, `delete`, `edit`, `clear` and `find` commands are for managing users, while `addbook`, `delbook`, `borrow`, `donate` and `return` commands are for managing books.
 
 --------------------------------------------------------------------------------------------------------------------
 
