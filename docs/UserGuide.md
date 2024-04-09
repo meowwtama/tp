@@ -283,7 +283,7 @@ Examples:
 
 ### Set the merit score threshold of the library: `limit`
 
-Sets the limit of the library. such that only users with a merit score more than or equal to the set limit can borrow.
+Sets the limit of the library such that only users with a merit score more than or equal to the set limit can borrow.
 
 Format: `limit [THRESHOLD]`
 
