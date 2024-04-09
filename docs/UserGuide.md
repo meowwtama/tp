@@ -223,8 +223,7 @@ Format: `addbook b/BOOKTITLE`
 * Library Manager has added book `BOOKTITLE`.
 
 Examples:
-* `addbook b/I Love CS2103T CS2101` will add a book titled "I Love CS2103T CS2101" into the library.
-* `addbook b/The Hero with a Thousand Faces` will add a book titled "The Hero with a Thousand Face" into the library.
+* `addbook b/The Hero with a Thousand Faces` will add a book titled "The Hero with a Thousand Faces" into the library.
   ![result for 'addbook b/The Hero with a Thousand Faces'](images/AddBookUserguide.png)
 
 ### Delete a book from Library : `delbook`
@@ -236,8 +235,7 @@ Format: `delbook b/BOOKTITLE`
 * Library Manager has deleted book `BOOKTITLE`.
 
 Examples:
-* `delbook b/I Love CS2103T CS2101` will remove a book titled "I Love CS2103T CS2101" from the library.
-* `delbook b/The Hero with a Thousand Faces` will remove a book titled "The Hero with a Thousand Face" from the library.
+* `delbook b/The Hero with a Thousand Faces` will remove a book titled "The Hero with a Thousand Faces" from the library.
   ![result for 'delbook b/The Hero with a Thousand Faces'](images/DeleteBookUserguide.png)
 
 // todo Add note saying that delbook will remove the first book where the name matches (not all the books)
@@ -253,7 +251,6 @@ Format: `borrow INDEX b/BOOKTITLE`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `borrow 2 b/I Love CS2103T CS2101` will record user index 2, borrows a book called "I Love CS2103T CS2101".
 * `borrow 1 b/The Hero with a Thousand Faces` will record user index 1, borrows a book called "The Hero with a Thousand Face".
 ![result for 'borrow 1 b/The Hero with a Thousand Faces'](images/BorrowBookUserguide.png)
 
@@ -403,4 +400,4 @@ _Details coming soon..._
 | **Donate**  | `donate INDEX b/BOOKTITLE`<br> e.g., `donate 1 b/The Hero with a Thousand Faces`                                                                                      |
 | **AddBook** | `addbook b/BOOKTITLE`<br> e.g., `addbook b/The Hero with a Thousand Faces`                                                                                            |
 | **DelBook** | `delbook b/BOOKTITLE`<br> e.g., `delbook b/The Hero with a Thousand Faces`                                                                                            |
-| **Limit**   | `limit SET_LIMIT` <br> e.g. `limit 0`                                                                                                                                 |
+| **Limit**   | `limit THRESHOLD` <br> e.g. `limit 0`                                                                                                                                 |
