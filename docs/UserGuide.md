@@ -350,11 +350,11 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. `add` and `edit` Command **DOES NOT** support adding/editing merit score or borrowed book.
 1. `add`, `delete`, `edit`, `clear` and `find` commands are for managing users, while `addbook`, `delbook`, `borrow`, `donate` and `return` commands are for managing books.
 1. `borrow` command is cases-sensitive to allow books of similar titles to be differentiated.
-1. `delbook` deletes one book at a time to prevent accidental deletion of  all entries with the same book  title.
-1. Email and phone numbers have not been made unique identifiers as there may be case scenarios where  two users might share the same email or phone number such as small child and a parent.
-1. Book title is used instead of index as there is no urgent need for current functions like `borrow` or `addbook`. Furthermore, there is a plant to implement a findbook function in the future which will require use of book title. If booktitle is the same, include author name or other distinguishing features in brackets to differentiate book under `donate` and `addbook` commands.
+1. `delbook` deletes one book at a time to prevent accidental deletion of all entries with the same book  title.
+1. Email and phone numbers have not been made unique identifiers as there may be case scenarios where two users might share the same email or phone number such as small child and a parent.
+1. Book title is used instead of index as there is no urgent need for current functions like `borrow` or `addbook`. Furthermore, there is a plan to implement a findbook function in the future which will require use of book title. If booktitle is the same, include author name or other distinguishing features in brackets to differentiate book under `donate` and `addbook` commands.
 1. `delete` command will delete users along with any books borrowed. This is because community library manager cannot retrieve the books. If books are returned, community library manager can use `addbook` command to include the books back into the list.
-1. There is no constrain for book titles as it can be anything. For example, it could be in different languages like Chinese or Arabic.
+1. There are no constraints for book titles as they can be anything. For example, it could be in different languages like Chinese or Arabic.
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -366,11 +366,10 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 2. Will rename the current `clear` command to `clearuser` to clear all the data of library users.
 3. Will be adding a `clearall` command to clear both library book and library user data.
 
-### Archiving data files
-
 ### Introducing unique id for books
 1. Will be adding a id parameter for book object to allow each book copy of the same title to be unique.
 
+### Archiving data files
 _Details coming soon..._
 --------------------------------------------------------------------------------------------------------------------
 
@@ -390,7 +389,7 @@ _Details coming soon..._
 5. Duplicated library users can be added with the same name but different capitalisation, due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 6. All parameters except `INDEX` and `THRESHOLD` do not have a limit to the number of characters. Refer to the Developer Guide for more information.
 7. The `clear` command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the **Future Features** section above for more information.
-8. The UI might not display text correctly if special characters or languages other than English is used in the input. For example, arabic is read from right to left but our application is only be able to read from left to right.
+8. The UI might not display text correctly if special characters or languages other than English is used in the input. For example, Arabic is read from right to left but our application is only be able to read from left to right.
 
 --------------------------------------------------------------------------------------------------------------------
 
