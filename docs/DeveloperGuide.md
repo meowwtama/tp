@@ -4,7 +4,7 @@
   pageNav: 3
 ---
 
-# AB-3 Developer Guide
+# MyBookshelf Developer Guide
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -414,7 +414,43 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `MyBookshelf` and the **Actor** is the `Community Library Manager`, unless specified otherwise)
+(For all use cases below, the **System** is the `MyBookshelf` and the **Actor** is the `Community Library Manager (CLM)`, unless specified otherwise)
+
+#### Use case: UC1 - Add borrower
+
+#### MSS:
+
+1.  Borrower provides the following details:
+    * Name
+    * Phone number
+    * Email
+    * Address
+    * Optionally, additional tags
+2. CLM enters the provided information.
+3. MyBookshelf adds the borrower to the User List.
+4. MyBookshelf notifies CLM that the borrower has been successfully added.
+
+***Use case ends***
+
+#### Extensions:
+
+* 2a. MyBookshelf detects an error in the entered information.
+
+    * 2a1. MyBookshelf requests for the valid information.
+
+    * 2a2. CLM requests information from borrower.
+
+    * 2a3. CLM enters new information.
+    
+    Steps 2a1-2a3 are repeated until the information entered are valid.
+
+    ***Use case resumes from step 3.***
+
+* *a . At any time, CLM chooses to cancel the addition of borrower.<br>
+
+  * *a1. CLM clears the command line using the backspace key.<br>
+  
+  ***Use case ends.***
 
 **Use case: Borrower borrows a book from the library**
 
