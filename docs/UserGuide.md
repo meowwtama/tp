@@ -370,6 +370,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 
 ### Introducing unique id for books
 1. Will be adding a id parameter for book object to allow each book copy of the same title to be unique.
+
 _Details coming soon..._
 --------------------------------------------------------------------------------------------------------------------
 
