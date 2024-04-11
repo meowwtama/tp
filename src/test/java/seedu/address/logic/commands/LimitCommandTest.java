@@ -72,6 +72,8 @@ class LimitCommandTest {
         assertCommandFailure(limitCommand, model, LimitCommand.MESSAGE_DUPLICATE_LIMIT);
     }
 
+    // TODO: add test for invalid threshold (integer overflow) when message and checks are made in v1.5
+
     @Test
     public void equals() {
         LimitCommand limitZeroCommand = new LimitCommand(THRESHOLD_ZERO);
