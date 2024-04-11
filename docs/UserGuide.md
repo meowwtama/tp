@@ -196,7 +196,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 
 Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findAlexDavidResult.png)
+  ![result for 'find alex david'](images/findJaneTanResult.png)
 
 ### Deleting a user : `delete`
 
@@ -247,7 +247,7 @@ Format: `borrow INDEX b/BOOKTITLE`
 * The index refers to the index number shown in the displayed Contact List.
 
 Examples:
-* `borrow 1 b/The Hero with a Thousand Faces` will record user index 1, borrows a book called "The Hero with a Thousand Face".
+* `borrow 1 b/The Hero with a Thousand Faces` will record user index 1, borrows a book called "The Hero with a Thousand Faces".
 ![result for 'borrow 1 b/The Hero with a Thousand Faces'](images/BorrowBookUserguide.png)
 
 ### Return a book from a user : `return`
@@ -271,6 +271,7 @@ Format: `donate INDEX b/BOOKTITLE`
 
 * A user `INDEX` has donated book `BOOKTITLE`.
 * The index refers to the index number shown in the displayed Contact List.
+* For every book that is successfully donated, user's merit score increases by 1.
 
 Examples:
 * `donate 4 b/The Hero with a Thousand Faces` will record user index 4, donates a book called "The Hero with a Thousand Faces".
@@ -340,14 +341,21 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 
 1. Every user starts from merit score 0.
 1. Donating increases merit score by 1.
-1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `Limit` Command.
+1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `limit` command.
 1. Users can borrow multiple books as long as they have sufficient merit score.
 1. The default threshold is set at -3.
 1. Threshold can be set by librarian multiple times.
 1. `edit` command only supports editing user's personal information (name, phone number, email, address and tags, but not merit score and borrowed books).
 1. `add` command is used to record new user's personal information into the Contact List.
-1. `add` and `edit` Command **DOES NOT** support adding/editing merit score or borrowed book.
+1. `add` and `edit` command **DOES NOT** support adding/editing merit score or borrowed book.
 1. `add`, `delete`, `edit`, `clear` and `find` commands are for managing users, while `addbook`, `delbook`, `borrow`, `donate` and `return` commands are for managing books.
+1. `borrow` command is cases-sensitive to allow books of similar titles to be differentiated.
+1. `delbook` deletes one book at a time to prevent accidental deletion of all entries with the same book  title.
+1. Email and phone numbers have not been made unique identifiers as there may be case scenarios where two users might share the same email or phone number such as small child and a parent.
+1. Book title is used instead of index as there is no urgent need for current functions like `borrow` or `addbook`. Furthermore, there is a plan to implement a findbook function in the future which will require use of book title. If booktitle is the same, include author name or other distinguishing features in brackets to differentiate book under `donate` and `addbook` commands.
+1. `delete` command will delete users along with any books borrowed. This is to allow for more flexibility. If books are returned, community library manager can use `return` command to include the books back into the list.
+1. There are no constraints for book titles (except empty book title) as book title can be in any form (e.g. Book title with additional whitespaces) and in any languages (e.g. Chinese or Arabic).
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -358,8 +366,10 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 2. Will rename the current `clear` command to `clearuser` to clear all the data of library users.
 3. Will be adding a `clearall` command to clear both library book and library user data.
 
-### Archiving data files
+### Introducing unique id for books
+1. Will be adding a id parameter for book object to allow each book copy of the same title to be unique.
 
+### Archiving data files
 _Details coming soon..._
 --------------------------------------------------------------------------------------------------------------------
 
@@ -379,23 +389,25 @@ _Details coming soon..._
 5. Duplicated library users can be added with the same name but different capitalisation, due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 6. All parameters except `INDEX` and `THRESHOLD` do not have a limit to the number of characters. Refer to the Developer Guide for more information.
 7. The `clear` command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the **Future Features** section above for more information.
+8. UI may not display special characters as intended. 
+9. Some languages may cause the UI to display unexpectedly. For example, Arabic characters will cause the text starts from right to left.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
 
-| Action      | Format, Examples                                                                                                                                                      |
-|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**     | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **Clear**   | `clear`                                                                                                                                                               |
-| **Delete**  | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                   |
-| **Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                           |
-| **Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
-| **List**    | `list`                                                                                                                                                                |
-| **Help**    | `help`                                                                                                                                                                |
-| **Borrow**  | `borrow INDEX b/BOOKTITLE`<br> e.g., `borrow 1 b/The Hero with a Thousand Faces`                                                                                      |
-| **Return**  | `return INDEX b/BOOKTITLE`<br> e.g., `return 1  b/The Hero with a Thousand Faces`                                                                                     |
-| **Donate**  | `donate INDEX b/BOOKTITLE`<br> e.g., `donate 1 b/The Hero with a Thousand Faces`                                                                                      |
-| **AddBook** | `addbook b/BOOKTITLE`<br> e.g., `addbook b/The Hero with a Thousand Faces`                                                                                            |
-| **DelBook** | `delbook b/BOOKTITLE`<br> e.g., `delbook b/The Hero with a Thousand Faces`                                                                                            |
-| **Limit**   | `limit THRESHOLD` <br> e.g. `limit 0`                                                                                                                                 |
+| Action      | Format, Examples                                                                                                                                                           |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**     | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/goodDonater t/sponsor`   |
+| **Clear**   | `clear`                                                                                                                                                                    |
+| **Delete**  | `delete INDEX`<br> e.g., `delete 3`                                                                                                                                        |
+| **Edit**    | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                                |
+| **Find**    | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                 |
+| **List**    | `list`                                                                                                                                                                     |
+| **Help**    | `help`                                                                                                                                                                     |
+| **AddBook** | `addbook b/BOOKTITLE`<br> e.g., `addbook b/The Hero with a Thousand Faces`                                                                                                 |
+| **DelBook** | `delbook b/BOOKTITLE`<br> e.g., `delbook b/The Hero with a Thousand Faces`                                                                                                 |
+| **Borrow**  | `borrow INDEX b/BOOKTITLE`<br> e.g., `borrow 1 b/The Hero with a Thousand Faces`                                                                                           |
+| **Return**  | `return INDEX b/BOOKTITLE`<br> e.g., `return 1  b/The Hero with a Thousand Faces`                                                                                          |
+| **Donate**  | `donate INDEX b/BOOKTITLE`<br> e.g., `donate 1 b/The Hero with a Thousand Faces`                                                                                           |
+| **Limit**   | `limit THRESHOLD` <br> e.g. `limit 0`                                                                                                                                      |
