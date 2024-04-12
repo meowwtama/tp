@@ -452,10 +452,87 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     ***Use case resumes from step 3.***
 
-* *a . At any time, CLM chooses to cancel the addition of user.<br>
+* *a. At any time, CLM chooses to cancel the addition of user.<br>
 
   * *a1. CLM clears the command line using the backspace key.<br>
   
+  ***Use case ends.***
+
+#### Use case: UC2 - List all users
+
+#### MSS:
+
+1. CLM requests to list all users.
+2. CLM enters the command.
+3. MyBookshelf retrieves the information from the Contact List.
+4. MyBookshelf displays a list of all users, including their names, contact information, and any other relevant details.
+5. CLM reviews the list of users.
+
+***Use case ends***
+
+#### Extensions:
+* *a. At any time, CLM chooses to cancel the addition of user.<br>
+
+    * *a1. CLM clears the command line using the backspace key.<br>
+
+  ***Use case ends.***
+
+#### Use case: UC3 - Edit user's information
+
+#### MSS:
+
+1. CLM requests to edit a user's information.
+2. CLM enters the command.
+3. MyBookshelf updates the user's information according to the provided changes.
+4. MyBookshelf notifies CLM that the user has been successfully edited.
+
+***Use case ends***
+
+#### Extensions:
+* 2a. MyBookshelf detects invalid index.
+    * 2a1. MyBookshelf notifies CLM with an error message
+
+    * 2a2. CLM <u> find user (UC4)</u>
+
+    * 2a3. If not exist, CLM <u>add user (UC1)</u>, else CLM records down the invalid index for later use in the edit process.
+
+    ***Use case resumes from step 2.***
+
+* 2b. MyBookshelf detects an error in the entered information.
+
+    * 2b1. MyBookshelf requests for the valid information.
+
+    * 2b2. CLM requests information from user.
+
+    * 2b3. CLM enters new information.
+
+  Steps 2b1-2b3 are repeated until the information entered are valid.
+
+  ***Use case resumes from step 3.***
+
+* *a. At any time, CLM chooses to cancel the edition of user.<br>
+
+    * *a1. CLM clears the command line using the backspace key.<br>
+
+  ***Use case ends.***
+
+#### Use case: UC4 - Find users
+
+#### MSS:
+
+1. CLM requests to find users by name.
+2. CLM enters the command.
+3. MyBookshelf searches for users whose names contain any of the provided keywords.
+4. MyBookshelf returns a list of users matching at least one keyword.
+5. CLM reviews the list of users returned by the search.
+
+***Use case ends***
+
+#### Extensions:
+* *a. At any time, CLM chooses to cancel the addition of user.<br>
+
+    * *a1. CLM clears the command line using the backspace key.<br>
+
   ***Use case ends.***
 
 **Use case: Borrower borrows a book from the library**
