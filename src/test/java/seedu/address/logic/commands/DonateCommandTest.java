@@ -35,11 +35,7 @@ public class DonateCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary().getBookList()));
         expectedModel.setPerson(KEPLER, editedPerson);
-        System.out.println("before model:" + model.getLibrary().getBookList());
-        System.out.println("before expected model:" + expectedModel.getLibrary().getBookList());
         expectedModel.addBook(new Book(bookTitle));
-        System.out.println("model:" + model.getLibrary().getBookList());
-        System.out.println("expected model:" + expectedModel.getLibrary().getBookList());
         assertCommandSuccess(donateCommand, model, expectedMessage, expectedModel);
     }
 

@@ -14,8 +14,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.AddressBook;
@@ -30,15 +28,6 @@ import seedu.address.testutil.PersonBuilder;
 public class ReturnCommandTest {
     private static final String BOOK_TITLE_STUB = "Book Stub";
     private static final String EMPTY_BOOK_STUB = "";
-    private static final String BOOK_TITLE_STUB_1 = "Book Stub 1";
-    private static final String BOOK_TITLE_STUB_2 = "Book Stub 2";
-    private static final String BOOK_TITLE_STUB_3 = "Book Stub 3";
-    private static final Book bookStubObject = new Book(BOOK_TITLE_STUB);
-    private static final Book bookStubObject1 = new Book(BOOK_TITLE_STUB_1);
-    private static final Book bookStubObject2 = new Book(BOOK_TITLE_STUB_2);
-    private static final Book bookStubObject3 = new Book(BOOK_TITLE_STUB_3);
-
-
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalLibrary());
 
     @Test
