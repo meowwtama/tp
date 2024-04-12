@@ -7,10 +7,9 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalBooks.BOOK_IN_LIBRARY;
-import static seedu.address.testutil.TypicalBooks.GUMIHO;
 import static seedu.address.testutil.TypicalBooks.getTypicalLibrary;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_BAD_MERIT_NOT_BORROWING_JOE;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
@@ -64,7 +63,8 @@ public class BorrowCommandTest {
 
         BorrowCommand borrowCommand = new BorrowCommand(INDEX_BAD_MERIT_NOT_BORROWING_JOE, bookObjectStub);
 
-        String expectedMessage = String.format(Messages.MESSAGE_INSUFFICIENT_MERIT_SCORE, getTypicalLibrary().getThreshold());
+        String expectedMessage = String.format(Messages.MESSAGE_INSUFFICIENT_MERIT_SCORE,
+                getTypicalLibrary().getThreshold());
 
         assertThrows(CommandException.class, expectedMessage, () -> borrowCommand.execute(model));
     }
