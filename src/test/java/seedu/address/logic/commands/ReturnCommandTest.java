@@ -62,10 +62,12 @@ public class ReturnCommandTest {
 
         String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookStubObject, JACKER);
 
-        Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(), originalLibrary);
+        Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+                originalLibrary);
         initialModel.setPerson(JACKER, initialPerson);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(), expectedLibrary);
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+                expectedLibrary);
         assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
     }
 
@@ -84,10 +86,12 @@ public class ReturnCommandTest {
 
         String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookStubObject, JACKER);
 
-        Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(), originalLibrary);
+        Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+                originalLibrary);
         initialModel.setPerson(JACKER, initialPerson);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(), expectedLibrary);
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
+                expectedLibrary);
         assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
     }
 
