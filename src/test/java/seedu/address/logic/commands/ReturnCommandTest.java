@@ -45,53 +45,20 @@ public class ReturnCommandTest {
     public void execute_returnUnfilteredList_success() {
         Person initialPerson = new PersonBuilder(JACKER).withBooks(BOOK_TITLE_STUB).withMeritScore(0).build();
 
-        ObservableList<Book> originalBookList = FXCollections.observableArrayList();
-        originalBookList.add(bookStubObject1);
-        originalBookList.add(bookStubObject2);
-        originalBookList.add(bookStubObject3);
-        Library originalLibrary = new Library(originalBookList);
+        Book bookObjectStub = new Book(BOOK_TITLE_STUB);
 
-        ObservableList<Book> expectedBookList = FXCollections.observableArrayList();
-        expectedBookList.add(bookStubObject1);
-        expectedBookList.add(bookStubObject2);
-        expectedBookList.add(bookStubObject3);
-        expectedBookList.add(bookStubObject);
-        Library expectedLibrary = new Library(expectedBookList);
+        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, bookObjectStub);
 
-        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, bookStubObject);
-
-        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookStubObject, JACKER);
+        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookObjectStub, JACKER);
 
         Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                originalLibrary);
+                new Library(model.getLibrary()));
         initialModel.setPerson(JACKER, initialPerson);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                expectedLibrary);
-        assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
-    }
+                new Library(model.getLibrary()));
+        expectedModel.addBook(bookObjectStub);
 
-    @Test
-    public void execute_returnUnfilteredListWithEmptyLibrary_success() {
-        Person initialPerson = new PersonBuilder(JACKER).withBooks(BOOK_TITLE_STUB).withMeritScore(0).build();
-
-        ObservableList<Book> originalBookList = FXCollections.observableArrayList();
-        Library originalLibrary = new Library(originalBookList);
-
-        ObservableList<Book> expectedBookList = FXCollections.observableArrayList();
-        expectedBookList.add(bookStubObject);
-        Library expectedLibrary = new Library(expectedBookList);
-
-        ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, bookStubObject);
-
-        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookStubObject, JACKER);
-
-        Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                originalLibrary);
-        initialModel.setPerson(JACKER, initialPerson);
-
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
-                expectedLibrary);
         assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
     }
 
