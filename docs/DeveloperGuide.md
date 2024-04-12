@@ -160,17 +160,45 @@ This section describes some noteworthy details on how certain features are imple
 
 ### Merit Score feature
 
-We have added an attribute `Merit Score` to `Person` Class. The reason behind this is to have a measurement of a user's credibility, so that the library will not run out of books due to excessive borrow. <br> 
-<br>
-Every user will have a default merit score of 0 upon adding to the Contact List. Donating and returning books will increase the user's merit score by 1, while borrowing books will decrease user's merit score by 1. <br>
-<br>
-Before borrowing, **MyBookshelf** will check if the user has sufficient merit score. Successful borrow only happens when user's merit score exceeds the limit threshold. <br>
-<br>
-PS: You can set the threshold by using `limit` command. See more below.
+**Merit Score Attribute:**
+* Added to the `Person` class.
+* Represents a measurement of a user's credibility.
+* Default merit score of 0 assigned to every user upon instantiate to the Contact List.
 
-### Library and LibraryLogic feature
+**Operations Affecting Merit Score:**
+* Donating books: Increases the user's merit score by 1.
+* Returning books: Increases the user's merit score by 1.
+* Borrowing books: Decreases the user's merit score by 1.
 
-_**[Library & LibraryLogic (should be Library Storage) implementation to be added here, mention why not a part of storage, mention cannot change book list directly in app]**_
+**Threshold Check Before Borrowing:**
+* Implemented in `MyBookshelf`.
+* Ensures that a user's merit score exceeds the limit threshold before allowing a successful borrow.
+* Users must have a merit score greater than or equal to the threshold to borrow books successfully.
+
+**Threshold Setting:**
+* Users can set the threshold using the `limit` command.
+* Allows customization of the threshold limit, which determines the minimum merit score required for successful borrowing.
+
+These changes aim to regulate borrowing behavior, preventing excessive borrowing and ensuring fair access to library resources based on users' credibility as measured by their merit score.
+
+### Library and LibraryStorage feature
+
+**Library Class:**
+* This class represents all available books in a library.
+* It contains methods for adding, deleting, and listing books, as well as checking if a person can borrow a book based on their merit score.
+* It internally uses an ObservableList<Book> to manage the list of books.
+* It also manages a Threshold object to determine if a person can borrow a book.
+* Notably, it does not directly handle storage operations such as loading or saving books from/to a file. Instead, it delegates these responsibilities to the LibraryStorage class.
+
+**LibraryStorage Class:**
+* This class manages the loading and saving of available books to a text file.
+* It uses a file path to determine where to store the data.
+* It handles loading threshold and book data from a file into an ObservableList<Book> and Threshold object respectively.
+* It also saves threshold and book data from an ReadOnlyLibrary object (which is implemented by the Library class) to a file.
+
+These two classes work together to provide functionality for managing a library's collection of books, with `Library` handling operations directly related to book management and `LibraryStorage` handling file I/O operations. 
+
+This separation of concerns helps in keeping the code modular and maintainable.
 
 `Library` now acts as a similar entity to the `AddressBook` and `UserPrefs` and is now composited into `Model`, and implements the ReadOnlyLibrary Interface.
 
