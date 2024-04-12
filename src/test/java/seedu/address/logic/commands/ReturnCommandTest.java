@@ -32,21 +32,24 @@ public class ReturnCommandTest {
 
     @Test
     public void execute_returnUnfilteredList_success() {
-        Person initialPerson = new PersonBuilder(JACKER).withBooks(BOOK_TITLE_STUB).withMeritScore(0).build();
-
         Book bookObjectStub = new Book(BOOK_TITLE_STUB);
+        // Since we only have withBooks() function, we set before return instead of after return
+        Person modelPerson = model.getFilteredPersonList().get(INDEX_JACKER.getZeroBased());
+        int beforeReturnMeritScore = modelPerson.getMeritScore().getMeritScoreInt() - 1;
+        Person beforeReturnPerson = new PersonBuilder(JACKER).withBooks(BOOK_TITLE_STUB)
+                .withMeritScore(beforeReturnMeritScore).build();
 
         ReturnCommand returnCommand = new ReturnCommand(INDEX_JACKER, bookObjectStub);
 
-        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookObjectStub, JACKER);
-
         Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary()));
-        initialModel.setPerson(JACKER, initialPerson);
+        initialModel.setPerson(JACKER, beforeReturnPerson);
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary()));
         expectedModel.addBook(bookObjectStub);
+
+        String expectedMessage = String.format(ReturnCommand.MESSAGE_RETURN_BOOK_SUCCESS, bookObjectStub, JACKER);
 
         assertCommandSuccess(returnCommand, initialModel, expectedMessage, expectedModel);
     }
