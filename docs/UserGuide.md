@@ -8,7 +8,7 @@
 
 *MyBookshelf* is a desktop application for community library managers to better manage library user contacts, books, and borrowing activity.
 
-It is optimised for use via a **Command Line Interface (CLI)** while not compromising on the benefits of a **Graphical User Interface (GUI)**. 
+It is optimised for use via a **Command Line Interface (CLI)** while not compromising on the benefits of a **Graphical User Interface (GUI)**.
 
 Tailored for fast typists, MyBookshelf can get your contact and borrowing management tasks done faster than traditional GUI apps.
 
@@ -29,7 +29,7 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 4. Open the command terminal, `cd` into the folder you placed the jar file in, and enter the following command `java -jar MyBookshelf.jar` to run the application.<br>
-   
+
 
 5. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
    ![Ui](images/Ui.png)
@@ -260,7 +260,7 @@ Format: `delbook b/BOOKTITLE`
 
 Examples:
 * `delbook b/Tales of Kokoro` will remove a book titled "Tales of Kokoro" from the library.
-  
+
 
 ![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbook Tales of Kokoro.png)
 ![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbook result Tales of Kokoro.png)
@@ -364,7 +364,7 @@ Format: `exit`
 
 ### Saving the data
 
-MyBookshelf offers an automated data saving feature. 
+MyBookshelf offers an automated data saving feature.
 
 This ensures that any modifications to your library's records will be preserved on your hard disk without necessitating manual intervention.
 
