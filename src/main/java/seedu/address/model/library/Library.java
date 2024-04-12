@@ -62,7 +62,12 @@ public class Library implements ReadOnlyLibrary {
      * @param bookList The list of books to initialize the library with.
      */
     public Library(ObservableList<Book> bookList) {
-        this.bookList = bookList;
+        ObservableList<Book> expectedBookList = FXCollections.observableArrayList();
+        for (Book book : bookList) {
+            expectedBookList.add(book);
+        }
+        this.bookList = expectedBookList;
+        threshold = new Threshold();
     }
 
     /**
@@ -72,7 +77,11 @@ public class Library implements ReadOnlyLibrary {
      * @param threshold The threshold limit
      */
     public Library(ObservableList<Book> bookList, Threshold threshold) {
-        this.bookList = bookList;
+        ObservableList<Book> expectedBookList = FXCollections.observableArrayList();
+        for (Book book : bookList) {
+            expectedBookList.add(book);
+        }
+        this.bookList = expectedBookList;
         this.threshold = threshold;
     }
 
@@ -120,7 +129,11 @@ public class Library implements ReadOnlyLibrary {
     }
 
     public void setBookList(ObservableList<Book> bookList) {
-        this.bookList = bookList;
+        ObservableList<Book> expectedBookList = FXCollections.observableArrayList();
+        for (Book book : bookList) {
+            expectedBookList.add(book);
+        }
+        this.bookList = expectedBookList;
     }
 
     public void setThreshold(Threshold threshold) {

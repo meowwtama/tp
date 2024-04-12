@@ -107,10 +107,8 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
   * No spaces allowed within a tag (only a single word per tag).
 
 
-* `INDEX`: The number associated with the position of each library user in the Contact List.
+* `INDEX`: The number associated with the position of each library user in the current displayed Contact List.
   * Assigned to library users based on the order added into the Contact List.
-[//]: # (todo check should we change the definiton of this index or not)
-[//]: # (  * `INDEX` refers to the number shown in the displayed Contact List.)
   * Takes in a **positive integer** (e.g. 1, 2, 3, …​) up to the last `INDEX` in the Contact List.
   * Can only take up to 2147483647. Refer here for more information.
 
@@ -159,7 +157,7 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <box type="note" seamless>
 
-**Note:** User with name identical to another user is deemed as duplication (case-insensitive), even when other information is different.
+**Note:** User with name identical to another user is deemed as a duplicate (case-sensitive), even when other information is different.
 </box>
 
 Examples:
@@ -367,7 +365,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. `add` command is used to record new user's personal information into the Contact List.
 1. `add` and `edit` command **DOES NOT** support adding/editing merit score or borrowed book.
 1. `add`, `delete`, `edit`, `clear` and `find` commands are for managing users, while `addbook`, `delbook`, `borrow`, `donate` and `return` commands are for managing books.
-1. `borrow` command is cases-sensitive to allow books of similar titles to be differentiated.
+1. `borrow` command is case-sensitive to allow books of similar titles to be differentiated.
 1. `delbook` deletes one book at a time to prevent accidental deletion of all entries with the same book title.
 1. Email and phone numbers have not been made unique identifiers as there may be case scenarios where two users might share the same email or phone number such as small child and a parent.
 1. Commands such as `borrow` or `addbook` use book title instead of book index as there is no urgent need. Furthermore, there is a plan to implement a findbook function in the future which will require use of book title. If booktitle is the same, include author name or other distinguishing features in brackets to differentiate book under `donate` and `addbook` commands.
@@ -387,8 +385,6 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 ### Introducing unique id for books
 1. Will be adding a id parameter for book object to allow each book copy of the same title to be unique.
 
-### Archiving data files
-_Details coming soon..._
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
