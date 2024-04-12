@@ -19,13 +19,13 @@ Given below are my contributions to the project.
 
 * **AddBook**: Completed
   * What it does: Allows library manager to add a book to the library
-  * Justification:  This feature was implemented as it provides flexibility for library manager to 
+  * Justification:  This feature was implemented as it provides flexibility for library manager to manage library records of books.
   * Highlights:
   * Credits:
 
 * **DeleteBook**: Completed
   * What it does: Allows library manager to add a book to the library
-  * Justification:  This feature was implemented as it provides flexibility for library manager to manage library records.
+  * Justification:  This feature was implemented as it provides flexibility for library manager to manage library records of books.
   * Highlights:
   * Credits:
 
