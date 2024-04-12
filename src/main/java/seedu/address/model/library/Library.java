@@ -181,6 +181,9 @@ public class Library implements ReadOnlyLibrary {
             return true;
         } else if (other instanceof Library) {
             Library otherLibrary = (Library) other;
+            if (this.list().size() != otherLibrary.list().size()) {
+                return false;
+            }
             for (int i = 0; i < this.list().size(); i++) {
                 if (!this.bookList.get(i).equals(otherLibrary.bookList.get(i))) {
                     return false;
