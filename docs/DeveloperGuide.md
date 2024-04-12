@@ -168,9 +168,20 @@ Before borrowing, **MyBookshelf** will check if the user has sufficient merit sc
 <br>
 PS: You can set the threshold by using `limit` command. See more below.
 
-### Library and LibraryLogic feature
+### Library and LibraryStorage feature
 
-_**[Library & LibraryLogic (should be Library Storage) implementation to be added here, mention why not a part of storage, mention cannot change book list directly in app]**_
+**Library Class:**
+* This class represents all available books in a library.
+* It contains methods for adding, deleting, and listing books, as well as checking if a person can borrow a book based on their merit score.
+* It internally uses an ObservableList<Book> to manage the list of books.
+* It also manages a Threshold object to determine if a person can borrow a book.
+* Notably, it does not directly handle storage operations such as loading or saving books from/to a file. Instead, it delegates these responsibilities to the LibraryStorage class.
+
+**LibraryStorage Class:**
+* This class manages the loading and saving of available books to a text file.
+* It uses a file path to determine where to store the data.
+* It handles loading threshold and book data from a file into an ObservableList<Book> and Threshold object respectively.
+* It also saves threshold and book data from an ReadOnlyLibrary object (which is implemented by the Library class) to a file.
 
 `Library` now acts as a similar entity to the `AddressBook` and `UserPrefs` and is now composited into `Model`, and implements the ReadOnlyLibrary Interface.
 
