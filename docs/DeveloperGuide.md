@@ -462,7 +462,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### MSS:
 
-1. CLM requests to list all users.
+1. CLM intends to list all users.
 2. CLM enters the command.
 3. MyBookshelf retrieves the information from the Contact List.
 4. MyBookshelf displays a list of all users, including their names, contact information, and any other relevant details.
@@ -481,7 +481,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### MSS:
 
-1. CLM requests to edit a user's information.
+1. CLM intends to edit a user's information.
 2. CLM enters the command.
 3. MyBookshelf updates the user's information according to the provided changes.
 4. MyBookshelf notifies CLM that the user has been successfully edited.
@@ -520,7 +520,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### MSS:
 
-1. CLM requests to find users by name.
+1. CLM intends to find users by name.
 2. CLM enters the command.
 3. MyBookshelf searches for users whose names contain any of the provided keywords.
 4. MyBookshelf returns a list of users matching at least one keyword.
@@ -540,9 +540,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  Borrower requests to borrow a book.
-2.  Librarian requests to list borrowers.
-3.  MyBookshelf shows a list of borrowers.
-4.  Librarian adds the book to the borrower.
+2.  Librarian requests to list all users.
+3.  MyBookshelf shows the list of all users.
+4.  Librarian adds the book to the borrower's borrow book list.
 5.  MyBookshelf updates the borrower's details.
 
     Use case ends.
@@ -566,9 +566,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  Borrower requests to return a book.
-2.  Librarian requests to list borrowers.
-3.  MyBookshelf shows a list of borrowers.
-4.  Librarian removes the book from the borrower.
+2.  Librarian requests to list users.
+3.  MyBookshelf shows the list of all users.
+4.  Librarian removes the book from the borrower's borrow book list.
 5.  MyBookshelf updates the borrower's details.
 
 
@@ -582,7 +582,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 4a. The given index is invalid.
 
-    * 4a1. AddressBook shows an error message.
+    * 4a1. MyBookshelf shows an error message.
 
       Use case resumes at step 3.
 

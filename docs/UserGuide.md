@@ -157,6 +157,11 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 **Tip:** A user can have any number of tags (including 0)
 </box>
 
+<box type="note" seamless>
+
+**Note:** User with name identical to another user is deemed as duplication (case-insensitive), even when other information is different.
+</box>
+
 Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 
@@ -207,17 +212,22 @@ Format: `delete INDEX`
 * Deletes the user at the specified `INDEX`.
 * The index refers to the index number shown in the displayed Contact List.
 
+<box type="warning" seamless>
+
+**Warning:** `delete` will remove all information of a user, including his/her merit score and the books he/she is currently borrowing.
+</box>
+
 Examples:
 * `list` followed by `delete 2` deletes the 2nd user in the Contact List.
 * `find Betsy` followed by `delete 1` deletes the 1st user in the results of the `find` command.
 
 ### Add a book to Library : `addbook`
 
-Records the library manager adding a book to the library.
+Adds a book to the library.
 
 Format: `addbook b/BOOKTITLE`
 
-* Library Manager has added book `BOOKTITLE`.
+* Add a book `BOOKTITLE` to the library and store it.
 
 Examples:
 * `addbook b/The Hero with a Thousand Faces` will add a book titled "The Hero with a Thousand Faces" into the library.
@@ -225,17 +235,20 @@ Examples:
 
 ### Delete a book from Library : `delbook`
 
-Records the library manager deleting a book from the library.
+Removes a book to the library.
 
 Format: `delbook b/BOOKTITLE`
 
-* Library Manager has deleted book `BOOKTITLE`.
+* Remove the first book which matches `BOOKTITLE` from the library.
+
+<box type="warning" seamless>
+
+**Warning:** To avoid accidental deletion, `delbook` only removes the first book which matches `BOOKTITLE`, even there are multiple books with identical `BOOKTITLE`.
+</box>
 
 Examples:
 * `delbook b/The Hero with a Thousand Faces` will remove a book titled "The Hero with a Thousand Faces" from the library.
   ![result for 'delbook b/The Hero with a Thousand Faces'](images/DeleteBookUserguide.png)
-
-// todo Add note saying that delbook will remove the first book where the name matches (not all the books)
 
 ### Borrow a book by a user: `borrow`
 
@@ -298,6 +311,11 @@ Clears all entries from the Contact List.
 
 Format: `clear`
 
+<box type="note" seamless>
+
+**Note:** `clear` only supports clearing all users in the Contact List. To clear all books in the library, we can use `delbook` command to clear the books one by one.
+</box>
+
 ### Exiting the program : `exit`
 
 Exits the program.
@@ -340,8 +358,8 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 ## Note
 
 1. Every user starts from merit score 0.
-1. Donating increases merit score by 1.
-1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `limit` command.
+1. Borrowing a single book decreases corresponding user's merit score by 1; while donating or returning a book increases corresponding user's merit score by 1.
+1. Borrowing is **ONLY** allowed for user with **Merit Score >= Threshold** (Threshold can be set by using `limit` command.)
 1. Users can borrow multiple books as long as they have sufficient merit score.
 1. The default threshold is set at -3.
 1. Threshold can be set by librarian multiple times.
@@ -350,11 +368,11 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. `add` and `edit` command **DOES NOT** support adding/editing merit score or borrowed book.
 1. `add`, `delete`, `edit`, `clear` and `find` commands are for managing users, while `addbook`, `delbook`, `borrow`, `donate` and `return` commands are for managing books.
 1. `borrow` command is cases-sensitive to allow books of similar titles to be differentiated.
-1. `delbook` deletes one book at a time to prevent accidental deletion of all entries with the same book  title.
+1. `delbook` deletes one book at a time to prevent accidental deletion of all entries with the same book title.
 1. Email and phone numbers have not been made unique identifiers as there may be case scenarios where two users might share the same email or phone number such as small child and a parent.
-1. Book title is used instead of index as there is no urgent need for current functions like `borrow` or `addbook`. Furthermore, there is a plan to implement a findbook function in the future which will require use of book title. If booktitle is the same, include author name or other distinguishing features in brackets to differentiate book under `donate` and `addbook` commands.
+1. Commands such as `borrow` or `addbook` use book title instead of book index as there is no urgent need. Furthermore, there is a plan to implement a findbook function in the future which will require use of book title. If booktitle is the same, include author name or other distinguishing features in brackets to differentiate book under `donate` and `addbook` commands.
 1. `delete` command will delete users along with any books borrowed. This is to allow for more flexibility. If books are returned, community library manager can use `return` command to include the books back into the list.
-1. There are no constraints for book titles (except empty book title) as book title can be in any form (e.g. Book title with additional whitespaces) and in any languages (e.g. Chinese or Arabic).
+1. There are no constraints for book title (except empty book title) as book title can be in any form (e.g. book title with additional whitespaces) and in any languages (e.g. Chinese or Arabic).
 
 
 --------------------------------------------------------------------------------------------------------------------
