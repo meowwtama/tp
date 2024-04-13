@@ -467,7 +467,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. MyBookshelf requests for the valid information.
     * 2a2. Library manager requests information from user.
     * 2a3. Library manager enters new information.
-      Steps 2a1-2a3 are repeated until the information entered are valid.
+      Steps 2a1-2a3 are repeated until the information entered is valid.
 
   ***Use case resumes from step 3***
 
@@ -476,7 +476,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   ***Use case ends***
 
-#### Use case: UC2 - List all library users
+#### Use case: UC2 - List all library users in the Contact List
 
 #### MSS:
 
@@ -495,7 +495,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
   ***Use case ends.***
 
-#### Use case: UC3 - Edit library user's information
+#### Use case: UC3 - Edit a library user's information
 
 #### MSS:
 
@@ -509,30 +509,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 2a. MyBookshelf detects invalid index.
     * 2a1. MyBookshelf notifies library manager with an error message.
-    * 2a2. Library manager <u> finds user (UC4)</u>.
-    * 2a3. If not exist, library manager <u>add user (UC1)</u>, else records down the index for later use in the edit process.
+    * 2a2. Library manager <u>Find a library user in the Contact List (UC4)</u>.
+    * 2a3. If not exist, library manager <u>Add library user to the Contact List (UC1)</u>, else records down the index for later use in the edit process.
 
   ***Use case resumes from step 2.***
 
 * 2b. MyBookshelf detects an error in the entered information.
     * 2b1. MyBookshelf requests for the valid information.
-    * 2b2. Library manager requests information from library user.
+    * 2b2. Library manager requests information from the library user.
     * 2b3. Library manager enters new information.
-      Steps 2b1-2b3 are repeated until the information entered are valid.
+      Steps 2b1-2b3 are repeated until the information entered is valid.
 
   ***Use case resumes from step 3.***
 
-* *a. At any time, library manager chooses to cancel the edition of library user.<br>
+* *a. At any time, library manager chooses to cancel the edition of the library user.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
 
 
-#### Use case: UC4 - Find users
+#### Use case: UC4 - Find a library user in the Contact List
 #### MSS:
-1. Library manager intends to find library users by keyword.
+1. Library manager intends to find library users using keyword(s).
 2. Library manager enters the command.
-3. MyBookshelf searches for library users whose names contain any of the provided keywords.
+3. MyBookshelf searches for library users whose names matches any of the provided keyword(s).
 4. MyBookshelf returns a list of library users matching at least one keyword.
 5. Library manager reviews the list of library users returned by the search.
 
@@ -545,11 +545,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
   ***Use case ends.***
 
 
-#### Use case: UC5 - Delete a user
+#### Use case: UC5 - Delete a library user from the Contact List
 #### MSS:
-1. Library manager requests to delete a user.
+1. Library manager intends to delete a user.
 2. Library manager enters the command.
-3. MyBookshelf deletes the user from the Contact List
+3. MyBookshelf deletes the user from the Contact List.
 4. MyBookshelf notifies library manager that the user has been successfully deleted.
 
 ***Use case ends***
@@ -557,108 +557,108 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 2a. MyBookshelf detects invalid index.
     * 2a1. MyBookshelf notifies library manager with an error message.
-    * 2a2. Library manager <u> find user (UC4)</u>.
-    * 2a3. Library manager records down the index for later use in the delete process.
+    * 2a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u>.
+    * 2a3. Library manager performs <u>Delete a library user from the Contact List (UC5)</u>.
 
   ***Use case resumes from step 2.***
 
-* *a. At any time, library manager chooses to cancel the deletion of user.<br>
+* *a. At any time, library manager chooses to cancel the deletion of the library user.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
 
 
-#### Use case: UC6 - User borrow a book
+#### Use case: UC6 - Library user borrow a book
 #### MSS:
-1. User provides the book title that he/she want to borrow.
-2. Library manager requests to borrow a book for user.
+1. Library user intends to borrow a book to the library.
+2. Library manager reads the book title of the book provided by the library user.
 3. Library manager enters the command.
-4. MyBookshelf records the borrowing of the book by the user, and also deletes the book from the library.
-5. MyBookshelf notifies library manager that the user has successfully borrowed a book.
+4. MyBookshelf removes the book from library and adds the book to the library user's borrow list.
+5. MyBookshelf notifies library manager that the library user has successfully borrowed a book.
 
 ***Use case ends***
 
 #### Extensions:
-* 3a. MyBookshelf detects invalid index.
+* 3a. MyBookshelf detects invalid index for library user.
     * 3a1. MyBookshelf notifies library manager with an error message.
-    * 3a2. Library manager <u> finds user (UC4)</u>.
-    * 3a3. If not exist, library manager <u>add user (UC1)</u>, else library manager records down the index for later use in the borrow process.
+  * 3a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u> and <u>Library user borrows a book (UC6)</u>.
+  * 3a3. If not exist, library manager performs <u>Add library user to the Contact List (UC1)</u> and <u>Library user borrows a book (UC6)</u>.
 
   ***Use case resumes from step 3.***
 
 * 3b. MyBookshelf detects an error in the book title.
-    * 3b1. MyBookshelf notifies library manager with an error message
-    * 3b2. Library manager requests book title from user.
+    * 3b1. MyBookshelf notifies library manager with an error message.
+    * 3b2. Library manager confirms book title from user again.
     * 3b3. Library manager enters new book title.
-      Steps 3b1-3b3 are repeated until the book title entered are valid.
+      Steps 3b1-3b3 are repeated until the book title entered is valid.
 
   ***Use case resumes from step 3.***
 
-* *a. At any time, library manager chooses to cancel the borrow process of user.<br>
+* *a. At any time, library manager chooses to cancel the borrow process of library user.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
 
 
-#### Use case: UC7 - User return a book
+#### Use case: UC7 - Library user returns a book
 #### MSS:
-1. User provides the book title of the book he/she want to return.
-2. Library manager requests to return a book for the user.
+1. Library user intends to return a book to the library.
+2. Library manager reads the book title of the book provided by the library user.
 3. Library manager enters the command to return the book.
-4. MyBookshelf records the return of the book by the user to the library and removes the book from the user's borrowing list.
-5. MyBookshelf notifies library manager that the user has successfully returned a book.
+4. MyBookshelf adds the book to the library and removes the book from the library user's borrow list.
+5. MyBookshelf notifies library manager that the library user has successfully returned the book.
 
 ***Use case ends***
 
 #### Extensions:
-* 3a. MyBookshelf detects invalid index.
+* 3a. MyBookshelf detects invalid index for library user.
     * 3a1. MyBookshelf notifies library manager with an error message.
-    * 3a2. Library manager <u> find user (UC4)</u>.
-    * 3a3. Library manager records down the index for later use in the return process.
+    * 3a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u>.
+    * 3a3. Library manager performs <u>Library user returns a book (UC7)</u>.
 
   ***Use case resumes from step 3.***
 
 * 3b. MyBookshelf detects an error in the book title.
     * 3b1. MyBookshelf notifies library manager with an error message.
-    * 3b2. Library manager requests book title from user.
+    * 3b2. Library manager confirms book title again.
     * 3b3. Library manager enters new book title.
-      Steps 3b1-3b3 are repeated until the book title entered are valid.
+      Steps 3b1-3b3 are repeated until the book title entered is valid.
 
   ***Use case resumes from step 3.***
 
-* *a. At any time, Library manager chooses to cancel the return process of user.<br>
+* *a. At any time, Library manager chooses to cancel the return process of library user.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
 
 
-#### Use case: UC8 - User donates a book
+#### Use case: UC8 - Library user donates a book
 #### MSS:
-1. User provides the book title of the book he/she want to donate.
-2. Library manager requests to donate a book from the user.
+1. Library user intends to donate a book to the library.
+2. Library manager reads the book title of the book provided by the library user.
 3. Library manager enters the command to donate the book.
-4. MyBookshelf records the donate of the book by the user to the library.
-5. MyBookshelf notifies library manager that the user has successfully donated a book.
+4. MyBookshelf adds the book to the library.
+5. MyBookshelf notifies library manager that the library user has successfully donated a book.
 
 ***Use case ends***
 
 #### Extensions:
-* 3a. MyBookshelf detects invalid index.
+* 3a. MyBookshelf detects invalid index for the library user.
     * 3a1. MyBookshelf notifies library manager with an error message.
-    * 3a2. Library manager <u> find user (UC4)</u>.
-    * 3a3. If not exist, library manager <u>add user (UC1)</u>, else library manager records down the index for later use in the donate process.
+    * 3a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u> and <u>Library user donates a book (UC8)</u>.
+    * 3a3. If not exist, library manager performs <u>Add library user to the Contact List (UC1)</u> and <u>Library user donates a book (UC8)</u>.
 
   ***Use case resumes from step 3.***
 
 * 3b. MyBookshelf detects an error in the book title.
     * 3b1. MyBookshelf notifies library manager with an error message.
-    * 3b2. Library manager requests book title from user.
+    * 3b2. Library manager confirms book title again.
     * 3b3. Library manager enters new book title.
-      Steps 3b1-3b3 are repeated until the book title entered are valid.
+      Steps 3b1-3b3 are repeated until the book title entered is valid.
 
   ***Use case resumes from step 3.***
 
-* *a. At any time, library manager chooses to cancel the donate process of user.<br>
+* *a. At any time, library manager chooses to cancel the donate process.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
@@ -668,21 +668,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### MSS:
 1. Library manager intends to add a book to the library.
 2. Library manager enters the command to add the book.
-3. MyBookshelf records the book to the library.
-4. MyBookshelf notifies library manager that the book has successfully added to the library.
+3. MyBookshelf adds the book to the library.
+4. MyBookshelf notifies library manager that the book has been successfully added to the library.
 
 ***Use case ends***
 
 #### Extensions:
 * 2b. MyBookshelf detects an error in the book title.
     * 2b1. MyBookshelf notifies library manager with an error message.
-    * 2b2. Library manager confirms book title from the book.
+    * 2b2. Library manager confirms book title of the book.
     * 2b3. Library manager enters new book title.
-      Steps 2b1-2b3 are repeated until the book title entered are valid.
+      Steps 2b1-2b3 are repeated until the book title entered is valid.
 
   ***Use case resumes from step 2.***
 
-* *a. At any time, library manager chooses to cancel the addition of book.<br>
+* *a. At any time, library manager chooses to cancel the addition of the book.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
@@ -691,56 +691,56 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Use case: UC10 - Delete a book from the library
 #### MSS:
 1. Library manager intends to delete a book from the library.
-2. Library manager enters the command to add the book.
+2. Library manager enters the command to delete the book.
 3. MyBookshelf deletes the book from the library.
-4. MyBookshelf notifies library manager that the book has successfully deleted from the library.
+4. MyBookshelf notifies library manager that the book has been successfully deleted from the library.
 
 ***Use case ends***
 
 #### Extensions:
 * 2b. MyBookshelf detects an error in the book title.
     * 2b1. MyBookshelf notifies library manager with an error message.
-    * 2b2. Library manager confirms book title from the book.
+    * 2b2. Library manager confirms book title of the book.
     * 2b3. Library manager enters new book title.
-      Steps 2b1-2b3 are repeated until the book title entered are valid.
+      Steps 2b1-2b3 are repeated until the book title entered is valid.
 
   ***Use case resumes from step 2.***
 
-* *a. At any time, Library manager chooses to cancel the deletion of book.<br>
+* *a. At any time, Library manager chooses to cancel the deletion of the book.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
 
 
-#### Use case: UC11 - View the limit for libary
+#### Use case: UC11 - View the limit for library
 #### MSS:
-1. Library manager intends to view the limit for libary.
+1. Library manager intends to view the limit of the library.
 2. Library manager enters the command to view.
 3. MyBookshelf displays the current limit of the library.
 
 ***Use case ends***
 
 #### Extensions:
-* *a. At any time, library manager chooses to cancel the view of limit.<br>
+* *a. At any time, library manager chooses to cancel to view the limit of the library.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
 
 
-#### Use case: UC12 - Set the limit for libary
+#### Use case: UC12 - Set the limit for library
 #### MSS:
-1. Library manager intends to set the limit for libary.
+1. Library manager intends to set the limit for library.
 2. Library manager enters the command to set limit.
 3. MyBookshelf sets the limit of the library.
-4. MyBookshelf notifies library manager that the limit has successfully updated for the library.
+4. MyBookshelf notifies library manager that the limit has been successfully updated for the library.
 
 ***Use case ends***
 
 #### Extensions:
 * 2a. MyBookshelf detects invalid limit.
     * 2a1. MyBookshelf notifies library manager with an error message.
-    * 2a2. CLM reentered the limit.
-      Steps 2a1-2a2 are repeated until the limit entered are valid.
+    * 2a2. Library manager reentered the limit.
+      Steps 2a1-2a2 are repeated until the limit entered is valid.
 
   ***Use case resumes from step 3.***
 
@@ -752,10 +752,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC13 - Clear the Contact List
 #### MSS:
-1. Library manager requests to clear the Contact List (delete all users).
+1. Library manager requests to clear the Contact List (delete all library users).
 2. Library manager enters the command.
-3. MyBookshelf clears all users from the contact list.
-4. MyBookshelf notifies library manager that all users has successfully cleared.
+3. MyBookshelf clears all library users in the Contact List.
+4. MyBookshelf notifies library manager that all library users have been successfully removed.
 
 ***Use case ends***
 
@@ -768,14 +768,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC14 - Help
 #### MSS:
-1. Library manager requests to help.
+1. Library manager intends to access help.
 2. Library manager enters the command.
 3. MyBookshelf pops up a help window.
 
 ***Use case ends***
 
 #### Extensions:
-* *a. At any time, library manager chooses to cancel help.<br>
+* *a. At any time, library manager chooses to cancel to access for help.<br>
     * *a1. Library manager clears the command line using the backspace key.<br>
 
   ***Use case ends.***
@@ -786,8 +786,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. Library manager intends to exit.
 2. Library manager enters the command.
 3. MyBookshelf successfully exited.
-
-***Use case ends***
 
 ***Use case ends***
 
