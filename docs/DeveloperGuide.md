@@ -494,7 +494,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC3 - Edit user's information
 #### MSS:
-1. Library manager requests to edit a user's information.
+1. Library manager intends to edit a user's information.
 2. Library manager enters the command.
 3. MyBookshelf updates the user's information according to the provided changes.
 4. MyBookshelf notifies library manager that the user has been successfully edited.
@@ -525,7 +525,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC4 - Find users
 #### MSS:
-1. Library manager requests to find users by keyword.
+1. Library manager intends to find users by keyword.
 2. Library manager enters the command.
 3. MyBookshelf searches for users whose names contain any of the provided keywords.
 4. MyBookshelf returns a list of users matching at least one keyword.
@@ -661,7 +661,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC9 - Add a book to the library
 #### MSS:
-1. Library manager requests to add a book to the library.
+1. Library manager intends to add a book to the library.
 2. Library manager enters the command to add the book.
 3. MyBookshelf records the book to the library.
 4. MyBookshelf notifies library manager that the book has successfully added to the library.
@@ -685,7 +685,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC10 - Delete a book from the library
 #### MSS:
-1. Library manager requests to delete a book from the library.
+1. Library manager intends to delete a book from the library.
 2. Library manager enters the command to add the book.
 3. MyBookshelf deletes the book from the library.
 4. MyBookshelf notifies library manager that the book has successfully deleted from the library.
@@ -709,7 +709,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC11 - View the limit for libary
 #### MSS:
-1. Library manager requests to view the limit for libary.
+1. Library manager intends to view the limit for libary.
 2. Library manager enters the command to view.
 3. MyBookshelf displays the current limit of the library.
 
@@ -724,7 +724,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC12 - Set the limit for libary
 #### MSS:
-1. Library manager requests to set the limit for libary.
+1. Library manager intends to set the limit for libary.
 2. Library manager enters the command to set limit.
 3. MyBookshelf sets the limit of the library.
 4. MyBookshelf notifies library manager that the limit has successfully updated for the library.
@@ -778,7 +778,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 #### Use case: UC15 - Exit MyBookshelf
 #### MSS:
-1. Library manager requests to exit.
+1. Library manager intends to exit.
 2. Library manager enters the command.
 3. MyBookshelf successfully exited.
 
