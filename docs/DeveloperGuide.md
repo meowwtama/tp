@@ -231,12 +231,12 @@ Library managers can retroactively disallow library users from borrowing books f
    * Library user A has `Merit Score`:0
    * Library user B has `Merit Score`: -2
    * Both library user A and library user B can borrow books from the library
-1. Librarian calls `limit 0`
+1. Library manager calls `limit 0`
    * `Threshold`: 0
    * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
    * Library user B has `Merit Score`: -2 (less than `Threshold`)
    * Library user A can borrow but library user B cannot borrow from the Library
-1. Librarian calls `limit -2`
+1. Library manager calls `limit -2`
    * `Threshold`: -2
    * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
    * Library user B has `Merit Score`: -2 (greater than or equal to `Threshold`)
@@ -246,7 +246,7 @@ Library managers can retroactively disallow library users from borrowing books f
    * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
    * Library user B has `Merit Score`: -3 (greater than or equal to `Threshold`)
    * Library user A can borrow but library user B cannot borrow from the Library
-1. Librarian calls `limit 1`
+1. Library manager calls `limit 1`
    * `Threshold`: 1
    * Library user A has `Merit Score`: 0 (less than `Threshold`)
    * Library user B has `Merit Score`: -3 (less than `Threshold`)
@@ -266,7 +266,7 @@ This would also change the implementation for the `limit` Command to now individ
 
 This would give the library manager greater flexibility to vary each of the library user's individual ability to borrow books.
 
-This implementation was decided against as setting a standardised limit would give an easier time for librarians to manage all library users at the same time, and not having to individually manage each user's `Threshold`
+This implementation was decided against as setting a standardised limit would give an easier time for library managers to manage all library users at the same time, and not having to individually manage each user's `Threshold`
 
 Individual library user's ability to borrow can also be increased and decreased indirectly by changing the library user's merit score. **[LINK TO SECTION ON CHANGING MERIT SCORE]**
 
@@ -564,9 +564,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  Borrower requests to borrow a book.
-2.  Librarian intends to list all library users.
+2.  Library manager intends to list all library users.
 3.  MyBookshelf shows the list of all library users.
-4.  Librarian adds the book to the borrower's borrow book list.
+4.  Library manager adds the book to the borrower's borrow book list.
 5.  MyBookshelf updates the borrower's details.
 
     Use case ends.
@@ -590,9 +590,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1.  Borrower requests to return a book.
-2.  Librarian intends to list all library users.
+2.  Library manager intends to list all library users.
 3.  MyBookshelf shows the list of all library users.
-4.  Librarian removes the book from the borrower's borrow book list.
+4.  Library manager removes the book from the borrower's borrow book list.
 5.  MyBookshelf updates the borrower's details.
 
 
@@ -616,7 +616,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3. A librarian manager with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+3. A library manager with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. Should be easy to use and fast to learn for library managers who are new to this application.
 5. Response time should be fast enough that it does not take the library manager a long time to use it.
 6. Should be easy to recognise and remember necessary commands to minimise need for library manager to check what command to use.
