@@ -80,6 +80,7 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
+
 </box>
 
 <box type="info" seamless>
@@ -137,8 +138,7 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
   * Takes in integer values.
   * Can only take in values from -2147483648 to 2147483647.
 
-
-<box type="info" seamless>
+</box>
 
 ### **Others:**<br>
 
@@ -164,11 +164,13 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 <box type="tip" seamless>
 
 > **Tip:** A user can have any number of tags (including 0).
+
 </box>
 
 <box type="note" seamless>
 
 > **Note:** User with name identical to another user is deemed as a duplicate (case-sensitive), even when other information is different.
+
 </box>
 
 Examples:
@@ -242,6 +244,7 @@ Format: `delete INDEX`
 <box type="warning" seamless>
 
 > **Warning:** `delete` removes all the target user's data, including their merit score and borrowing book list.
+
 </box>
 
 Examples:
@@ -283,6 +286,7 @@ Format: `delbook b/BOOKTITLE`
 <box type="warning" seamless>
 
 > **Warning:** To avoid accidental deletion, `delbook` only removes the first book which matches `BOOKTITLE`, even there are multiple books with identical `BOOKTITLE`.
+
 </box>
 
 Examples:
@@ -370,10 +374,8 @@ Clears all entries of library users from the contact list.
 
 Format: `clear`
 
-<box type="note" seamless>
+> **Note:** `clear` only supports clearing all users in the contact list. To clear all books in the library, we can use `delbook` command to clear the books one by one.
 
-**Note:** `clear` only supports clearing all users in the contact list. To clear all books in the library, we can use `delbook` command to clear the books one by one.
-</box>
 
 ### Exiting the program : `exit`
 
