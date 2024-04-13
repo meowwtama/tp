@@ -27,7 +27,7 @@ public class LibraryStorageTest {
     }
 
     @Test
-    void loadLibraryFromFileBooksInOrderValidFile_success() throws IOException, DataLoadingException {
+    void loadLibraryFromFile_booksInOrderValidFile_success() throws IOException, DataLoadingException {
         // Prepare a test file with valid data
         PrintWriter writer = new PrintWriter(new FileWriter("test_library.txt"));
         writer.println(THRESHOLD_DEFAULT.getThreshold()); // Threshold
@@ -49,7 +49,7 @@ public class LibraryStorageTest {
     }
 
     @Test
-    void loadLibraryFromFileBooksNotInOrderValidFile_success() throws IOException, DataLoadingException {
+    void loadLibraryFromFile_booksNotInOrderValidFile_success() throws IOException, DataLoadingException {
         // Prepare a test file with valid data
         PrintWriter writer = new PrintWriter(new FileWriter("test_library.txt"));
         writer.println(THRESHOLD_MINUS_ONE_THOUSAND.getThreshold()); // Threshold
@@ -73,7 +73,7 @@ public class LibraryStorageTest {
     }
 
     @Test
-    void saveBooksToFileValidDefaultThresholdLibrary_success() throws IOException {
+    void saveBooksToFile_defaultThresholdValidLibrary_success() throws IOException {
         // Prepare test data
         Library library = new Library();
         String thresholdToTest = String.valueOf(library.getThreshold().getThreshold());
@@ -88,7 +88,7 @@ public class LibraryStorageTest {
     }
 
     @Test
-    void saveBooksToFileValidNewThresholdLibrary_success() throws IOException {
+    void saveBooksToFile_setNewThresholdValidLibrary_success() throws IOException {
         // Prepare test data
         int newThreshold = THRESHOLD_MINUS_ONE_THOUSAND.getThreshold();
         Library library = new Library(newThreshold);
@@ -104,7 +104,7 @@ public class LibraryStorageTest {
     }
 
     @Test
-    void saveBooksToFileBooksInOrderValidLibrary_success() throws IOException {
+    void saveBooksToFile_booksInOrderValidLibrary_success() throws IOException {
         // Prepare test data
         Book book1 = new Book("Book 1");
         Book book2 = new Book("Book 2");
@@ -123,7 +123,7 @@ public class LibraryStorageTest {
     }
 
     @Test
-    void saveBooksToFileBooksNotInOrderValidLibrary_success() throws IOException {
+    void saveBooksToFile_booksNotInOrderValidLibrary_success() throws IOException {
         // Prepare test data
         Book bookA = new Book("Book A");
         Book bookB = new Book("Book B");

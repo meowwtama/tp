@@ -26,6 +26,7 @@ import seedu.address.model.book.Book;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
+
 public class BorrowCommandTest {
     private static final String BOOK_TITLE_STUB = "Book Stub";
     private static final String EMPTY_BOOK_STUB = "";

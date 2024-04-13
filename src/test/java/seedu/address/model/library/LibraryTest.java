@@ -33,7 +33,7 @@ public class LibraryTest {
     }
 
     @Test
-    void addBookValidBook_success() {
+    void addBook_validBook_success() {
         Book book = new Book("Book 1");
         library.addBook(book);
         assertEquals(1, library.getBookList().size());
@@ -41,7 +41,7 @@ public class LibraryTest {
     }
 
     @Test
-    void deleteBookValidIndex_success() {
+    void deleteBook_validBook_success() {
         Book book1 = new Book("Book 1");
         Book book2 = new Book("Book 2");
         library.addBook(book1);
@@ -53,7 +53,7 @@ public class LibraryTest {
     }
 
     @Test
-    void sortAlphabeticallyValidBooks_success() {
+    void sortAlphabetically_validBooks_success() {
         Book bookA = new Book("Book A");
         Book bookB = new Book("Book B");
         Book bookC = new Book("Book C");
@@ -68,7 +68,7 @@ public class LibraryTest {
     }
 
     @Test
-    void listValidBooksSorted_success() {
+    void list_validBooksSorted_success() {
         Book bookA = new Book("Book A");
         Book bookB = new Book("Book B");
         Book bookC = new Book("Book C");
@@ -83,7 +83,7 @@ public class LibraryTest {
     }
 
     @Test
-    void canLendToValidPerson_success() {
+    void canLendTo_validPerson_success() {
         library.setThreshold(THRESHOLD_DEFAULT);
         Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), library);
         Person modelPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
@@ -91,7 +91,7 @@ public class LibraryTest {
     }
 
     @Test
-    void canLendToValidPerson_unsuccess() {
+    void canLendTo_validPerson_unsuccess() {
         library.setThreshold(THRESHOLD_ONE);
         Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), library);
         Person modelPerson = model.getFilteredPersonList().get(INDEX_BAD_MERIT_NOT_BORROWING_JOE.getZeroBased());
@@ -99,7 +99,7 @@ public class LibraryTest {
     }
 
     @Test
-    void popBookFromLibraryExistingBook_success() {
+    void popBookFromLibrary_existingBook_success() {
         Book book1 = new Book("Book 1");
         Book book2 = new Book("Book 2");
         library.addBook(book1);
@@ -111,7 +111,7 @@ public class LibraryTest {
     }
 
     @Test
-    void resetDataValidData_success() {
+    void resetData_validData_success() {
         Library library2 = new Library();
         library2.addBook(new Book("Book 1"));
         library2.addBook(new Book("Book 2"));

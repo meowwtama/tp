@@ -42,6 +42,8 @@ public class AddBookCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
+        // user input is leading with one white space because of multiargu mapper issue
+        // without it will result in illegalArgumentException (i spent 30 mins on this :/)
         // book title with no space in front and at back
         assertParseSuccess(parser, " " + CliSyntax.PREFIX_BOOKLIST + BOOK_TITLE_STUB,
                 new AddBookCommand(new Book(BOOK_TITLE_STUB)));
