@@ -30,18 +30,17 @@ public class BorrowCommandTest {
     private static final String BOOK_TITLE_STUB = "Book Stub";
     private static final String EMPTY_BOOK_STUB = "";
 
-
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalLibrary());
 
     @Test
     public void execute_addBorrowUnfilteredList_success() {
-        Book bookStubObject = BOOK_IN_LIBRARY;
+        Book bookStub = BOOK_IN_LIBRARY;
         Person beforeBorrowPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
         int afterBorrowMeritScore = beforeBorrowPerson.getMeritScore().getMeritScoreInt() - 1;
         Person afterBorrowPerson = new PersonBuilder(beforeBorrowPerson).withBooks(BOOK_IN_LIBRARY.bookTitle)
                 .withMeritScore(afterBorrowMeritScore).build();
 
-        BorrowCommand borrowCommand = new BorrowCommand(INDEX_FIRST_PERSON, bookStubObject);
+        BorrowCommand borrowCommand = new BorrowCommand(INDEX_FIRST_PERSON, bookStub);
 
         Model initialModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 model.getLibrary());
@@ -49,9 +48,9 @@ public class BorrowCommandTest {
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 model.getLibrary());
         expectedModel.setPerson(beforeBorrowPerson, afterBorrowPerson);
-        expectedModel.popBookFromLibrary(bookStubObject);
+        expectedModel.popBookFromLibrary(bookStub);
 
-        String expectedMessage = String.format(BorrowCommand.MESSAGE_ADD_BORROW_SUCCESS, bookStubObject,
+        String expectedMessage = String.format(BorrowCommand.MESSAGE_ADD_BORROW_SUCCESS, bookStub,
                 afterBorrowPerson);
 
         assertCommandSuccess(borrowCommand, initialModel, expectedMessage, expectedModel);
@@ -104,23 +103,23 @@ public class BorrowCommandTest {
 
     @Test
     public void equals() {
-        BorrowCommand borrowFirstCommand = new BorrowCommand(INDEX_FIRST_PERSON, new Book(EMPTY_BOOK_STUB));
-        BorrowCommand borrowSecondCommand = new BorrowCommand(INDEX_SECOND_PERSON, new Book(EMPTY_BOOK_STUB));
+        BorrowCommand borrowCommand1 = new BorrowCommand(INDEX_FIRST_PERSON, new Book(EMPTY_BOOK_STUB));
+        BorrowCommand borrowCommand2 = new BorrowCommand(INDEX_SECOND_PERSON, new Book(EMPTY_BOOK_STUB));
 
         // same object -> returns true
-        assertTrue(borrowFirstCommand.equals(borrowFirstCommand));
+        assertTrue(borrowCommand1.equals(borrowCommand1));
 
         // same values -> returns true
         BorrowCommand returnFirstCommandCopy = new BorrowCommand(INDEX_FIRST_PERSON, new Book(EMPTY_BOOK_STUB));
-        assertTrue(borrowFirstCommand.equals(returnFirstCommandCopy));
+        assertTrue(borrowCommand1.equals(returnFirstCommandCopy));
 
         // different types -> returns false
-        assertFalse(borrowFirstCommand.equals(1));
+        assertFalse(borrowCommand1.equals(1));
 
         // null -> returns false
-        assertFalse(borrowFirstCommand.equals(null));
+        assertFalse(borrowCommand1.equals(null));
 
         // different person -> returns false
-        assertFalse(borrowFirstCommand.equals(borrowSecondCommand));
+        assertFalse(borrowCommand1.equals(borrowCommand2));
     }
 }
