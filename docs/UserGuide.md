@@ -93,12 +93,12 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 * `PHONE_NUMBER`: The phone number of the library user.
-  * Has a minimum limit of 3 digits.
+  * Requires a minimum of 3 digits.
   * No maximum limit currently set on the phone number.
 
 
 * `EMAIL`: The email address of the library user.
-  * Valid as long as it follows the format of `local-part@domain
+  * Valid as long as it follows the format of `local-part@domain`.
   * `local-part` contains alphanumeric characters and some special characters such as `+`, `_`, `.` and `-`.
   * `local-part` may not start or end with any special characters.
   * `local-part` must be followed with an `@`.
@@ -119,9 +119,9 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 * `INDEX`: The number associated with the position of each library user in the current displayed Contact List.
-  * Assigned to library users based on the order added into the Contact List.
-  * Takes in a **positive integer** (e.g. 1, 2, 3, …​) up to the last `INDEX` in the Contact List.
-  * Can only take up to 2147483647. Refer here for more information.
+  * Assigned to library users based on the order added into the contact list.
+  * Takes in a **positive integer** (e.g. 1, 2, 3, …​) up to the last `INDEX` in the contact list.
+  * Can only take up to 2147483647.
 
 
 * `KEYWORD`: The part of the word you are searching for.
@@ -135,7 +135,7 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 * `THRESHOLD`: The merit score limit set for each library user.
   * Takes in integer values.
-  * Can only take in values from -2147483648 to 2147483647. Refer here for more information.
+  * Can only take in values from -2147483648 to 2147483647.
 
 
 <box type="info" seamless>
@@ -172,13 +172,21 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 </box>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/Kokoro Tsurumaki p/980101296 e/kokoro@bandori.com a/311, Hanasakigawa Ave 2, #08-08`
+
+
+![result for 'add Kokoro'](images/cmdimages/addKokoro.png)
+![result for 'add Kokoro result'](images/cmdimages/addresultKokoro.png)
 
 ### Listing all library users : `list`
 
 Displays a list of all library users in the contact list.
 
 Format: `list`
+
+
+![result for 'list'](images/cmdimages/list.png)
+![result for 'list result'](images/cmdimages/listresult.png)
 
 ### Editing a library user : `edit`
 
@@ -193,7 +201,16 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 * You can remove all the library user’s tags by typing `t/` without specifying any tags after it.
 
 Examples:
-*  `edit 2 n/Betsy Crower e/betsy@example.com t/` Edits the name and email address of the 2nd person to be `Betsy Crower` and `betsy@example.com`, simultaneously clears all existing tags.
+*  `edit 2 n/Mashiro Kurata` edits the name of the 2nd person to be `Mashiro Kurata`.
+
+
+    Before edit:
+![result for 'edit before'](images/cmdimages/editbeforeMashiro.png)
+
+
+    Edit:
+![result for 'edit'](images/cmdimages/editMashiro.png)
+![result for 'edit result'](images/cmdimages/editresultMashiro.png)
 
 ### Locating library users by name: `find`
 
@@ -209,8 +226,9 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
-* `find alex david` returns `Alex Yeoh`, `David Li`<br>
-  ![result for 'find alex david'](images/findJaneTanResult.png)
+* `find kokoro mashiro` returns `Kokoro Tsurumaki`, `Mashiro Kurata`
+  ![result for 'find'](images/cmdimages/find.png)
+  ![result for 'find result'](images/cmdimages/findresult.png)
 
 ### Deleting a library user : `delete`
 
@@ -228,7 +246,16 @@ Format: `delete INDEX`
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd user in the contact list.
-* `find Betsy` followed by `delete 1` deletes the 1st user in the results of the `find` command.
+* `find kokoro mashiro` followed by `delete 2` deletes the 2nd user in the results of the `find` command.
+
+
+    Before delete:
+![result for 'delete before'](images/cmdimages/deletebefore.png)
+
+
+    Delete:
+![result for 'delete'](images/cmdimages/delete.png)
+![result for 'delete result'](images/cmdimages/deleteresult.png)
 
 ### Add a book to Library : `addbook`
 
@@ -242,8 +269,8 @@ Examples:
 * `addbook b/Tales of Kokoro` will add a book titled "Tales of Kokoro" into the library.
 
 
-![result for 'addbook b/Tales of Kokoro'](images/cmdimages/addbook Tales of Kokoro.png)
-![result for 'addbook b/Tales of Kokoro'](images/cmdimages/addbook result Tales of Kokoro.png)
+![result for 'addbook b/Tales of Kokoro'](images/cmdimages/addbookTalesofKokoro.png)
+![result for 'addbook b/Tales of Kokoro'](images/cmdimages/addbookresultTalesofKokoro.png)
 
 ### Delete a book from Library : `delbook`
 
@@ -262,8 +289,8 @@ Examples:
 * `delbook b/Tales of Kokoro` will remove a book titled "Tales of Kokoro" from the library.
 
 
-![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbook Tales of Kokoro.png)
-![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbook result Tales of Kokoro.png)
+![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbookTalesofKokoro.png)
+![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbookresultTalesofKokoro.png)
 ### Borrowing a book: `borrow`
 
 Library user borrows a book. A book is removed from the library's book list and added to the library user's book list.
@@ -278,7 +305,7 @@ Examples:
 * `borrow 1 b/Tales of Kokoro` will record the user index 1 borrowing a book titled "Tales of Kokoro".
 
 
-![result for 'borrow b/Tales of Kokoro'](images/cmdimages/borrow Tales of Kokoro.png)
+![result for 'borrow b/Tales of Kokoro'](images/cmdimages/borrowTalesofKokoro.png)
 
 ### Returning a book : `return`
 
@@ -294,7 +321,7 @@ Examples:
 * `return 1 b/Tales of Kokoro` returns a book titled "Tales of Kokoro" from the user at index 1.<br>
 
 
-![result for 'return b/Tales of Kokoro'](images/cmdimages/return Tales of Kokoro.png)
+![result for 'return b/Tales of Kokoro'](images/cmdimages/returnTalesofKokoro.png)
 
 ### Donating a book : `donate`
 
@@ -312,7 +339,7 @@ Examples:
 * `donate 1 b/Tales of Kokoro` will record user index 1 donating a book titled "Tales of Kokoro".
 
 
-![result for 'donate b/Tales of Kokoro'](images/cmdimages/donate Tales of Kokoro.png)
+![result for 'donate b/Tales of Kokoro'](images/cmdimages/donateTalesofKokoro.png)
 
 ### Set the merit score threshold of the library: `limit`
 
@@ -329,13 +356,13 @@ Examples:
 * `limit` will display the current merit score limit.
 
 
-![result for 'limit'](images/cmdimages/limit result.png)
+![result for 'limit'](images/cmdimages/limitresult.png)
 
 
 * `limit -10` will set the merit score limit of the library to -10.
 
 
-![result for 'limit'](images/cmdimages/limit num result.png)
+![result for 'limit'](images/cmdimages/limitnumresult.png)
 
 ### Clearing all entries : `clear`
 
