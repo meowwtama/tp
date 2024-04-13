@@ -111,6 +111,35 @@ public class LibraryTest {
     }
 
     @Test
+    void popBookFromLibrary_nonExistingBook_success() {
+        Book book1 = new Book("Book 1");
+        Book book2 = new Book("Book 2");
+        Book book3 = new Book("Book 3");
+        library.addBook(book1);
+        library.addBook(book2);
+
+        Book poppedBook = library.popBookFromLibrary(book3);
+        assertEquals(2, library.getBookList().size());
+        assertEquals(null, poppedBook);
+    }
+
+    @Test
+    void toString_validLibrary_success() {
+        Book book1 = new Book("Book 1");
+        Book book2 = new Book("Book 2");
+        Book book3 = new Book("Book 3");
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        String expected = "1. Book 1\n"
+                + "2. Book 23. Book 3\n";
+        String result = library.toString();
+        assertEquals(3, library.getBookList().size());
+        assertEquals(result, expected);
+    }
+
+    @Test
     void resetData_validData_success() {
         Library library2 = new Library();
         library2.addBook(new Book("Book 1"));
