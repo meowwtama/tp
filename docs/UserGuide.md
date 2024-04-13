@@ -36,17 +36,6 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 6. Type the command into the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
-   Some example commands you can try:
-
-    * `list` : Lists all library users.
-
-    * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Contact List.
-
-    * `delete 1` : Deletes the 1st library user shown in the contact list.
-
-    * `clear` : Delete all library users from the contact list. (Does not clear library book list).
-
-    * `exit` : Exits the application.
 
 
 7. Refer to the [Features](#features) below for details of each command.
