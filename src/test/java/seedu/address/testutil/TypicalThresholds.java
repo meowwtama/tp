@@ -11,4 +11,6 @@ public class TypicalThresholds {
     public static final Threshold THRESHOLD_ONE = new Threshold(1);
     public static final Threshold THRESHOLD_MINUS_TWO = new Threshold(-2);
     public static final Threshold THRESHOLD_MINUS_FOUR = new Threshold(-4);
+
+    public static final Threshold THRESHOLD_MINUS_ONE_THOUSAND = new Threshold(-1000);
 }
