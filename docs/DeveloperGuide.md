@@ -198,7 +198,7 @@ These changes aim to regulate borrowing behavior, preventing excessive borrowing
 * It handles loading threshold and book data from a file into an ObservableList<Book> and Threshold object respectively.
 * It also saves threshold and book data from an ReadOnlyLibrary object (which is implemented by the Library class) to a file.
 
-These two classes work together to provide functionality for managing a library's collection of books, with `Library` handling operations directly related to book management and `LibraryStorage` handling file I/O operations. 
+These two classes work together to provide functionality for managing a library's collection of books, with `Library` handling operations directly related to book management and `LibraryStorage` handling file I/O operations.
 
 This separation of concerns helps in keeping the code modular and maintainable.
 
@@ -442,7 +442,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | library manager                                     | record the book title the library user has borrowed         | keep track of the books the borrower has borrowed                                |
 | `* *`    | library manager                                     | be able to decide the threshold merit score for the library | decide the limit of books to borrow to the users                                 |
 
-*{More to be added}* 
+*{More to be added}*
 
 ### Use cases
 
@@ -820,7 +820,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Donate**: An action where a person donates a book to the library.
 * **Merit Score**: A measurement of a person's credibility. Everyone starts from 0. Donating and returning books increases merit score, while borrowing books decreases merit score.
 * **Threshold**: A threshold for merit score. A library user must higher merit score than threshold in order to borrow books. Threshold can be set to the library by library manager anytime.
-* **Contact List**: The list where it stores all the library user's information, including personal information (e.g. name, phone number, etc.) , merit score and books he/she is borrowing. **Contact List** is also referred as **AddressBook** or **User List**. 
+* **Contact List**: The list where it stores all the library user's information, including personal information (e.g. name, phone number, etc.), merit score and books he/she is borrowing. **Contact List** is also referred as **AddressBook** or **User List**. 
 * **Available Books**: The books from the library which are available to be lent to library users at the moment. Sometimes, it is also referred as the **Library**.
 
 
@@ -896,16 +896,16 @@ testers are expected to do more *exploratory* testing.
 ### Borrow a book
 
 1. Borrowing a book which is available in the Library list.
-  1. Prerequisite: `BOOKTITLE` must match one of the books' `BOOKTITLE` in the library book list. 
+  1. Prerequisite: `BOOKTITLE` must match one of the books' `BOOKTITLE` in the library book list.
 
   1. Prerequisite: `BOOKTITLE` must not contain "b/" with leading white spaces (e.g. Please b/ careful).
 
   1. Test case: `borrow 1 b/Percy Jackson`<br>
      Expected: The book 'Percy Jackson' is removed from the libary booklist. The user's booklist will display the title 'Percy Jackson' to show user has successfully borrowed.
-  
+
   1. Test case: `borrow 1 b/`<br>
      Expected: No book is added to the user's book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
-  
+
   1. Other incorrect borrow commands to try: `borrow`, `borrow 1`, `...` (where x is larger than the list size)<br>
      Expected: No book is borrowed. Error details shown in the status message. Status bar remains the same.
 
@@ -918,9 +918,9 @@ testers are expected to do more *exploratory* testing.
 
   1. Test case: `return 1 b/Percy Jackson`<br>
      Expected: The book 'Percy Jackson' is removed from the user's booklist. The library booklist will display the title 'Percy Jackson' to show user has successfully returned.
-  
+
   1. Test case: `return 1 b/`<br>
      Expected: No book is added to the libary book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
-  
+
   1. Other incorrect return commands to try: `return`, `return 1`, `...` (where x is larger than the list size)<br>
      Expected: No book is returned. Error details shown in the status message. Status bar remains the same.
