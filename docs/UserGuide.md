@@ -1,7 +1,7 @@
 ---
-  layout: default.md
-  title: "User Guide"
-  pageNav: 3
+layout: default.md
+title: "User Guide"
+pageNav: 3
 ---
 
 # MyBookshelf User Guide
@@ -129,10 +129,14 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 </box>
 
+<box type="info" seamless>
+
 ### **Others:**<br>
 
 * This application is designed for use in **English**. We cannot guarantee the performance when used with other languages.
 * **Duplicated library users** are defined as library users with the same name (case-sensitive).<br> We currently do not allow duplicated library users to be added.
+
+</box>
 
 --------------------------------------------------------------------------------------------------------------------
 ### Viewing help : `help`
@@ -152,17 +156,17 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <box type="tip" seamless>
 
-> **Tip:** A user can have any number of tags (including 0).
+**Tip:** A user can have any number of tags (including 0).
 
 </box>
 
 <box type="note" seamless>
 
-> **Note:** User with name identical to another user is deemed as a duplicate (case-sensitive), even when other information is different.
+**Note:** User with name identical to another user is deemed as a duplicate (case-sensitive), even when other information is different.
 
 </box>
 
-Examples:
+Example:
 * `add n/Kokoro Tsurumaki p/980101296 e/kokoro@bandori.com a/311, Hanasakigawa Ave 2, #08-08`
 
 
@@ -195,15 +199,19 @@ Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 * When editing tags, the existing tags of the library user will be removed i.e adding of tags is not cumulative.
 * You can remove all the library user’s tags by typing `t/` without specifying any tags after it.
 
-Examples:
+Example:
 *  `edit 2 n/Mashiro Kurata` edits the name of the 2nd person to be `Mashiro Kurata`.
 
 
     Before edit:
+
+
 ![result for 'edit before'](images/cmdimages/editbeforeMashiro.png)
 
 
     Edit:
+
+
 ![result for 'edit'](images/cmdimages/editMashiro.png)
 
 
@@ -222,7 +230,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * All library users matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
-Examples:
+Example:
 * `find kokoro mashiro` returns `Kokoro Tsurumaki`, `Mashiro Kurata`
   ![result for 'find'](images/cmdimages/find.png)
 
@@ -240,7 +248,7 @@ Format: `delete INDEX`
 
 <box type="warning" seamless>
 
-> **Warning:** `delete` removes all the target user's data, including their merit score and borrowing book list.
+**Warning:** `delete` removes all the target user's data, including their merit score and borrowing book list.
 
 </box>
 
@@ -250,10 +258,14 @@ Examples:
 
 
     Before delete:
+
+
 ![result for 'delete before'](images/cmdimages/deletebefore.png)
 
 
     Delete:
+
+
 ![result for 'delete'](images/cmdimages/delete.png)
 
 
@@ -267,7 +279,7 @@ Format: `addbook b/BOOKTITLE`
 
 * Adds a book `BOOKTITLE` to the library and stores it.
 
-Examples:
+Example:
 * `addbook b/Tales of Kokoro` will add a book titled "Tales of Kokoro" into the library.
 
 
@@ -286,11 +298,11 @@ Format: `delbook b/BOOKTITLE`
 
 <box type="warning" seamless>
 
-> **Warning:** To avoid accidental deletion, `delbook` only removes the first book which matches `BOOKTITLE`, even there are multiple books with identical `BOOKTITLE`.
+**Warning:** To avoid accidental deletion, `delbook` only removes the first book which matches `BOOKTITLE`, even there are multiple books with identical `BOOKTITLE`.
 
 </box>
 
-Examples:
+Example:
 * `delbook b/Tales of Kokoro` will remove a book titled "Tales of Kokoro" from the library.
 
 
@@ -308,7 +320,7 @@ Format: `borrow INDEX b/BOOKTITLE`
 * This index refers to the index number associated with the target library user in the contact list.
 * Borrowing a book decreases the library user's merit score by 1.
 
-Examples:
+Example:
 * `borrow 1 b/Tales of Kokoro` will record the user index 1 borrowing a book titled "Tales of Kokoro".
 
 
@@ -324,7 +336,7 @@ Format: `return INDEX b/BOOKTITLE`
 * This index refers to the index number associated with the target library user in the contact list.
 * Returning a book increases the library user's merit score by 1.
 
-Examples:
+Example:
 * `return 1 b/Tales of Kokoro` returns a book titled "Tales of Kokoro" from the user at index 1.<br>
 
 
@@ -340,9 +352,13 @@ Format: `donate INDEX b/BOOKTITLE`
 * This index refers to the index number associated with the target library user in the contact list.
 * Donating a book increases the library user's merit score by 1.
 
-> **Note:** This differs from `addbook` as this command also increases the merit score of the associated library user.
+<box type="note" seamless>
 
-Examples:
+**Note:** This differs from `addbook` as this command also increases the merit score of the associated library user.
+
+</box>
+
+Example:
 * `donate 1 b/Tales of Kokoro` will record user index 1 donating a book titled "Tales of Kokoro".
 
 
@@ -377,8 +393,11 @@ Clears all entries of library users from the contact list.
 
 Format: `clear`
 
-> **Note:** `clear` only supports clearing all users in the contact list. To clear all books in the library, we can use `delbook` command to clear the books one by one.
+<box type="note" seamless>
 
+**Note:** `clear` only supports clearing all users in the contact list. To clear all books in the library, we can use `delbook` command to clear the books one by one.
+
+</box>
 
 ### Exiting the program : `exit`
 
@@ -415,11 +434,14 @@ Library book data in *MyBookshelf* is saved automatically as a .txt file at `[JA
 
 Experienced users are welcome to make changes to the data directly by editing these data files.
 
-> **Caution:**
+<box type="warning" seamless>
+
+**Caution:**
 If your changes to the data file makes its format invalid, MyBookshelf will discard all saved data and start with an empty data file at the next run. <br>
 Hence, it is recommended to have a backup of the file ready before editing it.<br>
 Furthermore, certain edits can cause the MyBookshelf to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 
+</box>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -514,7 +536,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 3. `Contact List:` Refers to the list of library users currently stored in the *MyBookshelf* application. It appears in the left column of the User Interface.
 
 
-4. `Library Book List:` Refers to the list of available `Book`(s) currently stored in the *MyBookshelf* application. It appears in the right column of the User Interface.
+4. `Library Book List:` Refers to the list of available `Book`(s) currently stored in the *MyBookshelf* application. It appears in the right column of the User Interface. Sometimes referred to as "available books" or simply "library".
 
 
 5. `Book:` Identified by its `BOOKTITLE`. Appears in both the `Library User`'s book list and the `Library Book List`.
