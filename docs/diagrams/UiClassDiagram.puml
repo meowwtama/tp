@@ -54,11 +54,12 @@ StatusBarFooter --|> UiPart
 HelpWindow --|> UiPart
 
 PersonCard ..> Model
+LibraryCard ..> Model
 UiManager -right-> Logic
 MainWindow -left-> Logic
 
-PersonListPanel -[hidden]left- HelpWindow
 LibraryListPanel -[hidden]left- HelpWindow
+PersonListPanel -[hidden]left- HelpWindow
 HelpWindow -[hidden]left- CommandBox
 CommandBox -[hidden]left- ResultDisplay
 ResultDisplay -[hidden]left- StatusBarFooter
