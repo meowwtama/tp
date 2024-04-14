@@ -485,15 +485,15 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. **ONLY** library users with a **Merit Score >= Threshold** are allowed to borrow books.
 1. Library users can borrow multiple books as long as their merit score is above the threshold.
 1. The default threshold is set at -3. Use the [`limit`](#set-the-merit-score-threshold-of-the-library--limit) command to set the threshold.
-1. [`edit`](#editing-a-library-user--edit) can only be used to change the library user's personal information. This includes their name, phone number, email address, home address and tags. (Not merit score and borrowing book list).
-1. [`add`](#adding-a-library-user--add) and [`edit`](#editing-a-library-user--edit) command **DOES NOT** support the direct adding and/or editing of merit score or user's book list.
+1. [`edit`](#editing-a-library-user--edit) can only be used to change the library user's personal information. This includes their name, phone number, email address, home address and tags. (Not merit score and borrowed book list).
+1. [`add`](#adding-a-library-user--add) and [`edit`](#editing-a-library-user--edit) command **DOES NOT** support the direct adding and/or editing of merit score or user's borrowed book list.
 1. [`add`](#adding-a-library-user--add), [`delete`](#deleting-a-library-user--delete), [`edit`](#editing-a-library-user--edit), [`clear`](#clearing-all-library-users--clear) and [`find`](#locating-library-users-by-name--find) commands are for managing users, while [`addbook`](#add-a-book-to-library--addbook), [`delbook`](#delete-a-book-from-library--delbook), [`borrow`](#borrowing-a-book--borrow), [`donate`](#donating-a-book--donate) and [`return`](#returning-a-book--return) commands are for managing books.
 1. The field `BOOKTITLE` is case-sensitive to allow books of similar titles to be differentiated.
 1. While there are no restrictions on `BOOKTITLE` (expect that it cannot be empty), we cannot guarantee the performance when books with titles in other languages are inserted.
 1. [`delbook`](#delete-a-book-from-library--delbook) deletes one book at a time to prevent accidental deletion of all entries with the same book title.
 1. We allow entries with the same email and phone number into the contact list as there may be cases where two users share the same contact details. An example would be when a child does not own a mobile phone nor has an email and has to share with his/her parent.
 1. Commands that modifies book lists will reference the book using their respective book titles instead of their indexes. This is because the [`findbook`](#introducing-the-findbook-command) command has not been implemented yet and would make indexing specific books in a large book list unfeasible.
-1. We allow [`delete`](#deleting-a-library-user--delete) to remove the library user's book list. This allows for more flexibility in managing the library. If books are returned, the library manager can use the [`return`](#returning-a-book--return) command to account for the books before deleting the person.
+1. We allow [`delete`](#deleting-a-library-user--delete) to remove the library user's borrowed book list. This allows for more flexibility in managing the library. If books are returned, the library manager can use the [`return`](#returning-a-book--return) command to account for the books before deleting the person.
 1. Do not use words that start with b/, a/ as part of booktitles and addressess respectively. Tip: If you have a word starting with b/ or a/, you can type a filler character before.
    E.g. addbook b/Book with .b/ in the title.
 
