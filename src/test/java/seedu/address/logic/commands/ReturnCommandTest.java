@@ -25,9 +25,11 @@ import seedu.address.model.library.Library;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
+
 public class ReturnCommandTest {
     private static final String BOOK_TITLE_STUB = "Book Stub";
     private static final String EMPTY_BOOK_STUB = "";
+
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalLibrary());
 
     @Test
