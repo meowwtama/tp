@@ -22,6 +22,8 @@ Class JsonAdaptedPerson
 Class JsonAdaptedTag
 }
 
+Class LibraryStorage
+
 }
 
 Class HiddenOutside #FFFFFF
@@ -30,6 +32,7 @@ HiddenOutside ..> Storage
 StorageManager .up.|> Storage
 StorageManager -up-> "1" UserPrefsStorage
 StorageManager -up-> "1" AddressBookStorage
+StorageManager -down-> "1" LibraryStorage
 
 Storage -left-|> UserPrefsStorage
 Storage -right-|> AddressBookStorage
