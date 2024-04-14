@@ -14,6 +14,8 @@
 ## **Acknowledgements**
 
 _{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+1. This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+1. Library storage was based on JinHan's IP (https://github.com/jinhanfromNUS/ip/).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -876,3 +878,49 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+### Donate a book
+
+1. Donate a book which is available in the Library list.
+  1. Prerequisite: `BOOKTITLE` must not contain 'b/' with leading white spaces (e.g. Please b/ careful).
+
+  1. Test case: `donate 1 b/Percy Jackson`<br>
+     Expected: The book 'Percy Jackson' is added to the libary booklist.
+  
+  1. Test case: `donate 1 b/`<br>
+     Expected: No book is added to the libary book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
+  
+  1. Other incorrect donate commands to try: `donate`, `donate 1`, `...` (where x is larger than the list size)<br>
+     Expected: No book is donated. Error details shown in the status message. Status bar remains the same.
+
+### Borrow a book
+
+1. Borrowing a book which is available in the Library list.
+  1. Prerequisite: `BOOKTITLE` must match one of the books' `BOOKTITLE` in the library book list. 
+
+  1. Prerequisite: `BOOKTITLE` must not contain "b/" with leading white spaces (e.g. Please b/ careful).
+
+  1. Test case: `borrow 1 b/Percy Jackson`<br>
+     Expected: The book 'Percy Jackson' is removed from the libary booklist. The user's booklist will display the title 'Percy Jackson' to show user has successfully borrowed.
+  
+  1. Test case: `borrow 1 b/`<br>
+     Expected: No book is added to the user's book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
+  
+  1. Other incorrect borrow commands to try: `borrow`, `borrow 1`, `...` (where x is larger than the list size)<br>
+     Expected: No book is borrowed. Error details shown in the status message. Status bar remains the same.
+
+### Return a book
+
+1. Returning a book which is available in the Library list.
+  1. Prerequisite: Ensure that there exists at least one book in the user's booklist with the book title you wish to return.
+
+  1. Prerequisite: `BOOKTITLE` must not contain "b/" with leading white spaces (e.g. Please b/ careful).
+
+  1. Test case: `return 1 b/Percy Jackson`<br>
+     Expected: The book 'Percy Jackson' is removed from the user's booklist. The library booklist will display the title 'Percy Jackson' to show user has successfully returned.
+  
+  1. Test case: `return 1 b/`<br>
+     Expected: No book is added to the libary book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
+  
+  1. Other incorrect return commands to try: `return`, `return 1`, `...` (where x is larger than the list size)<br>
+     Expected: No book is returned. Error details shown in the status message. Status bar remains the same.
