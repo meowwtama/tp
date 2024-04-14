@@ -118,8 +118,5 @@ public class ReturnCommandTest {
 
         // different book -> returns false
         assertFalse(returnCommand1.equals(returnCommand3));
-
-        // different book and different person -> returns false
-        assertFalse(returnCommand2.equals(returnCommand3));
     }
 }

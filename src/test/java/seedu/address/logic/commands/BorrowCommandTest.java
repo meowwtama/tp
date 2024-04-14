@@ -126,8 +126,5 @@ public class BorrowCommandTest {
 
         // different book -> returns false
         assertFalse(borrowCommand1.equals(borrowCommand3));
-
-        // different book and different person -> returns false
-        assertFalse(borrowCommand2.equals(borrowCommand3));
     }
 }

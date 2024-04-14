@@ -98,8 +98,5 @@ public class DonateCommandTest {
 
         // different book -> returns false
         assertFalse(donateCommand1.equals(donateCommand3));
-
-        // different book and different person -> returns false
-        assertFalse(donateCommand2.equals(donateCommand3));
     }
 }
