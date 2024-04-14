@@ -66,8 +66,10 @@ public class DeleteBookCommandTest {
     public void equals() {
         Book bookStub1 = BOOK_IN_LIBRARY;
         Book bookStub2 = GUMIHO;
+        Book emptyBookStub = new Book(EMPTY_BOOK_STUB);
         DeleteBookCommand deleteBookCommand1 = new DeleteBookCommand(bookStub1);
         DeleteBookCommand deleteBookCommand2 = new DeleteBookCommand(bookStub2);
+        DeleteBookCommand deleteBookCommand3 = new DeleteBookCommand(emptyBookStub);
 
         // same object -> returns true
         assertTrue(deleteBookCommand1.equals(deleteBookCommand1));
@@ -82,7 +84,10 @@ public class DeleteBookCommandTest {
         // null -> returns false
         assertFalse(deleteBookCommand1.equals(null));
 
-        // different person -> returns false
+        // different book -> returns false
         assertFalse(deleteBookCommand1.equals(deleteBookCommand2));
+
+        // empty book -> returns false
+        assertFalse(deleteBookCommand1.equals(deleteBookCommand3));
     }
 }

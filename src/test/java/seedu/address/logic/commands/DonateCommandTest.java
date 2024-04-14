@@ -25,25 +25,29 @@ import seedu.address.model.library.Library;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
 
+
 public class DonateCommandTest {
-    private static final int MERIT_SCORE_STUB = 2;
-    private static final String BOOK_TITLE_STUB = "Some book";
+    private static final String BOOK_TITLE_STUB = "Book Stub";
     private static final String EMPTY_BOOK_STUB = "";
+
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalLibrary());
 
     @Test
-    public void execute_returnUnfilteredList_success() {
-        Person editedPerson = new PersonBuilder(KEPLER).withMeritScore(MERIT_SCORE_STUB).build();
+    public void execute_donateUnfilteredList_success() {
+        Book bookObjectStub = new Book(BOOK_TITLE_STUB);
+        Person modelPerson = model.getFilteredPersonList().get(INDEX_KEPLER.getZeroBased());
+        int afterDonateMeritScore = modelPerson.getMeritScore().getMeritScoreInt() + 1;
+        Person afterDonatePerson = new PersonBuilder(KEPLER).withMeritScore(afterDonateMeritScore).build();
 
         DonateCommand donateCommand = new DonateCommand(INDEX_KEPLER, new Book(BOOK_TITLE_STUB));
 
-        String expectedMessage = String.format(DonateCommand.MESSAGE_DONATE_SUCCESS,
-                editedPerson, new Book(BOOK_TITLE_STUB));
-
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs(),
                 new Library(model.getLibrary().getBookList()));
-        expectedModel.setPerson(KEPLER, editedPerson);
+        expectedModel.setPerson(KEPLER, afterDonatePerson);
         expectedModel.addBook(new Book(BOOK_TITLE_STUB));
+
+        String expectedMessage = String.format(DonateCommand.MESSAGE_DONATE_SUCCESS, afterDonatePerson, bookObjectStub);
+
         assertCommandSuccess(donateCommand, model, expectedMessage, expectedModel);
     }
 
@@ -64,6 +68,7 @@ public class DonateCommandTest {
     @Test
     public void empty_bookTitle_failure() {
         DonateCommand donateCommand = new DonateCommand(INDEX_KEPLER, new Book(EMPTY_BOOK_STUB));
+
         String expectedMessage = Messages.MESSAGE_EMPTY_BOOK_INPUT_FIELD;
 
         assertCommandFailure(donateCommand, model, expectedMessage);
@@ -71,27 +76,27 @@ public class DonateCommandTest {
 
     @Test
     public void equals() {
-        DonateCommand firstDonateCommand = new DonateCommand(INDEX_SECOND_PERSON, new Book(EMPTY_BOOK_STUB));
-        DonateCommand secondDonateCommand = new DonateCommand(INDEX_THIRD_PERSON, new Book(EMPTY_BOOK_STUB));
-        DonateCommand thirdDonateCommand = new DonateCommand(INDEX_SECOND_PERSON, new Book(BOOK_TITLE_STUB));
+        DonateCommand donateCommand1 = new DonateCommand(INDEX_SECOND_PERSON, new Book(EMPTY_BOOK_STUB));
+        DonateCommand donateCommand2 = new DonateCommand(INDEX_THIRD_PERSON, new Book(EMPTY_BOOK_STUB));
+        DonateCommand donateCommand3 = new DonateCommand(INDEX_SECOND_PERSON, new Book(BOOK_TITLE_STUB));
 
         // same object -> returns true
-        assertTrue(firstDonateCommand.equals(firstDonateCommand));
+        assertTrue(donateCommand1.equals(donateCommand1));
 
         // same values -> returns true
         DonateCommand firstDonateCommandCopy = new DonateCommand(INDEX_SECOND_PERSON, new Book(EMPTY_BOOK_STUB));
-        assertTrue(firstDonateCommand.equals(firstDonateCommandCopy));
+        assertTrue(donateCommand1.equals(firstDonateCommandCopy));
 
         // different types -> returns false
-        assertFalse(firstDonateCommand.equals(true));
+        assertFalse(donateCommand1.equals(true));
 
         // null -> returns false
-        assertFalse(firstDonateCommand.equals(null));
+        assertFalse(donateCommand1.equals(null));
 
         // different person -> returns false
-        assertFalse(firstDonateCommand.equals(secondDonateCommand));
+        assertFalse(donateCommand1.equals(donateCommand2));
 
         // different book -> returns false
-        assertFalse(firstDonateCommand.equals(thirdDonateCommand));
+        assertFalse(donateCommand1.equals(donateCommand3));
     }
 }
