@@ -167,6 +167,8 @@ Examples:
 
 
 ![result for 'add Kokoro'](images/cmdimages/addKokoro.png)
+
+
 ![result for 'add Kokoro result'](images/cmdimages/addresultKokoro.png)
 
 ### Listing all library users : `list`
@@ -177,6 +179,8 @@ Format: `list`
 
 
 ![result for 'list'](images/cmdimages/list.png)
+
+
 ![result for 'list result'](images/cmdimages/listresult.png)
 
 ### Editing a library user : `edit`
@@ -201,6 +205,8 @@ Examples:
 
     Edit:
 ![result for 'edit'](images/cmdimages/editMashiro.png)
+
+
 ![result for 'edit result'](images/cmdimages/editresultMashiro.png)
 
 ### Locating library users by name: `find`
@@ -219,6 +225,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find kokoro mashiro` returns `Kokoro Tsurumaki`, `Mashiro Kurata`
   ![result for 'find'](images/cmdimages/find.png)
+
+
   ![result for 'find result'](images/cmdimages/findresult.png)
 
 ### Deleting a library user : `delete`
@@ -247,6 +255,8 @@ Examples:
 
     Delete:
 ![result for 'delete'](images/cmdimages/delete.png)
+
+
 ![result for 'delete result'](images/cmdimages/deleteresult.png)
 
 ### Add a book to Library : `addbook`
@@ -262,6 +272,8 @@ Examples:
 
 
 ![result for 'addbook b/Tales of Kokoro'](images/cmdimages/addbookTalesofKokoro.png)
+
+
 ![result for 'addbook b/Tales of Kokoro'](images/cmdimages/addbookresultTalesofKokoro.png)
 
 ### Delete a book from Library : `delbook`
@@ -283,6 +295,8 @@ Examples:
 
 
 ![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbookTalesofKokoro.png)
+
+
 ![result for 'delbook b/Tales of Kokoro'](images/cmdimages/delbookresultTalesofKokoro.png)
 ### Borrowing a book: `borrow`
 
@@ -409,7 +423,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Note
+## Things to Note
 
 1. Every library user starts with a default merit score of 0.
 1. **ONLY** library users with a **Merit Score >= Threshold** are allowed to borrow books.
@@ -424,7 +438,8 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. We allow entries with the same email and phone number into the contact list as there may be cases where two users share the same contact details. An example would be when a child does not own a mobile phone nor has an email and has to share with his/her parent.
 1. Commands that modifies book lists will reference the book using their respective book titles instead of their indexes. This is because the `findbook` command has not been implemented yet and would make indexing specific books in a large book list unfeasible.
 1. We allow `delete` to remove the library user's book list. This allows for more flexibility in managing the library. If books are returned, the library manager can use the `return` command to account for the books before deleting the person.
-
+1. Do not use words that start with b/, a/ as part of booktitles and addressess respectively. Tip: If you have a word starting with b/ or a/, you can type a filler character before. 
+   E.g. addbook b/Book with .b/ in the title.
 
 --------------------------------------------------------------------------------------------------------------------
 
