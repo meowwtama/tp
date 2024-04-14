@@ -32,13 +32,47 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 5. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
-   ![Ui](images/Ui.png)
+
+
+   ![Ui](images/cmdimages/UG_UI_image.jpg)
 
 
 6. Type the command into the command box and press Enter to execute it. e.g. typing [**`help`**](#viewing-help--help) and pressing Enter will open the help window.<br>
 
 
 7. You can refer to [Glossary](#glossary) for the definition of some words used and [Command Summary](#command-summary) for a quick overview of the commands. Refer to the [Features](#features) below for more details of each command.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## A Quick Walkthrough of MyBookshelf
+
+
+### Overview:
+![result for 'Ui_Annotated'](images/cmdimages/Ui_Annotated.png)
+
+
+1. **Taskbar:** Where library managers can access the `File` and `Help` tabs.
+2. **Command Box:** Where library managers can type in their commands into *MyBookshelf*.
+3. **Result Box:** This is where *MyBookshelf* returns the relevant output to the commands received.
+4. **Contact List:** Contains the list of **Library User Information**.
+5. **Library User Information:** This is where the particulars of individual library users are displayed at. More details to follow in the next part.
+6. **Library:** Contains the list of **Books** currently available in the library.
+7. **Books:** Identified by their titles, this is where each book in the library is displayed.
+
+
+### Library User Information:
+![result for 'Contact_List_Annotated'](images/cmdimages/Contact_List_Annotated.png)
+
+
+1. **Name:** The name of the library user.
+2. **Index:** The sorted position of the library user in the contact list.
+3. **Merit Score:** The merit score associated with the library user. This term is defined below at the *Glossary* section.
+4. **Tags:** Tags associated with the library user.
+5. **Phone Number:** The phone number of the library user.
+6. **Address:** The home address of the library user.
+7. **Email:** The email address of the library user.
+8. **User's Borrowed Books:** The list of books that the library user is currently borrowing from the library.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -458,9 +492,9 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 1. While there are no restrictions on `BOOKTITLE` (expect that it cannot be empty), we cannot guarantee the performance when books with titles in other languages are inserted.
 1. [`delbook`](#delete-a-book-from-library--delbook) deletes one book at a time to prevent accidental deletion of all entries with the same book title.
 1. We allow entries with the same email and phone number into the contact list as there may be cases where two users share the same contact details. An example would be when a child does not own a mobile phone nor has an email and has to share with his/her parent.
-1. Commands that modifies book lists will reference the book using their respective book titles instead of their indexes. This is because the `findbook` command has not been implemented yet and would make indexing specific books in a large book list unfeasible.
-1. We allow [`delete`](#deleting-a-library-user--delete) to remove the library user's book list. This allows for more flexibility in managing the library. If books are returned, the library manager can use the `return` command to account for the books before deleting the person.
-1. Do not use words that start with b/, a/ as part of booktitles and addressess respectively. Tip: If you have a word starting with b/ or a/, you can type a filler character before. 
+1. Commands that modifies book lists will reference the book using their respective book titles instead of their indexes. This is because the [`findbook`](#introducing-the-findbook-command) command has not been implemented yet and would make indexing specific books in a large book list unfeasible.
+1. We allow [`delete`](#deleting-a-library-user--delete) to remove the library user's book list. This allows for more flexibility in managing the library. If books are returned, the library manager can use the [`return`](#returning-a-book--return) command to account for the books before deleting the person.
+1. Do not use words that start with b/, a/ as part of booktitles and addressess respectively. Tip: If you have a word starting with b/ or a/, you can type a filler character before.
    E.g. addbook b/Book with .b/ in the title.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -506,8 +540,8 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 5. Duplicated library users can be added with the same name but different capitalisation, due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 6. All parameters except `INDEX` and `THRESHOLD` do not have a limit to the number of characters. Refer to the Developer Guide for more information.
 7. The [`clear`](#clearing-all-library-users--clear) command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the **Future Features** section above for more information.
-8. UI may not display special characters as intended. 
-9. Some languages may cause the UI to display unexpectedly. For example, Arabic characters will cause the text starts from right to left.
+8. UI may not display special characters as intended.
+9. Some languages may cause the UI to display unexpectedly. For example, Arabic characters will cause the number next to book titles to appear from right to left.
 
 --------------------------------------------------------------------------------------------------------------------
 
