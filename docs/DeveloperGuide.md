@@ -820,8 +820,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Donate**: An action where a person donates a book to the library.
 * **Merit Score**: A measurement of a person's credibility. Everyone starts from 0. Donating and returning books increases merit score, while borrowing books decreases merit score.
 * **Threshold**: A threshold for merit score. A library user must higher merit score than threshold in order to borrow books. Threshold can be set to the library by library manager anytime.
-* **Contact List**: The list where it stores all the library user's information, including personal information (e.g. name, phone number, etc.), merit score and books he/she is borrowing. **Contact List** is also referred as **AddressBook** or **User List**. 
-* **Available Books**: The books from the library which are available to be lent to library users at the moment. Sometimes, it is also referred as the **Library**.
+* **Contact List**: Refers to the list of library users currently stored in the *MyBookshelf* application. It appears in the left column of the User Interface.
+* **Library Book List**: Refers to the list of available `Book`(s) currently stored in the *MyBookshelf* application. It appears in the right column of the User Interface. Sometimes referred as "library" or "available books".
 
 
 --------------------------------------------------------------------------------------------------------------------
