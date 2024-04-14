@@ -490,7 +490,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 
 ## Glossary
 
-1. `Library User:` The people that are saved into the Contact List of *MyBookshelf*. Sometimes referred to as "borrower".
+1. `Library User:` The people that are saved into the contact list of *MyBookshelf*. Sometimes referred to as "borrowers".
 
 
 2. `Library Manager:` Community Library Managers (CLM) are the people using the MyBookshelf application. CLMs are responsible for adding, storing, and updating the entire library database via *MyBookshelf*.
