@@ -154,13 +154,13 @@ public class JsonAdaptedPersonTest {
 
     @Test
     public void toModelType_nullBookList_returnsPerson() throws Exception {
-        Person BensonWithNoBook = new Person(BENSON.getName(), BENSON.getPhone(), BENSON.getEmail(),
+        Person bensonWithNoBook = new Person(BENSON.getName(), BENSON.getPhone(), BENSON.getEmail(),
                 BENSON.getAddress(), BENSON.getMeritScore(), new ArrayList<>(), BENSON.getTags());
         JsonAdaptedPerson person =
                 new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_MERIT_SCORE,
                         null, VALID_TAGS);
 
-        assertEquals(BensonWithNoBook, person.toModelType());
+        assertEquals(bensonWithNoBook, person.toModelType());
     }
 
     @Test
