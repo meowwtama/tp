@@ -73,9 +73,8 @@ public class DeleteBookCommandTest {
         assertTrue(deleteBookCommand1.equals(deleteBookCommand1));
 
         // same values -> returns true
-        // For some reason, this does not pass
-        // DeleteBookCommand deleteBookCommand1Copy = new DeleteBookCommand(bookStub1);
-        // assertTrue(deleteBookCommand1.equals(deleteBookCommand1Copy));
+        DeleteBookCommand deleteBookCommand1Copy = new DeleteBookCommand(bookStub1);
+        assertTrue(deleteBookCommand1.equals(deleteBookCommand1Copy));
 
         // different types -> returns false
         assertFalse(deleteBookCommand1.equals(1));
