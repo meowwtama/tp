@@ -32,13 +32,47 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 
 5. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
-   ![Ui](images/Ui.png)
+
+
+   ![Ui](images/cmdimages/UG_UI_image.jpg)
 
 
 6. Type the command into the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
 
 
 7. Refer to the [Features](#features) below for details of each command.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## A Quick Walkthrough of MyBookshelf
+
+
+### Overview:
+![result for 'Ui_Annotated'](images/cmdimages/Ui_Annotated.png)
+
+
+1. **Taskbar:** Where library managers can access the `File` and `Help` tabs.
+2. **Command Box:** Where library managers can type in their commands into *MyBookshelf*.
+3. **Result Box:** This is where *MyBookshelf* returns the relevant output to the commands received.
+4. **Contact List:** Contains the list of **Library User Information**.
+5. **Library User Information:** This is where the particulars of individual library users are displayed at. More details to follow in the next part.
+6. **Library:** Contains the list of **Books** currently available in the library.
+7. **Books:** Identified by their titles, this is where each book in the library is displayed.
+
+
+### Library User Information:
+![result for 'Contact_List_Annotated'](images/cmdimages/Contact_List_Annotated.png)
+
+
+1. **Name:** The name of the library user.
+2. **Index:** The sorted position of the library user in the contact list.
+3. **Merit Score:** The merit score associated with the library user. This term is defined below at the *Glossary* section.
+4. **Tags:** Tags associated with the library user.
+5. **Phone Number:** The phone number of the library user.
+6. **Address:** The home address of the library user.
+7. **Email:** The email address of the library user.
+8. **User's Borrowed Books:** The list of books that the library user is currently borrowing from the library.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
