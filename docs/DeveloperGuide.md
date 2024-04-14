@@ -14,6 +14,8 @@
 ## **Acknowledgements**
 
 _{ list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well }_
+1. This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+1. Library storage was based on JinHan's IP (https://github.com/jinhanfromNUS/ip/).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -196,7 +198,7 @@ These changes aim to regulate borrowing behavior, preventing excessive borrowing
 * It handles loading threshold and book data from a file into an ObservableList<Book> and Threshold object respectively.
 * It also saves threshold and book data from an ReadOnlyLibrary object (which is implemented by the Library class) to a file.
 
-These two classes work together to provide functionality for managing a library's collection of books, with `Library` handling operations directly related to book management and `LibraryStorage` handling file I/O operations. 
+These two classes work together to provide functionality for managing a library's collection of books, with `Library` handling operations directly related to book management and `LibraryStorage` handling file I/O operations.
 
 This separation of concerns helps in keeping the code modular and maintainable.
 
@@ -440,7 +442,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | library manager                                     | record the book title the library user has borrowed         | keep track of the books the borrower has borrowed                                |
 | `* *`    | library manager                                     | be able to decide the threshold merit score for the library | decide the limit of books to borrow to the users                                 |
 
-*{More to be added}* 
+*{More to be added}*
 
 ### Use cases
 
@@ -810,7 +812,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS.
 * **Library Manager**: Community Library Managers (CLM) are the people using the MyBookshelf application. CLMs are responsible for adding, storing, and updating the entire library database via *MyBookshelf*.
-* **Library User**: The people that are saved into the Contact List of *MyBookshelf*. Sometimes referred as to "borrower".
+* **Library User**: The people that are saved into the Contact List of *MyBookshelf*. Sometimes referred as to "borrowers".
 * **Personal Information**: Personal Information of a library user, e.g. name, phone number, email, address and tags, but not borrowed books and merit score.
 * **Book**: Identified by its `BOOKTITLE`. Appears in both the `Library User`'s book list and the `Library Book List`.
 * **Borrow**: An action where a library user borrows a book from the library.
@@ -942,44 +944,90 @@ testers are expected to do more *exploratory* testing.
       1. Test case: `limit -3` (Provided the original `THRESHOLD` is identical with the `THRESHOLD` we want to change)<br>
          Expected: `THRESHOLD` remains the same.
 
+### Donate a book
+
+1. Donate a book which is available in the Library list.
+  1. Prerequisite: `BOOKTITLE` must not contain 'b/' with leading white spaces (e.g. Please b/ careful).
+
+  1. Test case: `donate 1 b/Percy Jackson`<br>
+     Expected: The book 'Percy Jackson' is added to the libary booklist.
+  
+  1. Test case: `donate 1 b/`<br>
+     Expected: No book is added to the libary book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
+  
+  1. Other incorrect donate commands to try: `donate`, `donate 1`, `...` (where x is larger than the list size)<br>
+     Expected: No book is donated. Error details shown in the status message. Status bar remains the same.
+
+### Borrow a book
+
+1. Borrowing a book which is available in the Library list.
+  1. Prerequisite: `BOOKTITLE` must match one of the books' `BOOKTITLE` in the library book list.
+
+  1. Prerequisite: `BOOKTITLE` must not contain "b/" with leading white spaces (e.g. Please b/ careful).
+
+  1. Test case: `borrow 1 b/Percy Jackson`<br>
+     Expected: The book 'Percy Jackson' is removed from the libary booklist. The user's booklist will display the title 'Percy Jackson' to show user has successfully borrowed.
+
+  1. Test case: `borrow 1 b/`<br>
+     Expected: No book is added to the user's book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
+
+  1. Other incorrect borrow commands to try: `borrow`, `borrow 1`, `...` (where x is larger than the list size)<br>
+     Expected: No book is borrowed. Error details shown in the status message. Status bar remains the same.
+
+### Return a book
+
+1. Returning a book which is available in the Library list.
+  1. Prerequisite: Ensure that there exists at least one book in the user's booklist with the book title you wish to return.
+
+  1. Prerequisite: `BOOKTITLE` must not contain "b/" with leading white spaces (e.g. Please b/ careful).
+
+  1. Test case: `return 1 b/Percy Jackson`<br>
+     Expected: The book 'Percy Jackson' is removed from the user's booklist. The library booklist will display the title 'Percy Jackson' to show user has successfully returned.
+
+  1. Test case: `return 1 b/`<br>
+     Expected: No book is added to the libary book list as `BOOKLIST` cannot be empty. Error details shown in the status message. Status bar remains the same.
+
+  1. Other incorrect return commands to try: `return`, `return 1`, `...` (where x is larger than the list size)<br>
+     Expected: No book is returned. Error details shown in the status message. Status bar remains the same.
+
 ### Saving data
 
 1. Saving library user's data
 
-   1. Prerequisites: The data file exists and is located at data/addressbook.json. Data in data file is valid.
-   
-   1. MyBookshelf will automatically save the newest information upon any successful commands.
+    1. Prerequisites: The data file exists and is located at data/addressbook.json. Data in data file is valid.
+
+    1. MyBookshelf will automatically save the newest information upon any successful commands.
 
 1. Saving library book list's data
 
-   1. Prerequisites: The data file exists and is located at data/library.txt. Data in data file is valid.
+    1. Prerequisites: The data file exists and is located at data/library.txt. Data in data file is valid.
 
-   1. MyBookshelf will automatically save the newest information upon any successful commands.
+    1. MyBookshelf will automatically save the newest information upon any successful commands.
 
 1. Dealing with missing/corrupted library user's data files
 
-   1. MyBookshelf is unable to find specific file located at data/addressbook.json.
-   
-   1. MyBookshelf creates a new empty file located at data/addressbook.json.
-   
-   1. MyBookshelf loads the empty addressbook.json file.
+    1. MyBookshelf is unable to find specific file located at data/addressbook.json.
+
+    1. MyBookshelf creates a new empty file located at data/addressbook.json.
+
+    1. MyBookshelf loads the empty addressbook.json file.
 
 1. Dealing with missing library book list's data files
 
-   1. MyBookshelf is unable to find specific file located at data/library.txt.
+    1. MyBookshelf is unable to find specific file located at data/library.txt.
 
-   1. MyBookshelf creates a new empty file located at data/library.txt.
+    1. MyBookshelf creates a new empty file located at data/library.txt.
 
-   1. MyBookshelf will load the empty data/library.txt file.
+    1. MyBookshelf will load the empty data/library.txt file.
 
 1. Dealing with corrupted library book list's data files
 
-   1. Prerequisites: The data file exists and is located at data/library.txt.
-   
-   1. MyBookshelf loads data from data/library.txt.
+    1. Prerequisites: The data file exists and is located at data/library.txt.
 
-   1. MyBookshelf notices an error while reading a specific data in data/library.txt.
+    1. MyBookshelf loads data from data/library.txt.
 
-   1. MyBookshelf discards the specific data.
-   
-   1. MyBookshelf continues to load data from data/library.txt.
+    1. MyBookshelf notices an error while reading a specific data in data/library.txt.
+
+    1. MyBookshelf discards the specific data.
+
+    1. MyBookshelf continues to load data from data/library.txt.
