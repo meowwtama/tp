@@ -810,7 +810,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS.
 * **Library Manager**: Community Library Managers (CLM) are the people using the MyBookshelf application. CLMs are responsible for adding, storing, and updating the entire library database via *MyBookshelf*.
-* **Library User**: The people that are saved into the Contact List of *MyBookshelf*. Sometimes referred as to "borrower".
+* **Library User**: The people that are saved into the Contact List of *MyBookshelf*. Sometimes referred as to "borrowers".
 * **Personal Information**: Personal Information of a library user, e.g. name, phone number, email, address and tags, but not borrowed books and merit score.
 * **Book**: Identified by its `BOOKTITLE`. Appears in both the `Library User`'s book list and the `Library Book List`.
 * **Borrow**: An action where a library user borrows a book from the library.
