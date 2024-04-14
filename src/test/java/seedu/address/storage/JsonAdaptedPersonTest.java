@@ -1,9 +1,10 @@
-/*package seedu.address.storage;
+package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.storage.JsonAdaptedPerson.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.BENSON;
+import static seedu.address.testutil.TypicalPersons.BOB;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +19,7 @@ import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.MeritScore;
 import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
 
 public class JsonAdaptedPersonTest {
@@ -27,7 +29,7 @@ public class JsonAdaptedPersonTest {
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_MERIT_SCORE = "abc";
     private static final ArrayList<JsonAdaptedBook> INVALID_BOOK_LIST =
-            new ArrayList<>(Arrays.asList(new Book(" title")))
+            new ArrayList<>(Arrays.asList("  title  "))
                     .stream()
                     .map(JsonAdaptedBook::new)
                     .collect(Collectors.toCollection(ArrayList::new));;
@@ -152,12 +154,14 @@ public class JsonAdaptedPersonTest {
     }
 
     @Test
-    public void toModelType_nullBookList_throwsIllegalValueException() {
+    public void toModelType_nullBookList_returnsPerson() throws Exception {
+        Person BensonWithNoBook = new Person(BENSON.getName(), BENSON.getPhone(), BENSON.getEmail(),
+                BENSON.getAddress(), BENSON.getMeritScore(), new ArrayList<>(), BENSON.getTags());
         JsonAdaptedPerson person =
                 new JsonAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_MERIT_SCORE,
                         null, VALID_TAGS);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Book.class.getSimpleName());
-        assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
+
+        assertEquals(BensonWithNoBook, person.toModelType());
     }
 
     @Test
@@ -170,4 +174,4 @@ public class JsonAdaptedPersonTest {
         assertThrows(IllegalValueException.class, person::toModelType);
     }
 
-}*/
+}
