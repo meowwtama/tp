@@ -539,7 +539,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 4. There can be different individuals with the same name, but our current implementation does not support this due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 5. Duplicated library users can be added with the same name but different capitalisation, due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 6. All parameters except `INDEX` and `THRESHOLD` do not have a limit to the number of characters. Refer to the Developer Guide for more information.
-7. The [`clear`](#clearing-all-library-users--clear) command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the **Future Features** section above for more information.
+7. The [`clear`](#clearing-all-library-users--clear) command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the [Future Features](#future-features) section above for more information.
 8. UI may not display special characters as intended.
 9. Some languages may cause the UI to display unexpectedly. For example, Arabic characters will cause the number next to book titles to appear from right to left.
 
