@@ -9,7 +9,6 @@ import javafx.collections.ObservableList;
 import seedu.address.model.ReadOnlyLibrary;
 import seedu.address.model.book.Book;
 import seedu.address.model.person.Person;
-import seedu.address.storage.LibraryStorage;
 
 /**
  * Represents a collection of books in a library.
