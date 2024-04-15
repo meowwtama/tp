@@ -235,8 +235,6 @@ This separation of concerns helps in keeping the code modular and maintainable.
 * `Book` operations on the book list in a library
 * Checks for if library users can borrow books in a library
 
-[Link to updated Model UML Class diagram]
-
 ### Limit Command and Threshold feature
 
 This command is facilitated through the use of `Threshold` as an attribute in the `Library` class.
@@ -896,7 +894,7 @@ testers are expected to do more *exploratory* testing.
    1. Expected: The app window closes.
 
 
-> **Note:** The following sections assume that you are using the sample data populated with the initial start-up.
+> **Warning:** The following sections assume that you are using the sample data populated with the initial start-up. Follow the steps in order for the desired results.
 
 
 ### Deleting a library user
