@@ -28,7 +28,6 @@ public class Library implements ReadOnlyLibrary {
 
     private ObservableList<Book> bookList;
     private Threshold threshold;
-    private LibraryStorage libraryLogic;
 
     /**
      * Construct an empty library.
@@ -36,7 +35,6 @@ public class Library implements ReadOnlyLibrary {
     public Library() {
         bookList = FXCollections.observableArrayList();
         threshold = new Threshold();
-        libraryLogic = new LibraryStorage();
     }
 
     /**
