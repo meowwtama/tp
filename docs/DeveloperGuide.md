@@ -416,11 +416,14 @@ _{more aspects and alternatives to be added}_
    * Allows for `NAME` to be case-insensitive (John Doe and john doe are the same person).
    * Allows for library users with the same name to exist (John Doe with phone number 123 is different from John Doe with phone number 911).
    * Can throw warnings if `NAME` differs by only by whitespaces (John Doe and John   Doe are similar and could be duplicates).
-1. Add labels under each library user in the Contact List panel in the UI
+1. Add labels under each library user in the Contact List panel in the UI.
    * Label each field to allow for easier readability, especially between email and address (e.g. e: example@email.com, a: Kent Ridge View).
 1. Improve code architecture.
    * Currently, there is a separate `LibraryStorage` class outside of `StorageManager` class that handles the data for the `Library`.
    * Can extract methods from `LibraryStorage` to inside `StorageManager` to be more consistent with the code architecture.
+1. Fix grammar errors in messages.
+   * Error message when library user cannot borrow due to insufficient `MeritScore` has an extra `'s` in the word `User's`.
+   * Many messages do not end with period.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -885,7 +888,7 @@ testers are expected to do more *exploratory* testing.
    1. Navigate to the top right corner of MyBookshelf.
    1. Click the close button.
    1. Expected: The app window closes.
-   
+
 
 5. Exiting the app by clicking the `Exit` button in `File` tab
    1. Navigate to the top left corner of MyBookshelf.
