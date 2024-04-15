@@ -132,12 +132,24 @@ The `Model` component,
 * stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
 * stores the currently 'selected' `Person` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` object.
-* stores a `Library` object that represents the library data i.e. `Threshold` and all `Book` objects. This is exposed to the outside as a `ReadOnlyLibrary` object. The books are exposed to outsiders as an unmodifiable `ObservableList<Book>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores a `Library` object that represents the library data. This is exposed to the outside as a `ReadOnlyLibrary` object.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+
+<puml src="diagrams/PersonAndLibraryClassDiagram.puml" width="450" />
+
+The `Person` data,
+
+* consists of a `Name`, `Phone`, `Email`, `Address`, list of `Tag` objects, `MeritScore`, list of `Book` objects.
+
+The `Library` data
+
+* consists of a list of `Book` objects and `Threshold`
+* `Book` objects are exposed to outsiders as an unmodifiable `ObservableList<Book>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.`<br>
 
 <box type="info" seamless>
 
-**Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.<br>
+**Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Person` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Person` needing their own `Tag` objects.
+Similarly, `Library` can also have a list of known `Book` objects separate from the list of available `Book` objects that can help keep track of the count of a `Book`. This way, new `Book` objects will not have to be created for duplicate books.<br>
 
 <puml src="diagrams/BetterModelClassDiagram.puml" width="450" />
 
@@ -374,7 +386,7 @@ _{more aspects and alternatives to be added}_
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Future Enhancements**
+## **Future Enhancements (Team members: 5)**
 
 1. More specific constraints for the `EMAIL` parameter.
    * Add checks for top-level domain (.com, .net, .co etc) into regular expression
@@ -399,6 +411,9 @@ _{more aspects and alternatives to be added}_
    * Can throw warnings if `NAME` differs by only by whitespaces (John Doe and John   Doe are similar and could be duplicates).
 1. Add labels under each library user in the Contact List panel in the UI
    * Label each field to allow for easier readability, especially between email and address (e.g. e: example@email.com, a: Kent Ridge View).
+1. Improve code architecture.
+   * Currently, there is a separate `LibraryStorage` class outside of `StorageManager` class that handles the data for the `Library`.
+   * Can extract methods from `LibraryStorage` to inside `StorageManager` to be more consistent with the code architecture.
 
 --------------------------------------------------------------------------------------------------------------------
 
