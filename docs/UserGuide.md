@@ -80,9 +80,10 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
   ```
   java -jar mybookshelf.jar
   ```
-   - You can refer to the image below.<br>
-     _Note_: _YOUR_USERNAME_ and _HOME_FOLDER_FOR_MYBOOKSHELF_ might be different from yours.<br>
-   ![Ui](images/QuickStart/MacOS/jarmybookshelf.png)<br>
+
+    - You can refer to the image below.<br>
+      _Note_: _YOUR_USERNAME_ and _HOME_FOLDER_FOR_MYBOOKSHELF_ might be different from yours.<br>
+    ![Ui](images/QuickStart/MacOS/jarmybookshelf.png)<br>
 
 
 1. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
