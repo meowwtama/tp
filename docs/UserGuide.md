@@ -601,11 +601,11 @@ Using this method will not alter the library user's borrowed book list. Please r
 1. Open the file with any valid application of your choice. For this example, we will open the file with Notepad on Windows.
 1. Locate the library user you wish to edit and edit their merit score.
 
-![Edit Merit Score Tutorial](/images/TutorialEditData.png)
+![Edit Merit Score Tutorial](images/TutorialEditData.png)
 
 ### How to clear the whole library
 
-The current <ins>[`clear`](#clearing-all-library-users--clear)</ins> command is designed to clear the contact list only but there is **no command** to clear books from the library.
+The current [`clear`](#clearing-all-library-users--clear) command is designed to clear the contact list only but there is **no command** to clear books from the library.
 
 The **safest** method to clear the library would be to individually delete each book from the library using the `delbook` command.
 
@@ -615,7 +615,7 @@ You can quickly delete books from the library by directly editing the data file.
 1. Open the file with any text editor of your choice. For this example, we will open the file with Notepad on Windows.
 1. Delete all lines after the first line (first line is the number you have set as the limit for your library).
 
-![Edit Merit Score Tutorial](/images/TutorialClearLibrary.png)
+![Clear Library Tutorial](images/TutorialClearLibrary.png)
 
 <box type="warning" seamless>
 
