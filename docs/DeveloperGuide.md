@@ -143,6 +143,13 @@ The `Model` component,
 
 </box>
 
+<puml src="diagrams/BorrowSequenceDiagram.puml" width="550" />
+
+How the library updates in Model:
+
+* After the Borrow Command is created, the index used in the command is used to retrieve the `Person` object corresponding to the index.
+* The `Meritscore` is retrieved from the `Person` object and compared to `Threshold` from the `Library` to check if `Person` can borrow a book.
+* If `Person` can borrow a book, the `Book` object is removed from the list of available books in `Library` object and added to the booklist in `Person` object .
 
 ### Storage component
 
