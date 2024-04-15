@@ -545,8 +545,8 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
       * Resolve this issue by altering the `BOOKTITLE` so it consists at least one non-white-space character.
    
 1. Error message received: `Multiple values specified for the following single-valued field(s): b/`
-   * Reason one: You attempted to add/donate/return a book with `BOOKTITLE` containing " b/" (e.g. Please b/ careful).
-      * Since `b/` is the prefix of `Book`, MyBookshelf restricts adding any books with `BOOKTITLE` containing " b/".
+   * Reason one: You attempted to add/donate/return a book with `BOOKTITLE` containing " b/". (Note the white space before "b"). In this case, `BOOKTITLE` is interpreted to be "Please b/ careful".
+      * Since `b/` is the prefix of `Book`, MyBookshelf restricts commands with `BOOKTITLE` containing " b/".
       * Resolve this issue by removing "/" in `BOOKTITLE` (e.g. Please b careful) or;
       * Resolve this issue by adding "." in front of "b/" in `BOOKTITLE` (e.g. Please ./ careful).
    * Reason two: You attempted to add/donate/return multiple books (e.g. addbook b/Book 1 b/Book 2)
@@ -561,21 +561,21 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
       * Resolve this issue by altering the `BOOKTITLE` so it consists at least one non-white-space character.
 
 1. Error message received: `Multiple values specified for the following single-valued field(s): b/`
-   * Reason one: You attempted to delete/borrow a book with `BOOKTITLE` containing " b/" (e.g. Please b/ careful).
-      * Since `b/` is the prefix of `Book`, MyBookshelf restricts removing any books with `BOOKTITLE` containing " b/".
+   * Reason one: You attempted to delete/borrow a book with `BOOKTITLE` containing " b/" (note the white space before "b"). In this case, `BOOKTITLE` is interpreted to be "Please b/ careful".
+      * Since `b/` is the prefix of `Book`, MyBookshelf restricts commands with `BOOKTITLE` containing " b/".
       * Resolve this issue by removing "/" in `BOOKTITLE` (e.g. Please b careful) or;
-      * Resolve this issue by adding "." in front of "b/" in `BOOKTITLE` (e.g. Please ./ careful).
+      * Resolve this issue by adding a filler character (e.g. ".") in front of "b/" in `BOOKTITLE` (e.g. Please ./b careful).
    * Reason two: You attempted to delete/borrow multiple books (e.g. delbook b/Book 1 b/Book 2)
       * MyBookshelf restricts deleting/borrowing multiple books in a single command.
       * Resolve this issue by deleting/borrowing the books one by one multiple times.
 
-1. Error message received: `Book: BOOTITLE is not available in the library.`
+1. Error message received: `Book: BOOKTITLE is not available in the library.`
    * Reason one: You attempted to delete/borrow a book which does not exist in the library.
       * You are not allowed to delete/borrow a non-existing book.
-   * Reason two: You attempted to delete/borrow a book, but you misspelt the `BOOTITLE`.
+   * Reason two: You attempted to delete/borrow a book, but you mis-spelt the `BOOKTITLE`.
       * Please check the spelling of `BOOKTITLE` of the book you want to delete/borrow and performs the command with correct `BOOKTITLE`.
-   * Reason three: You attempted to delete/borrow a book which its `BOOKTITLE` does not match any of the `BOOTITLE` in the library.
-      * Please check the validity of `BOOKTITLE` of the book you want to delete/borrow and performs the command with correct `BOOKTITLE`.
+   * Reason three: You attempted to delete/borrow a book which its `BOOKTITLE` does not match any of the `BOOKTITLE` in the library.
+      * Please check if the book with the title `BOOKTITLE` exists in the library.
 
 ### Unable to add/edit tags
 1. Error message received: `Tags names should be alphanumeric.`
@@ -606,7 +606,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
       * Resolve this by lowering the threshold of the library using `limit` command. 
 
 1. Other error message received:
-   * `Book title cannot be empty!` or `Multiple values specified for the following single-valued field(s): b/` or `Book: BOOTITLE is not available in the library.`
+   * `Book title cannot be empty!` or `Multiple values specified for the following single-valued field(s): b/` or `Book: BOOKTITLE is not available in the library.`
       * Please check <u>Unable to delete/borrow a book from the library</u>
 
 ### Library user is unable to return a book
