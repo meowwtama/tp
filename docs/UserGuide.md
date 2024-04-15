@@ -27,56 +27,71 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 1. Download the latest `mybookshelf.jar` from [here](https://github.com/AY2324S2-CS2103T-F11-2/tp/releases).
 
 1. Copy and paste the file to you will use as the _home folder_ for the *MyBookshelf* app.
-   - Open your _file explorer_ with Windows Key + E or clicking the _file explorer_ icon.
-   - Navigate to the _Downloads_ folder (Default directory for downloaded files will be the _Downloads_ folder).
-   - Copy the downloaded `mybookshelf.jar` and paste it to the folder you will use as the _home folder_ for the *MyBookshelf* app.
+    - Open your _file explorer_ with Windows Key + E or clicking the _file explorer_ icon.
+    - Navigate to the _Downloads_ folder (Default directory for downloaded files will be the _Downloads_ folder).
+    - Copy the downloaded `mybookshelf.jar` and paste it to the folder you will use as the _home folder_ for the *MyBookshelf* app.
 
-1. Access the command prompt
-   - Open the Run menu with Windows Key + R, then type "cmd".
-   - Click "Ok".
-   - Command prompt window will appear in a few seconds. Command prompt window should look the image below.
-   - If you have issues opening command prompt, you can refer this [YouTube video](https://www.youtube.com/watch?v=pBheH2QtktI&t=92s).
-
-1. `cd` into the folder you placed the jar file in, and enter the following command to run the application.<br>
+1. Access the command prompt.
+    - Open the Run menu with Windows Key + R, then type "cmd".<br>
+      ![Ui](images/QuickStart/Windows/WindowsRtypeCMD.png)<br>
+    - Click "Ok".
+    - Command prompt window will appear in a few seconds. Command prompt window should look similar the image below.<br>
+      ![Ui](images/QuickStart/Windows/CommandPrompt.png)<br>
+    - If you have issues opening command prompt, you can refer this [YouTube video](https://www.youtube.com/watch?v=pBheH2QtktI&t=92s).
+      
+1. `cd` into the folder you placed `mybookshelf.jar` file in, and enter the following command to run the application.<br>
   ```
   java -jar mybookshelf.jar
   ```
+   - You can refer to the image below.<br> 
+     _Note_: _YOUR_USERNAME_ and _HOME_FOLDER_FOR_MYBOOKSHELF_ might be different from yours.<br>
+   ![Ui](images/QuickStart/Windows/jarmybookshelf.png)<br>
 
 1. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
 
-   ![Ui](images/cmdimages/UG_UI_image.jpg)
+   ![Ui](images/QuickStart/Windows/default.png)<br>
 
 1. Type the command into the command box and press Enter to execute it. e.g. typing [**`help`**](#viewing-help--help) and pressing Enter will open the help window.<br>
 
 1. You can refer to [Glossary](#glossary) for the definition of some words used and [Command Summary](#command-summary) for a quick overview of the commands. Refer to the [Features](#features) below for more details of each command.
 
 
-### Mac OS
+### MacOS
 1. Ensure that you have `Java 11` or above installed in your computer.
-   - If you do not have `Java 11`, you are recommended to download from [here](https://www.azul.com/downloads/?version=java-11-lts&os=macos&architecture=arm-64-bit&package=jdk-fx)
+    - You can refer to this [YouTube video](https://www.youtube.com/watch?v=3nOmkqO0-SM) to check your current Java version.
+    - If you do not have `Java 11`, you are recommended to download from [here](https://www.azul.com/downloads/?version=java-11-lts&os=macos&architecture=arm-64-bit&package=jdk-fx)
 
 1. Download the latest `mybookshelf.jar` from [here](https://github.com/AY2324S2-CS2103T-F11-2/tp/releases).
 
+1. Copy and paste the file to you will use as the _home folder_ for the *MyBookshelf* app.
+    - Open your _finder_ by clicking the _finder_ icon.
+    - Navigate to the _Downloads_ folder (Default directory for downloaded files will be the _Downloads_ folder).
+    - Copy the downloaded `mybookshelf.jar` and paste it to the folder you will use as the _home folder_ for the *MyBookshelf* app.
 
-1. Paste the file into the folder you want to use as the _home folder_ for the *MyBookshelf* app.
+1. Access the terminal.
+    - Open the Spotlight search window using Command + Space, then type "Terminal".
+    - Double-click on Terminal in search result.<br>
+      ![Ui](images/QuickStart/MacOS/search.png)<br>
+    - Terminal window will appear in a few seconds. Terminal window should look similar the image below.<br>
+      ![Ui](images/QuickStart/MacOS/terminal.png)<br>
+    - If you have issues opening Terminal window, you can refer [here](https://discussions.apple.com/thread/366608?sortBy=best)
 
-
-1. Click Windows Key on your keyboard. Type in and search `command prompt`. Select the one which matches
-
-
-1. Search for the command terminal, `cd` into the folder you placed the jar file in, and enter the following command to run the application.<br>
+1. `cd` into the folder you placed `mybookshelf.jar` file in, and enter the following command to run the application.<br>
   ```
   java -jar mybookshelf.jar
   ```
+   - You can refer to the image below.<br>
+     _Note_: _YOUR_USERNAME_ and _HOME_FOLDER_FOR_MYBOOKSHELF_ might be different from yours.<br>
+   ![Ui](images/QuickStart/MacOS/jarmybookshelf.png)<br>
+
 
 1. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
 
-![Ui](images/cmdimages/UG_UI_image.jpg)
+   ![Ui](images/QuickStart/MacOS/default.png)
 
 1. Type the command into the command box and press Enter to execute it. e.g. typing [**`help`**](#viewing-help--help) and pressing Enter will open the help window.<br>
 
 1. You can refer to [Glossary](#glossary) for the definition of some words used and [Command Summary](#command-summary) for a quick overview of the commands. Refer to the [Features](#features) below for more details of each command.
-
 
 --------------------------------------------------------------------------------------------------------------------
 
