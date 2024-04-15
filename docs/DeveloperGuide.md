@@ -164,8 +164,10 @@ Similarly, `Library` can also have a list of known `Book` objects separate from 
 
 The `Storage` component,
 * can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
+* can save library data in .txt format, and read them back into corresponding objects
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+* due to complications, `LibraryStorage` currently works separately from `Storage` but there is plans for `Storage` to inherit from `LibraryStorage` in the [Future Enhancements](#future-enhancements-team-members-5))
 
 ### Common classes
 
