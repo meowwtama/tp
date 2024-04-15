@@ -535,6 +535,106 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 
 --------------------------------------------------------------------------------------------------------------------
 
+## Troubleshooting
+
+### Unable to add/donate/return a book to the library
+1. Error message received: `Book title cannot be empty!`
+   * Reason one: You attempted to add/donate/return a book with empty book title.
+      * Resolve this issue by adding character(s) to the `BOOKTITLE`.
+   * Reason two: You attempted to add/donate/return a book which only consists of white space(s).
+      * Resolve this issue by altering the `BOOKTITLE` so it consists at least one non-white-space character.
+   
+1. Error message received: `Multiple values specified for the following single-valued field(s): b/`
+   * Reason one: You attempted to add/donate/return a book with `BOOKTITLE` containing " b/" (e.g. Please b/ careful).
+      * Since `b/` is the prefix of `Book`, MyBookshelf restricts adding any books with `BOOKTITLE` containing " b/".
+      * Resolve this issue by removing "/" in `BOOKTITLE` (e.g. Please b careful) or;
+      * Resolve this issue by adding "." in front of "b/" in `BOOKTITLE` (e.g. Please ./ careful).
+   * Reason two: You attempted to add/donate/return multiple books (e.g. addbook b/Book 1 b/Book 2)
+      * MyBookshelf restricts adding/donating/returning multiple books in a single command.
+      * Resolve this issue by adding/donating/returning the books one by one multiple times.
+
+### Unable to delete/borrow a book from the library
+1. Error message received: `Book title cannot be empty!`
+   * Reason one: You attempted to delete/borrow a book with empty book title.
+      * Resolve this issue by adding character(s) to the `BOOKTITLE`.
+   * Reason two: You attempted to delete/borrow a book which only consists of white space(s).
+      * Resolve this issue by altering the `BOOKTITLE` so it consists at least one non-white-space character.
+
+1. Error message received: `Multiple values specified for the following single-valued field(s): b/`
+   * Reason one: You attempted to delete/borrow a book with `BOOKTITLE` containing " b/" (e.g. Please b/ careful).
+      * Since `b/` is the prefix of `Book`, MyBookshelf restricts removing any books with `BOOKTITLE` containing " b/".
+      * Resolve this issue by removing "/" in `BOOKTITLE` (e.g. Please b careful) or;
+      * Resolve this issue by adding "." in front of "b/" in `BOOKTITLE` (e.g. Please ./ careful).
+   * Reason two: You attempted to delete/borrow multiple books (e.g. delbook b/Book 1 b/Book 2)
+      * MyBookshelf restricts deleting/borrowing multiple books in a single command.
+      * Resolve this issue by deleting/borrowing the books one by one multiple times.
+
+1. Error message received: `Book: BOOTITLE is not available in the library.`
+   * Reason one: You attempted to delete/borrow a book which does not exist in the library.
+      * You are not allowed to delete/borrow a non-existing book.
+   * Reason two: You attempted to delete/borrow a book, but you misspelt the `BOOTITLE`.
+      * Please check the spelling of `BOOKTITLE` of the book you want to delete/borrow and performs the command with correct `BOOKTITLE`.
+   * Reason three: You attempted to delete/borrow a book which its `BOOKTITLE` does not match any of the `BOOTITLE` in the library.
+      * Please check the validity of `BOOKTITLE` of the book you want to delete/borrow and performs the command with correct `BOOKTITLE`.
+
+### Unable to add/edit tags
+1. Error message received: `Tags names should be alphanumeric.`
+   * Reason: You attempted to add/edit tags with non-alphanumeric characters (including white space) (e.g. Frequent User).
+      * Resolve this by altering the tag you want to add/edit into non-alphanumeric characters only (e.g. FrequentUser).
+
+### Library user is unable to donate a book
+1. Error message received: `The person index provided is invalid.`
+    * Reason one: You mistyped the index of the library user.
+        * Please check the validity of `INDEX` of the library user and performs the command with correct `INDEX`.
+    * Reason two: Library user information is not added to the contact list.
+        * Resolve this by adding the library user to the contact list and performs the command again.
+
+1. Other error message received:
+    * `Book title cannot be empty!` or `Multiple values specified for the following single-valued field(s): b/`
+        * Please check <u>Unable to add/donate/return a book from the library</u>
+
+### Library user is unable to borrow a book
+1. Error message received: `The person index provided is invalid.`
+   * Reason one: You mistyped the index of the library user.
+      * Please check the validity of `INDEX` of the library user and performs the command with correct `INDEX`.
+   * Reason two: Library user information is not added to the contact list.
+      * Resolve this by adding the library user to the contact list and performs the command again.
+
+1. Error message received: `User has insufficient Merit Score.`
+   * Reason one: Library user's merit score is lower than the threshold of the library.
+      * Library user can donate/return book(s) to increase his/her merit score, so that it surpasses the threshold of the library.
+      * Resolve this by lowering the threshold of the library using `limit` command. 
+
+1. Other error message received:
+   * `Book title cannot be empty!` or `Multiple values specified for the following single-valued field(s): b/` or `Book: BOOTITLE is not available in the library.`
+      * Please check <u>Unable to delete/borrow a book from the library</u>
+
+### Library user is unable to return a book
+1. Error message received: `The person index provided is invalid.`
+    * Reason one: You mistyped the index of the library user.
+       * Please check the validity of `INDEX` of the library user and performs the command with correct `INDEX`.
+
+1. Error message received: `Person is currently not borrowing any books!`
+   * Reason one: You mistyped the index of the library user.
+      * Please confirm the correct `INDEX` of the library user and performs the command with correct `INDEX`.
+
+1. Error message received: `Person does not have this book borrowed currently!`
+   * Reason one: You mistyped the index of the library user.
+      * Please confirm the correct `INDEX` of the library user and performs the command with correct `INDEX`.
+   * Reason two: You misspelt the index of the library user.
+      * Please check the spelling of `BOOKTITLE` of the book the user wants to return and performs the command with correct `BOOKTITLE`.
+
+1. Other error message received:
+    * `Book title cannot be empty!` or `Multiple values specified for the following single-valued field(s): b/`
+        * Please check <u>Unable to add/donate/return a book from the library</u>
+   
+### Invalid Command Format
+* Error message received: Invalid command format!
+* Please check the description below to resolve the issue.
+
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## Future Features
 
 ### Introducing more flexibility for `clear`
