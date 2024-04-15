@@ -575,7 +575,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 4. There can be different individuals with the same name, but our current implementation does not support this due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 5. Duplicated library users can be added with the same name but different capitalisation, due to our definition of duplicated people. Will be fixed in the future. Refer to the Developer Guide for more information.
 6. All parameters except `INDEX` and `THRESHOLD` do not have a limit to the number of characters. Refer to the Developer Guide for more information.
-7. The [`clear`](#clearing-all-library-users--clear) command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the **Future Features** section above for more information.
+7. The [`clear`](#clearing-all-library-users--clear) command only clears the library user data. The usage pertaining to this command will be made clearer with the implementation of future features. Refer to the [Future Features](#future-features) section above for more information.
 8. UI may not display special characters as intended.
 9. Some languages may cause the UI to display unexpectedly. For example, Arabic characters will cause the number next to book titles to appear from right to left.
 
@@ -637,11 +637,11 @@ Using this method will not alter the library user's book list. Please read the a
 1. Open the file with any valid application of your choice. For this example, we will open the file with Notepad on Windows.
 1. Locate the library user you wish to edit and edit their merit score.
 
-![Edit Merit Score Tutorial](/images/TutorialEditData.png)
+![Edit Merit Score Tutorial](images/TutorialEditData.png)
 
 ### How to clear the whole library
 
-The current <ins>[`clear`](#clearing-all-library-users--clear)</ins> command is designed to clear the contact list only but there is **no command** to clear books from the library.
+The current [`clear`](#clearing-all-library-users--clear) command is designed to clear the contact list only but there is **no command** to clear books from the library.
 
 The **safest** method to clear the library would be to individually delete each book from the library using the `delbook` command.
 
@@ -651,7 +651,7 @@ You can quickly delete books from the library by directly editing the data file.
 1. Open the file with any text editor of your choice. For this example, we will open the file with Notepad on Windows.
 1. Delete all lines after the first line (first line is the number you have set as the limit for your library).
 
-![Edit Merit Score Tutorial](/images/TutorialClearLibrary.png)
+![Clear Library Tutorial](images/TutorialClearLibrary.png)
 
 <box type="warning" seamless>
 
