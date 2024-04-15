@@ -21,7 +21,7 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 ### Windows
 1. Ensure that you have `Java 11` or above installed in your computer.
-   - You can refer to this [YouTube video](https://www.youtube.com/watch?v=3nOmkqO0-SM) to check your current Java version. 
+   - You can refer to this [YouTube video](https://www.youtube.com/watch?v=3nOmkqO0-SM) to check your current Java version.
    - If you do not have `Java 11`, you are recommended to download it from [here](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
 
 1. Download the latest `mybookshelf.jar` from [here](https://github.com/AY2324S2-CS2103T-F11-2/tp/releases).
@@ -38,12 +38,12 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
     - Command prompt window will appear in a few seconds. Command prompt window should look similar the image below.<br>
       ![Ui](images/QuickStart/Windows/CommandPrompt.png)<br>
     - If you have issues opening command prompt, you can refer this [YouTube video](https://www.youtube.com/watch?v=pBheH2QtktI&t=92s).
-      
+
 1. `cd` into the folder you placed `mybookshelf.jar` file in, and enter the following command to run the application.<br>
   ```
   java -jar mybookshelf.jar
   ```
-   - You can refer to the image below.<br> 
+   - You can refer to the image below.<br>
      _Note_: _YOUR_USERNAME_ and _HOME_FOLDER_FOR_MYBOOKSHELF_ might be different from yours.<br>
    ![Ui](images/QuickStart/Windows/jarmybookshelf.png)<br>
 
@@ -600,7 +600,7 @@ Furthermore, certain edits can cause the MyBookshelf to behave in unexpected way
 
 ### How to increase Merit Score of a library user
 
-With the current features, there is no direct command to manually increase the merit score of a library user. 
+With the current features, there is no direct command to manually increase the merit score of a library user.
 
 You can use the following steps below to indirectly increase the merit score of an individual library user:
 1. Make the library user whose merit score you want to increase donate a placeholder book using [`donate`](#donating-a-book--donate).
