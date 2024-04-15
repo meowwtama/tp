@@ -254,35 +254,35 @@ The default value of a `Threshold` is set as `-3`. Any calls to the Limit Comman
 Library managers can retroactively disallow library users from borrowing books from the Library, with library users having to meet the limit set before being able to borrow again.
 
 1. Library starts in a default state. After some borrowing occurred.
-   * Library user A has `Merit Score`:0
-   * Library user B has `Merit Score`: -2
-   * Both library user A and library user B can borrow books from the library
-1. Library manager calls `limit 0`
-   * `Threshold`: 0
-   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -2 (less than `Threshold`)
-   * Library user A can borrow but library user B cannot borrow from the Library
-1. Library manager calls `limit -2`
-   * `Threshold`: -2
-   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -2 (greater than or equal to `Threshold`)
-   * Both library user A and library user B can borrow books from the library
-1. Library user B borrows a book
-   * `Threshold`: -2
-   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -3 (greater than or equal to `Threshold`)
-   * Library user A can borrow but library user B cannot borrow from the Library
-1. Library manager calls `limit 1`
+   * Library user A has `Merit Score`:0.
+   * Library user B has `Merit Score`: -2.
+   * Both library user A and library user B can borrow books from the library.
+1. Library manager calls `limit 0`.
+   * `Threshold`: 0.
+   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -2 (less than `Threshold`).
+   * Library user A can borrow but library user B cannot borrow from the Library.
+1. Library manager calls `limit -2`.
+   * `Threshold`: -2.
+   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -2 (greater than or equal to `Threshold`).
+   * Both library user A and library user B can borrow books from the library.
+1. Library user B borrows a book.
+   * `Threshold`: -2.
+   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -3 (greater than or equal to `Threshold`).
+   * Library user A can borrow but library user B cannot borrow from the Library.
+1. Library manager calls `limit 1`.
+   * `Threshold`: 1.
+   * Library user A has `Merit Score`: 0 (less than `Threshold`).
+   * Library user B has `Merit Score`: -3 (less than `Threshold`).
+   * Both library user A and library user B cannot borrow books from the library.
+1. Library user A returns a book and library user B donates a book each.
    * `Threshold`: 1
-   * Library user A has `Merit Score`: 0 (less than `Threshold`)
-   * Library user B has `Merit Score`: -3 (less than `Threshold`)
-   * Both library user A and library user B cannot borrow books from the library
-1. Library user A returns a book and library user B donates a book each
-   * `Threshold`: 1
-   * Library user A has `Merit Score`: 1 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -2 (less than `Threshold`)
-   * Both library user A and library user B can donate and return to the library
-   * Library user A can borrow but library user B still cannot borrow from the Library
+   * Library user A has `Merit Score`: 1 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -2 (less than `Threshold`).
+   * Both library user A and library user B can donate and return to the library.
+   * Library user A can borrow but library user B still cannot borrow from the Library.
 
 #### Alternative Implementation
 
@@ -541,8 +541,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 2a. MyBookshelf detects invalid index.
     * 2a1. MyBookshelf notifies library manager with an error message.
-    * 2a2. Library manager <u>Find a library user in the Contact List (UC4)</u>.
-    * 2a3. If not exist, library manager <u>Add library user to the Contact List (UC1)</u>, else records down the index for later use in the edit process.
+    * 2a2. Library manager [Find a library user in the Contact List (UC4)](#use-case--uc4---find-a-library-user-in-the-contact-list).
+    * 2a3. If not exist, library manager [Add library user to the Contact List (UC1)](#use-case--uc1---add-library-user-to-contact-list), else records down the index for later use in the edit process.
 
   ***Use case resumes from step 2.***
 
@@ -589,8 +589,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 2a. MyBookshelf detects invalid index.
     * 2a1. MyBookshelf notifies library manager with an error message.
-    * 2a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u>.
-    * 2a3. Library manager performs <u>Delete a library user from the Contact List (UC5)</u>.
+    * 2a2. Library manager performs [Find a library user in the Contact List (UC4)](#use-case--uc4---find-a-library-user-in-the-contact-list).
+    * 2a3. Library manager performs [Delete a library user from the Contact List (UC5)](#use-case--uc5---delete-a-library-user-from-the-contact-list).
 
   ***Use case resumes from step 2.***
 
@@ -613,8 +613,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 3a. MyBookshelf detects invalid index for library user.
     * 3a1. MyBookshelf notifies library manager with an error message.
-  * 3a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u> and <u>Library user borrows a book (UC6)</u>.
-  * 3a3. If not exist, library manager performs <u>Add library user to the Contact List (UC1)</u> and <u>Library user borrows a book (UC6)</u>.
+  * 3a2. Library manager performs [Find a library user in the Contact List (UC4)](#use-case--uc4---find-a-library-user-in-the-contact-list) and [Library user borrows a book (UC6)](#use-case--uc6---library-user-borrow-a-book).
+  * 3a3. If not exist, library manager performs [Add library user to the Contact List (UC1)](#use-case--uc1---add-library-user-to-contact-list) and [Library user borrows a book (UC6)](#use-case--uc6---library-user-borrow-a-book).
 
   ***Use case resumes from step 3.***
 
@@ -645,8 +645,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 3a. MyBookshelf detects invalid index for library user.
     * 3a1. MyBookshelf notifies library manager with an error message.
-    * 3a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u>.
-    * 3a3. Library manager performs <u>Library user returns a book (UC7)</u>.
+    * 3a2. Library manager performs [Find a library user in the Contact List (UC4)](#use-case--uc4---find-a-library-user-in-the-contact-list).
+    * 3a3. Library manager performs [Library user returns a book (UC7)](#use-case--uc7---library-user-returns-a-book).
 
   ***Use case resumes from step 3.***
 
@@ -677,8 +677,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 #### Extensions:
 * 3a. MyBookshelf detects invalid index for the library user.
     * 3a1. MyBookshelf notifies library manager with an error message.
-    * 3a2. Library manager performs <u>Find a library user in the Contact List (UC4)</u> and <u>Library user donates a book (UC8)</u>.
-    * 3a3. If not exist, library manager performs <u>Add library user to the Contact List (UC1)</u> and <u>Library user donates a book (UC8)</u>.
+    * 3a2. Library manager performs [Find a library user in the Contact List (UC4)](#use-case--uc4---find-a-library-user-in-the-contact-list) and [Library user donates a book (UC8)](#use-case--uc8---library-user-donates-a-book).
+    * 3a3. If not exist, library manager performs [Add library user to the Contact List (UC1)](#use-case--uc1---add-library-user-to-contact-list) and [Library user donates a book (UC8)](#use-case--uc8---library-user-donates-a-book).
 
   ***Use case resumes from step 3.***
 
