@@ -19,32 +19,64 @@ Tailored for fast typists, MyBookshelf can get your contact and borrowing manage
 
 ## Quick start
 
+### Windows
 1. Ensure that you have `Java 11` or above installed in your computer.
+   - You can refer to this [YouTube video](https://www.youtube.com/watch?v=3nOmkqO0-SM) to check your current Java version. 
+   - If you do not have `Java 11`, you are recommended to download it from [here](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
 
+1. Download the latest `mybookshelf.jar` from [here](https://github.com/AY2324S2-CS2103T-F11-2/tp/releases).
 
-2. Download the latest `mybookshelf.jar` from [here](https://github.com/AY2324S2-CS2103T-F11-2/tp/releases).
+1. Copy and paste the file to you will use as the _home folder_ for the *MyBookshelf* app.
+   - Open your _file explorer_ with Windows Key + E or clicking the _file explorer_ icon.
+   - Navigate to the _Downloads_ folder (Default directory for downloaded files will be the _Downloads_ folder).
+   - Copy the downloaded `mybookshelf.jar` and paste it to the folder you will use as the _home folder_ for the *MyBookshelf* app.
 
+1. Access the command prompt
+   - Open the Run menu with Windows Key + R, then type "cmd".
+   - Click "Ok".
+   - Command prompt window will appear in a few seconds. Command prompt window should look the image below.
+   - If you have issues opening command prompt, you can refer this [YouTube video](https://www.youtube.com/watch?v=pBheH2QtktI&t=92s).
 
-3. Paste the file into the folder you want to use as the _home folder_ for the *MyBookshelf* app.
-
-
-4. Search for the command terminal, `cd` into the folder you placed the jar file in, and enter the following command to run the application.<br>
+1. `cd` into the folder you placed the jar file in, and enter the following command to run the application.<br>
   ```
   java -jar mybookshelf.jar
   ```
-  
 
-
-5. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
-
+1. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
 
    ![Ui](images/cmdimages/UG_UI_image.jpg)
 
+1. Type the command into the command box and press Enter to execute it. e.g. typing [**`help`**](#viewing-help--help) and pressing Enter will open the help window.<br>
 
-6. Type the command into the command box and press Enter to execute it. e.g. typing [**`help`**](#viewing-help--help) and pressing Enter will open the help window.<br>
+1. You can refer to [Glossary](#glossary) for the definition of some words used and [Command Summary](#command-summary) for a quick overview of the commands. Refer to the [Features](#features) below for more details of each command.
 
 
-7. You can refer to [Glossary](#glossary) for the definition of some words used and [Command Summary](#command-summary) for a quick overview of the commands. Refer to the [Features](#features) below for more details of each command.
+### Mac OS
+1. Ensure that you have `Java 11` or above installed in your computer.
+   - If you do not have `Java 11`, you are recommended to download from [here](https://www.azul.com/downloads/?version=java-11-lts&os=macos&architecture=arm-64-bit&package=jdk-fx)
+
+1. Download the latest `mybookshelf.jar` from [here](https://github.com/AY2324S2-CS2103T-F11-2/tp/releases).
+
+
+1. Paste the file into the folder you want to use as the _home folder_ for the *MyBookshelf* app.
+
+
+1. Click Windows Key on your keyboard. Type in and search `command prompt`. Select the one which matches
+
+
+1. Search for the command terminal, `cd` into the folder you placed the jar file in, and enter the following command to run the application.<br>
+  ```
+  java -jar mybookshelf.jar
+  ```
+
+1. A window similar to the one below should appear in a few seconds. Notice that the app initialises with some sample data.<br>
+
+![Ui](images/cmdimages/UG_UI_image.jpg)
+
+1. Type the command into the command box and press Enter to execute it. e.g. typing [**`help`**](#viewing-help--help) and pressing Enter will open the help window.<br>
+
+1. You can refer to [Glossary](#glossary) for the definition of some words used and [Command Summary](#command-summary) for a quick overview of the commands. Refer to the [Features](#features) below for more details of each command.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
