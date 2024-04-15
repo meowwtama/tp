@@ -254,35 +254,35 @@ The default value of a `Threshold` is set as `-3`. Any calls to the Limit Comman
 Library managers can retroactively disallow library users from borrowing books from the Library, with library users having to meet the limit set before being able to borrow again.
 
 1. Library starts in a default state. After some borrowing occurred.
-   * Library user A has `Merit Score`:0
-   * Library user B has `Merit Score`: -2
-   * Both library user A and library user B can borrow books from the library
-1. Library manager calls `limit 0`
-   * `Threshold`: 0
-   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -2 (less than `Threshold`)
-   * Library user A can borrow but library user B cannot borrow from the Library
-1. Library manager calls `limit -2`
-   * `Threshold`: -2
-   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -2 (greater than or equal to `Threshold`)
-   * Both library user A and library user B can borrow books from the library
-1. Library user B borrows a book
-   * `Threshold`: -2
-   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -3 (greater than or equal to `Threshold`)
-   * Library user A can borrow but library user B cannot borrow from the Library
-1. Library manager calls `limit 1`
+   * Library user A has `Merit Score`:0.
+   * Library user B has `Merit Score`: -2.
+   * Both library user A and library user B can borrow books from the library.
+1. Library manager calls `limit 0`.
+   * `Threshold`: 0.
+   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -2 (less than `Threshold`).
+   * Library user A can borrow but library user B cannot borrow from the Library.
+1. Library manager calls `limit -2`.
+   * `Threshold`: -2.
+   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -2 (greater than or equal to `Threshold`).
+   * Both library user A and library user B can borrow books from the library.
+1. Library user B borrows a book.
+   * `Threshold`: -2.
+   * Library user A has `Merit Score`: 0 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -3 (greater than or equal to `Threshold`).
+   * Library user A can borrow but library user B cannot borrow from the Library.
+1. Library manager calls `limit 1`.
+   * `Threshold`: 1.
+   * Library user A has `Merit Score`: 0 (less than `Threshold`).
+   * Library user B has `Merit Score`: -3 (less than `Threshold`).
+   * Both library user A and library user B cannot borrow books from the library.
+1. Library user A returns a book and library user B donates a book each.
    * `Threshold`: 1
-   * Library user A has `Merit Score`: 0 (less than `Threshold`)
-   * Library user B has `Merit Score`: -3 (less than `Threshold`)
-   * Both library user A and library user B cannot borrow books from the library
-1. Library user A returns a book and library user B donates a book each
-   * `Threshold`: 1
-   * Library user A has `Merit Score`: 1 (greater than or equal to `Threshold`)
-   * Library user B has `Merit Score`: -2 (less than `Threshold`)
-   * Both library user A and library user B can donate and return to the library
-   * Library user A can borrow but library user B still cannot borrow from the Library
+   * Library user A has `Merit Score`: 1 (greater than or equal to `Threshold`).
+   * Library user B has `Merit Score`: -2 (less than `Threshold`).
+   * Both library user A and library user B can donate and return to the library.
+   * Library user A can borrow but library user B still cannot borrow from the Library.
 
 #### Alternative Implementation
 
