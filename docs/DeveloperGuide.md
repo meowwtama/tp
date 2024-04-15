@@ -388,8 +388,7 @@ The following activity diagram summarises what happens when a library manager ex
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
+* **Alternative 2:** Individual command knows how to undo/redo by itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
@@ -465,7 +464,7 @@ The following activity diagram summarises what happens when a library manager ex
 
 ### User stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`.
 
 | Priority | As a …​                                             | I want to …​                                                | So that I can…​                                                                   |
 |----------|-----------------------------------------------------|-------------------------------------------------------------|-----------------------------------------------------------------------------------|
@@ -848,6 +847,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Glossary
 
+* **CLI**: Command-Line Interface, a tool you employ to communicate with your operating system via your keyboard.
+* **GUI**: Graphical User Interface, a graphical interface where users engage with visual elements like icons, buttons, and menus.
+* **JSON**: JavaScript Object Notation, a text format for storing and transporting data.
+* **Parameter**: Data that users input into commands.
+* **Alphanumeric**: A character that is either a letter or a number.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS.
 * **Library Manager**: Community Library Managers (CLM) are the people using the MyBookshelf application. CLMs are responsible for adding, storing, and updating the entire library database via *MyBookshelf*.
 * **Library User**: The people that are saved into the Contact List of *MyBookshelf*. Sometimes referred as to "borrowers".
