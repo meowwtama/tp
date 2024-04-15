@@ -14,7 +14,6 @@ participant "bookTitle:BookList" as BookList LOGIC_COLOR
 participant ":Book" as Book LOGIC_COLOR
 participant "editedPerson:Person" as EditedPerson LOGIC_COLOR
 participant "model:Model" as Model LOGIC_COLOR
-participant "Library" as Library LOGIC_COLOR
 end box
 
 
